@@ -7,7 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="org.kelompok4.demo" />
+        <module name="gs-maven" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gs-maven" target="1.8" />
+      <module name="tubes-sandbox" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

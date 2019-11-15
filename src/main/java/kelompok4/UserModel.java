@@ -1,5 +1,5 @@
-package kelompok2;
-class Modeluser{
+package kelompok4;
+class UserModel {
 	String email;
 	String password;
 	boolean isAdmin;
@@ -8,7 +8,7 @@ class Modeluser{
 	String noKTP;
 	String noHP;
 
-	Modeluser(String email,String password,String nama,String alamat,String noKTP,String noHP){
+	UserModel(String email, String password, String nama, String alamat, String noKTP, String noHP){
 		this.email = email;
 		this.password = password;
 		this.isAdmin = false;
@@ -17,7 +17,7 @@ class Modeluser{
 		this.noHP = noHP;
 		this.noKTP = noKTP;
 	}
-	Modeluser(){
+	UserModel(){
 		
 	}
 }

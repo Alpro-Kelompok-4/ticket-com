@@ -1,10 +1,18 @@
-class Login{
+package kelompok4;
+
+public class LoginModel {
 	private String email;
 	private String password;
-	Login(String email,String password){
+
+	public LoginModel(String email, String password){
 		this.email = email;
 		this.password = password;
 	}
+
+	public LoginModel() {
+
+	}
+
 	public void setEmail(String email){
 		this.email = email;
 	}

@@ -4,8 +4,10 @@ public class Viewmain {
 
 	}
 	public static void main(String[] args) {
-		Controllerlogin c = new Controllerlogin();
-		c.run();
-		System.out.println(c.auth());
+		// Controllerlogin c = new Controllerlogin();
+		// c.run();
+		// System.out.println(c.auth());
+		Viewregister v = new Viewregister();
+		v.run();
 	}
 }

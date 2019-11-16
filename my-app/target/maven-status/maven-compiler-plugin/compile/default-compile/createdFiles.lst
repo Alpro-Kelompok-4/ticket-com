@@ -1,0 +1,7 @@
+org\kelompok4\app\LoginController.class
+org\kelompok4\app\ICanLoginByEmail.class
+org\kelompok4\app\UserModel.class
+org\kelompok4\app\LoginModel.class
+org\kelompok4\app\Main.class
+org\kelompok4\app\ICanAuthByPassword.class
+org\kelompok4\app\LoginView.class

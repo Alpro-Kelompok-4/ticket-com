@@ -1,7 +1,8 @@
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\LoginView.java
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\LoginController.java
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\UserModel.java
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\ICanLoginByEmail.java
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\Main.java
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\LoginModel.java
-D:\Download\train-ticketing-master\train-ticketing-master\src\main\java\org\kelompok4\app\ICanAuthByPassword.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\LoginModel.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\LoginController.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\LoginView.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanLoginByEmail.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanAuthByPassword.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\UserModel.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Main.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateLogin.java

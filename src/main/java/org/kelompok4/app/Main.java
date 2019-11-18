@@ -17,11 +17,19 @@ public class Main {
 		LoginController controller = new LoginController(model, view);
 
 		//view awal
+		boolean failed = true;
 		controller.clearScreen();
 		view.printLoginPage();
-		view.printEmailPrompt();
-		controller.setLoginEmail(scanner.nextLine());
-		view.printPasswordPrompt();
+		do{
+			if(failed==false){
+				view.failedValidate();
+			}
+			view.printEmail();
+			controller.setLoginEmail(scanner.nextLine());
+			failed= controller.validateEmail();
+			System.out.println(failed);
+		}while(failed==false);
+		view.printPassword();
 		controller.setLoginPassword(scanner.nextLine());
 
 		//view setelah interaksi user

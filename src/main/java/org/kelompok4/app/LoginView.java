@@ -11,13 +11,30 @@ public class LoginView {
 
 	}
 
-	public void printEmailPrompt() {
+	public void printEmail() {
 		System.out.print("Email : ");
 		System.out.flush();
 	}
 
-	public void printPasswordPrompt() {
+	public void printEmail(String email) {
+		System.out.print("Email : " + email);
+		System.out.flush();
+	}
+
+	public void printPassword() {
 		System.out.print("Password : ");
 		System.out.flush();
 	}
+
+	public void printPassword(String password) {
+		System.out.print("Password : " + password);
+		System.out.flush();
+	}
+
+	public void failedValidate(){
+		System.out.println("Goblok anjing!");
+		System.out.flush();
+		
+	}
+	
 }

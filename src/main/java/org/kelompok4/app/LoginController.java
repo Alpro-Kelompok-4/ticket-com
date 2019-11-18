@@ -1,11 +1,14 @@
 package org.kelompok4.app;
+import java.util.Scanner;
 
-public class LoginController implements ICanLoginByEmail, ICanAuthByPassword {
+public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, ICanValidateLogin {
 	/*kelompok2.Viewlogin v = new kelompok2.Viewlogin();
 	UserModel user = new UserModel();*/
 
 	LoginModel model;
 	LoginView view;
+	
+
 
 
 	
@@ -36,6 +39,13 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword {
 		model.setEmail(email);
 	}
 
+	@Override
+	public boolean validateEmail() {
+		
+		return ICanValidateLogin.EMAIL_ADDRESS_REGEX.matcher(getLoginEmail()).find();
+	}
+
+
 
 	//untuk pengecekan user dan password
 
@@ -61,13 +71,11 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword {
 	public void updateView () {
 		clearScreen();
 		view.printLoginPage();
-		view.printEmailPrompt();
-		System.out.println(getLoginEmail());
-		view.printPasswordPrompt();
-		System.out.println(getLoginPassword());
+		view.printEmail(this.getLoginEmail());
+		view.printPassword(this.getLoginPassword());
 		authResult();
-
 	}
+
 
 	public void clearScreen() {
 		System.out.print("\033[H\033[2J");

@@ -1,3 +1,4 @@
+org\kelompok4\app\ICanValidateLogin.class
 org\kelompok4\app\LoginController.class
 org\kelompok4\app\ICanLoginByEmail.class
 org\kelompok4\app\UserModel.class

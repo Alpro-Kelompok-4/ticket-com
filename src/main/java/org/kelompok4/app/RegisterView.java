@@ -118,5 +118,33 @@ public class RegisterView {
         System.out.println("Register gagal, Akun e-mail Anda sudah terdaftar!");
         System.out.flush();
     }
+    public void successUpdateInfoUser() {
+        System.out.println("Data Berhasil Diupdate, Berikut Data Terbaru:");
+        System.out.flush();
+    }
+
+    public void failedUpdateInfoUser() {
+        System.out.println("Data gagal diupdate, mohon periksa kembali data yang masukan!");
+        System.out.flush();
+    }
+    public void printsearchByNoKTP(){
+        System.out.print("Masukkan Nomor KTP :");
+        System.out.flush();
+    }
+    public void printShowInfoUser(){
+        System.out.println("-- Data Pengguna --");
+        System.out.flush();
+    }
+    public void printChangeInfoUser(){
+        System.out.println("-- Ubah Data Pengguna --");
+        System.out.flush();
+    }
+    public void printUpdatePageCustomer(){
+        System.out.println("#KELOLA PROFILE BY PENUMPANG#\n");
+        System.out.println("");
+        System.out.println("");
+        System.out.flush();
+    }
+
 }
 

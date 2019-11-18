@@ -4,15 +4,13 @@ public class UserModel {
 	private String password;
 	private boolean isAdmin;
 	private String nama;
-	private String alamat;
 	private String noKTP;
 	private String noHP;
-	public UserModel(String email, String password, String nama, String alamat, String noKTP, String noHP){
+	public UserModel(String email, String password, String nama, String noKTP, String noHP){
 		this.email = email;
 		this.password = password;
 		this.isAdmin = false;
 		this.nama = nama;
-		this.alamat = alamat;
 		this.noHP = noHP;
 		this.noKTP = noKTP;
 	}
@@ -52,13 +50,6 @@ public class UserModel {
 		this.nama = nama;
 	}
 
-	public String getAlamat() {
-		return alamat;
-	}
-
-	public void setAlamat(String alamat) {
-		this.alamat = alamat;
-	}
 
 	public String getNoKTP() {
 		return noKTP;

@@ -46,7 +46,7 @@ public class Driver {
                 registerView.failedValidateNoKTP();
             }
             registerView.printNoKTP();
-            registerController.setRegisterNoKTP(scanner.nextLine());
+            registerController.setNoKTP(scanner.nextLine());
             failed = registerController.validateNoKTP();
         } while (failed == false);
 
@@ -57,7 +57,7 @@ public class Driver {
                 registerView.failedValidateNama();
             }
             registerView.printNamaLengkap();
-            registerController.setRegisterName(scanner.nextLine());
+            registerController.setName(scanner.nextLine());
             failed = registerController.validateName();
         } while (failed == false);
 
@@ -68,7 +68,7 @@ public class Driver {
                 registerView.failedValidateNoHP();
             }
             registerView.printNoHp();
-            registerController.setRegisterNoHP(scanner.nextLine());
+            registerController.setNoHP(scanner.nextLine());
             failed = registerController.validateNoHP();
         } while (failed == false);
 
@@ -79,7 +79,7 @@ public class Driver {
                 registerView.failedValidateEmail();
             }
             registerView.printEmail();
-            registerController.setRegisterEmail(scanner.nextLine());
+            registerController.setEmail(scanner.nextLine());
             failed = registerController.validateEmail();
         } while (failed == false);
 
@@ -91,7 +91,7 @@ public class Driver {
                 registerView.failedValidatePassword();
             }
             registerView.printPassword();
-            registerController.setRegisterPassword(scanner.nextLine());
+            registerController.setPassword(scanner.nextLine());
             failed = registerController.validatePassword();
             if (failed == true) {
                 registerView.printRePassword();
@@ -103,6 +103,62 @@ public class Driver {
         } while (failed == false||failed_re == false);
         //view setelah interaksi user
         registerController.updateRegister();
+        //mencegah leaking
+        scanner.close();
+    }
+    public void updateinfouser(CustomerController customerController, UserModel userModel, RegisterView registerView) throws IOException, InterruptedException {
+        boolean failed = true;
+//        customerController.clearScreen();
+        registerView.printUpdatePageCustomer();
+        customerController.showInfoUser();
+        //do while untuk regex NoKTP
+        registerView.printChangeInfoUser();
+
+        //do while untuk regex Nama
+        do {
+            //saat pertama kali tidak muncul pesan gagal
+            if (failed == false) {
+                registerView.failedValidateNama();
+            }
+            registerView.printNamaLengkap();
+            customerController.setName(scanner.nextLine());
+            failed = customerController.validateName();
+        } while (failed == false);
+
+        //do while untuk regex NoHP
+        do {
+            //saat pertama kali tidak muncul pesan gagal
+            if (failed == false) {
+                registerView.failedValidateNoHP();
+            }
+            registerView.printNoHp();
+            customerController.setNoHP(scanner.nextLine());
+            failed = customerController.validateNoHP();
+        } while (failed == false);
+
+        //do while untuk regex email
+        do {
+            //saat pertama kali tidak muncul pesan gagal
+            if (failed == false) {
+                registerView.failedValidateEmail();
+            }
+            registerView.printEmail();
+            customerController.setEmail(scanner.nextLine());
+            failed = customerController.validateEmail();
+        } while (failed == false);
+
+        //do while untuk regex password
+        do {
+            //saat pertama kali tidak muncul pesan gagal
+            if (failed == false) {
+                registerView.failedValidatePassword();
+            }
+            registerView.printPassword();
+            customerController.setPassword(scanner.nextLine());
+            failed = customerController.validatePassword();
+        } while (failed == false);
+        //view setelah interaksi user
+        customerController.updateInfoUserResult();
         //mencegah leaking
         scanner.close();
     }

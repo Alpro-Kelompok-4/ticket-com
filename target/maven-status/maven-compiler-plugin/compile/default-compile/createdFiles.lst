@@ -1,9 +1,7 @@
-kelompok4\ICanLoginByEmail.class
-kelompok4\LoginView.class
-hello\HelloWorld.class
-kelompok4\ICanAuthByPassword.class
-kelompok4\Main.class
-kelompok4\UserModel.class
-kelompok4\LoginController.class
-hello\Greeter.class
-kelompok4\LoginModel.class
+org\kelompok4\app\LoginController.class
+org\kelompok4\app\ICanLoginByEmail.class
+org\kelompok4\app\UserModel.class
+org\kelompok4\app\LoginModel.class
+org\kelompok4\app\Main.class
+org\kelompok4\app\ICanAuthByPassword.class
+org\kelompok4\app\LoginView.class

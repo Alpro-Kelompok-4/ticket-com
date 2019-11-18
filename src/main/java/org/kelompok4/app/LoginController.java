@@ -41,7 +41,6 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
 
 	@Override
 	public boolean validateEmail() {
-		
 		return ICanValidateLogin.EMAIL_ADDRESS_REGEX.matcher(getLoginEmail()).find();
 	}
 

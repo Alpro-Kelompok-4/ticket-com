@@ -18,6 +18,7 @@ public class LoginView {
 
 	public void printEmail(String email) {
 		System.out.print("Email : " + email);
+		System.out.println("");
 		System.out.flush();
 	}
 
@@ -28,13 +29,12 @@ public class LoginView {
 
 	public void printPassword(String password) {
 		System.out.print("Password : " + password);
+		System.out.println("");
 		System.out.flush();
 	}
 
 	public void failedValidate(){
-		System.out.println("Goblok anjing!");
+		System.out.println("Email yang Anda masukan salah!");
 		System.out.flush();
-		
 	}
-	
 }

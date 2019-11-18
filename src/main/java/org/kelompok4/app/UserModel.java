@@ -1,14 +1,13 @@
 package org.kelompok4.app;
-class UserModel {
-	String email;
-	String password;
-	boolean isAdmin;
-	String nama;
-	String alamat;
-	String noKTP;
-	String noHP;
-
-	UserModel(String email, String password, String nama, String alamat, String noKTP, String noHP){
+public class UserModel {
+	private String email;
+	private String password;
+	private boolean isAdmin;
+	private String nama;
+	private String alamat;
+	private String noKTP;
+	private String noHP;
+	public UserModel(String email, String password, String nama, String alamat, String noKTP, String noHP){
 		this.email = email;
 		this.password = password;
 		this.isAdmin = false;
@@ -17,7 +16,64 @@ class UserModel {
 		this.noHP = noHP;
 		this.noKTP = noKTP;
 	}
-	UserModel(){
-		
+
+	public UserModel() {
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public String getNama() {
+		return nama;
+	}
+
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+
+	public String getAlamat() {
+		return alamat;
+	}
+
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
+	}
+
+	public String getNoKTP() {
+		return noKTP;
+	}
+
+	public void setNoKTP(String noKTP) {
+		this.noKTP = noKTP;
+	}
+
+	public String getNoHP() {
+		return noHP;
+	}
+
+	public void setNoHP(String noHP) {
+		this.noHP = noHP;
+	}
+
 }

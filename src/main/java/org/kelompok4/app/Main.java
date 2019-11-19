@@ -1,6 +1,6 @@
 package org.kelompok4.app;
 
-import jdk.vm.ci.code.Register;
+//import jdk.vm.ci.code.Register;
 
 import java.io.IOException;
 import java.util.ArrayList;

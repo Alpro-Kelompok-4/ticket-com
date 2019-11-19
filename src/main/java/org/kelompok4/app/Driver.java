@@ -11,7 +11,7 @@ public class Driver {
     public Driver() {
     }
 
-    public void login(LoginController loginController, LoginModel loginModel, LoginView loginView) throws IOException, InterruptedException {
+    public boolean login(LoginController loginController, LoginModel loginModel, LoginView loginView) throws IOException, InterruptedException {
         boolean failed = true;
 
         loginController.clearScreen();
@@ -31,8 +31,11 @@ public class Driver {
         loginController.setLoginPassword(scanner.nextLine());
         //view setelah interaksi user
         loginController.updateView();
+        
         //mencegah leaking
         scanner.close();
+
+        return loginController.auth();
     }
 
     public void register(RegisterController registerController, UserModel userModel, RegisterView registerView) throws IOException, InterruptedException {

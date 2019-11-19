@@ -33,7 +33,7 @@ public class Main {
 		System.out.println("#JENDELA UTAMA#");
 		System.out.println("1. Register penumpang");
 		System.out.println("2. Login");
-		System.out.println("Pilih menu: ");
+		System.out.print("Pilih menu: ");
 		menu = scanner.nextInt();
 		while (menu != 99) {
 			switch (menu) {
@@ -42,13 +42,49 @@ public class Main {
 				break;
 			}
 			case 2: {
-				// driver.login(loginController, loginModel, loginView);
+				if(driver.login(loginController, loginModel, loginView)){
+					System.out.println("#MENU PENGGUNA#");
+					System.out.println("Welcome");
+					System.out.println();
+					System.out.println("1. Booking Tiket");
+					System.out.println("2. Kelola Profile");
+					System.out.println("3. History Pembelian");
+					System.out.println("0. Logout");
+					System.out.println();
+					System.out.print("Pilihan: ");
+					menu = scanner.nextInt();
+					while (menu != 0){
+						switch (menu){
+							case 1:{
+								// driver.bookingTiket();
+								break;
+							}
+							case 2:{
+								// driver.kelolaProfile();
+								break;
+							}
+							case 3:{
+								// driver.historyPembelian();
+								break;
+							}
+							case 0:{
+								// driver.logout();
+								break;
+							}
+							default:{
+								System.out.println("Menu salah!");
+								System.out.print("Pilihan: ");
+								menu = scanner.nextInt();
+							}
+						}
+					}
+				};
 				break;
 			}
 			default: {
 				if (menu != 99) {
 					System.out.println("Pilihan menu salah!");
-					System.out.println("Pilih menu: ");
+					System.out.print("Pilih menu: ");
 					menu = scanner.nextInt();
 				}
 			}

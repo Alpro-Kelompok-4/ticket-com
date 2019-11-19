@@ -28,7 +28,7 @@ public class Main {
 		CustomerController customerController = new CustomerController(userModel, registerView);
 		// driver.login(loginController,loginModel,loginView);
 		// driver.register(registerController,userModel,registerView);
-		driver.updateinfouser(customerController, userModel, registerView);
+		// driver.updateinfouser(customerController, userModel, registerView);
 
 		System.out.println("#JENDELA UTAMA#");
 		System.out.println("1. Register penumpang");
@@ -38,7 +38,7 @@ public class Main {
 		while (menu != 99) {
 			switch (menu) {
 			case 1: {
-				// driver.register(registerController, userModel, registerView);
+				driver.register(registerController, userModel, registerView);
 				break;
 			}
 			case 2: {

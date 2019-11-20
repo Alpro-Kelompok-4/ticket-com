@@ -1,8 +1,15 @@
 package org.kelompok4.app;
 
 
+import org.kelompok4.app.Controller.CustomerController;
+import org.kelompok4.app.Controller.LoginController;
+import org.kelompok4.app.Controller.RegisterController;
+import org.kelompok4.app.Model.LoginModel;
+import org.kelompok4.app.Model.UserModel;
+import org.kelompok4.app.View.LoginView;
+import org.kelompok4.app.View.RegisterView;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Driver {
@@ -11,7 +18,7 @@ public class Driver {
     public Driver() {
     }
 
-    public void login(LoginController loginController, LoginModel loginModel, LoginView loginView) throws IOException, InterruptedException {
+    public boolean login(LoginController loginController, LoginModel loginModel, LoginView loginView) throws IOException, InterruptedException {
         boolean failed = true;
 
         loginController.clearScreen();
@@ -31,8 +38,11 @@ public class Driver {
         loginController.setLoginPassword(scanner.nextLine());
         //view setelah interaksi user
         loginController.updateView();
+        
         //mencegah leaking
         scanner.close();
+
+        return loginController.auth();
     }
 
     public void register(RegisterController registerController, UserModel userModel, RegisterView registerView) throws IOException, InterruptedException {

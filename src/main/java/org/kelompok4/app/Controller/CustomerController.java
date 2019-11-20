@@ -8,7 +8,7 @@ public class CustomerController implements ICanInputUser, ICanValidateEmail, ICa
     UserModel userModel;
     RegisterView registerView;
 
-    CustomerController(UserModel userModel, RegisterView registerView) {
+    public CustomerController(UserModel userModel, RegisterView registerView) {
         this.userModel = userModel;
         this.registerView = registerView;
     }

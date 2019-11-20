@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateNoKTP.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanLoginByEmail.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateName.java
@@ -29,3 +30,36 @@ D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanUpdateUser.jav
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidatePassword.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\SeatModel.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\JamModel.java
+=======
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\CityModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\RwStationModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\LoginController.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanUpdateUser.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateEmail.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\Driver.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\RwTrackModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\RegisterView.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\LoginModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\UserModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\Main.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateNoKTP.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidatePassword.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\PriceModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\LoginView.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateName.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanInputUser.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\CustomerModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\JamModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\CustomerController.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanLoginByEmail.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\UserRepo.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\RegisterController.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\RouteModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\RwRouteModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\SeatModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\TimeModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\TrainModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\CarriageModel.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanValidateNoHP.java
+C:\Users\marfa\Desktop\git\alpro\ticket-com\src\main\java\org\kelompok4\app\ICanAuthByPassword.java
+>>>>>>> 0af922a65149225c945865a8625231be6f5c6e19

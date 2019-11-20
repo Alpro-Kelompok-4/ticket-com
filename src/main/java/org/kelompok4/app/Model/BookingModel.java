@@ -3,9 +3,9 @@ package org.kelompok4.app.Model;
 import java.util.ArrayList;
 
 public class BookingModel {
+    private String bookingCode;
     private String codeSchedule;
     private String trainCode;
-    private String bookingCode;
     private String virtualAccount;
     private ArrayList<String> passenger;
     private ArrayList<String> seatCode;

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class RouteTrainModel {
     private RwRouteModel rwRoute;
-    private String routeTimeCode;
+    private String routeTrainCode;
     private ArrayList<TrainModel> list = new ArrayList<TrainModel>();
 
-    public RouteTrainModel(RwRouteModel rwRoute, String routeTimeCode, ArrayList<TrainModel> list) {
+    public RouteTrainModel(RwRouteModel rwRoute, String routeTrainCode, ArrayList<TrainModel> list) {
         this.rwRoute = rwRoute;
-        this.routeTimeCode = routeTimeCode;
+        this.routeTrainCode = routeTrainCode;
         this.list = list;
     }
 
@@ -25,11 +25,11 @@ public class RouteTrainModel {
     }
 
     public String getRouteTimeCode() {
-        return routeTimeCode;
+        return routeTrainCode;
     }
 
-    public void setRouteTimeCode(String routeTimeCode) {
-        this.routeTimeCode = routeTimeCode;
+    public void setRouteTimeCode(String routeTrainCode) {
+        this.routeTrainCode = routeTrainCode;
     }
 
     public ArrayList<TrainModel> getList() {

@@ -6,5 +6,5 @@ public class TrainModel {
     private static int MAX_COACH = 6;
     private String trainCode;
     private String trainName;
-    ArrayList<Coach> = new ArrayList<Coach>();
+    ArrayList<CoachModel> = new ArrayList<CoachModel>();
 }

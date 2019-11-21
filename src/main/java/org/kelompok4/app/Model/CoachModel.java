@@ -3,7 +3,7 @@ package org.kelompok4.app.Model;
 import java.util.ArrayList;
 
 public class CoachModel {
-    private int maxSeat;
+    private int maxSeat; // replace with seatQty
     private ArrayList<SeatModel> seat = new ArrayList<SeatModel>();
 
     public CoachModel(int maxSeat, ArrayList<SeatModel> seat) {

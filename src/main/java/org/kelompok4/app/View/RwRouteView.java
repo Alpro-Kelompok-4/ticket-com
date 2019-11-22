@@ -73,7 +73,7 @@ public class RwRouteView {
 	}
 	  
     public void printDeleteRwRouteViewPage() {
-		System.out.println("#HAPUS KERETA BERDASARKAN RUTE#");
+		System.out.println("#HAPUS JALUR STASIUN BERDASARKAN RUTE#");
 		System.out.println("");
 		System.out.println("");
 	}

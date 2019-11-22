@@ -9,7 +9,7 @@ public class BookingModel {
     private String virtualAccount;
     private ArrayList<String> passenger;
     private ArrayList<String> seatCode;
-    private boolean paid;
+    private boolean paid; // jadi private enum UNPAID, PAID, EXPIRED, CANCELLED
     private PriceModel totalPayment;
 
     public BookingModel() {

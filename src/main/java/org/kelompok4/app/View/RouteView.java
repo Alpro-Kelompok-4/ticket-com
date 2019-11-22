@@ -38,11 +38,20 @@ public class RouteView {
 		System.out.flush();
 	}
 
+	public void SuccessAddRute() {
+		System.out.print("Rute Berhasil Ditambahkan");
+		System.out.flush();
+	}
+
+	public void FailedAddRute() {
+		System.out.print("Rute Gagal Ditambahkan");
+		System.out.flush();
+	}
+
 	public void printEditRutePage() {
 		System.out.println("#EDIT DATA RUTE#");
 		System.out.println("");
 		System.out.println("");
-
 	}
 
 	public void printEditRute() {
@@ -60,10 +69,20 @@ public class RouteView {
 		System.out.flush();
 	}
 
+	public void SuccessEditRute() {
+		System.out.print("Rute Berhasil Diupdate");
+		System.out.flush();
+	}
+
+	public void FailedEditRute() {
+		System.out.print("Rute Gagal Diupdate");
+		System.out.flush();
+	}
+
 	public void printViewRutePage() {
 		System.out.println("#LIHAT DATA RUTE#");
-		System.out.println("");
-		System.out.println("");
+		System.out.println("Data Lengkap Rute Kereta Api");	
+		System.out.println("********************************************************************************************************************");
 
 	}
 
@@ -86,6 +105,16 @@ public class RouteView {
 
 	public void failedValidateDeleteRute(){
 		System.out.println("Format hapus rute yang Anda masukan salah!");
+		System.out.flush();
+	}
+
+	public void SuccessDeleteRute() {
+		System.out.print("Rute Berhasil Dihapus");
+		System.out.flush();
+	}
+
+	public void FailedDeleteRute() {
+		System.out.print("Rute Gagal Dihapus");
 		System.out.flush();
 	}
 }

@@ -111,15 +111,14 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     public ArrayList<TrainModel> fetchAll(ArrayList<TrainModel> trainModels){
         return trainModels;
     }
-    public void allTrainView(ArrayList<TrainModel> trainModels){
+    public String allTrainView(ArrayList<TrainModel> trainModels){
         TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
         t.addColumn("Kode KAI", TrainModel::getTrainCode);
         t.addColumn("NAMA KAI", TrainModel::getTrainName);
         t.addColumn("GERBONG", TrainModel::getSizeOfBC);
         t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
         t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
-        String s = t.createString(trainModels);
-        System.out.println(s);
+        return t.createString(trainModels);
     }
 
 

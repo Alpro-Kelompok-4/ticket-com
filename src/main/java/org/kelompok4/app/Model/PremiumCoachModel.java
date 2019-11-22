@@ -1,6 +1,6 @@
 package org.kelompok4.app.Model;
-public class PremiumCoach extends CoachModel {
-    public PremiumCoach(){
+public class PremiumCoachModel extends CoachModel {
+    public PremiumCoachModel(){
         super();
         this.setMaxSeat(20);
     }

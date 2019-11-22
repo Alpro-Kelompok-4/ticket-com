@@ -3,12 +3,16 @@ package org.kelompok4.app;
 import org.kelompok4.app.Controller.CustomerController;
 import org.kelompok4.app.Controller.LoginController;
 import org.kelompok4.app.Controller.RegisterController;
+import org.kelompok4.app.Controller.TrainController;
 import org.kelompok4.app.Model.LoginModel;
+import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.Presenter.LoginPresenter;
 import org.kelompok4.app.Presenter.RegisterPresenter;
+import org.kelompok4.app.Presenter.TrainPresenter;
 import org.kelompok4.app.View.LoginView;
 import org.kelompok4.app.View.RegisterView;
+import org.kelompok4.app.View.TrainView;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -33,11 +37,16 @@ public class Main {
 		CustomerController customerController = new CustomerController(userModel, registerView);
 		LoginPresenter loginPresenter = new LoginPresenter(loginController);
 		RegisterPresenter registerPresenter = new RegisterPresenter(registerController);
-		registerPresenter.run();
+//		registerPresenter.run();
+		TrainModel trainModel = new TrainModel();
+		TrainView trainView = new TrainView();
+		TrainController trainController = new TrainController(trainModel,trainView);
+//		trainController.validateInputTrain("KAI190801 'Kereta Api I Bulan 8 Tahun 2019' G6 B2 P4");
 		// driver.login(loginController,loginModel,loginView);
 		// driver.register(registerController,userModel,registerView);
 		// driver.updateinfouser(customerController, userModel, registerView);
-
+		TrainPresenter trainPresenter = new TrainPresenter(trainController);
+		trainPresenter.run();
 	}
 
 }

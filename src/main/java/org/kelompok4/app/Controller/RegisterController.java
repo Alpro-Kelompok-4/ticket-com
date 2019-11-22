@@ -6,8 +6,8 @@ import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.View.RegisterView;
 
 public class RegisterController implements ICanInputUser, ICanValidateEmail, ICanValidateName, ICanValidateNoHP, ICanValidateNoKTP, ICanValidatePassword {
-    UserModel model;
-    RegisterView view;
+    private UserModel model;
+    private RegisterView view;
     public RegisterController(UserModel model, RegisterView view){
         this.model = model;
         this.view = view;

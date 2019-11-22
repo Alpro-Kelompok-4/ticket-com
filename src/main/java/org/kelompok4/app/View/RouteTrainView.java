@@ -33,7 +33,7 @@ public class RouteTrainView {
 		System.out.flush();
 	}
 
-    public void failedValidateAddRouteTrain(){
+    public void failedValidateCodeRouteTrain(){
 		System.out.println("Format Kode rute yang Anda masukan salah!");
 		System.out.flush();
     }

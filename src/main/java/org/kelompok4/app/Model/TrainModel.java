@@ -6,10 +6,39 @@ public class TrainModel {
     private static int MAX_COACH = 6;
     private String trainCode;
     private String trainName;
+    private int sizeOfBC;//jumlah bisnis coach
+    private int sizeOfPC;//jumlah premium coach
     ArrayList<CoachModel> coachs = new ArrayList<CoachModel>();
 
     public static int getMaxCoach() {
         return MAX_COACH;
+    }
+
+    public TrainModel(String trainCode, String trainName, int sizeOfBC, int sizeOfPC, ArrayList<CoachModel> coachs) {
+        this.trainCode = trainCode;
+        this.trainName = trainName;
+        this.sizeOfBC = sizeOfBC;
+        this.sizeOfPC = sizeOfPC;
+        this.coachs = coachs;
+    }
+
+    public TrainModel() {
+    }
+
+    public int getSizeOfBC() {
+        return sizeOfBC;
+    }
+
+    public void setSizeOfBC(int sizeOfBC) {
+        this.sizeOfBC = sizeOfBC;
+    }
+
+    public int getSizeOfPC() {
+        return sizeOfPC;
+    }
+
+    public void setSizeOfPC(int sizeOfPC) {
+        this.sizeOfPC = sizeOfPC;
     }
 
     public static void setMaxCoach(int maxCoach) {

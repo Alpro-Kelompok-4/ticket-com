@@ -18,4 +18,9 @@ public interface ICanManageTrain {
     public ArrayList<CoachModel> getCoachs();
 
     public void setCoachs(ArrayList<CoachModel> coachs);
+    public void setSizeOfBC(int bc);
+    public int getSizeOfBC();
+    public void setTizeOfPC(int bp);
+    public int getSizeOfPC();
+
 }

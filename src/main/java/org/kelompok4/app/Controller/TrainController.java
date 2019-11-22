@@ -38,6 +38,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
 
     @Override
     public void create() {
+
     }
 
     @Override
@@ -82,18 +83,61 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     public void setCoachs(ArrayList<CoachModel> coachs) {
         trainModel.setCoachs(coachs);
     }
-    public void addTrain(){
+
+    @Override
+    public void setSizeOfBC(int bc) {
+        trainModel.setSizeOfBC(bc);
+    }
+
+    @Override
+    public int getSizeOfBC() {
+        return trainModel.getSizeOfPC();
+    }
+
+    @Override
+    public void setTizeOfPC(int bp) {
+        trainModel.setSizeOfPC(bp);
+    }
+
+    @Override
+    public int getSizeOfPC() {
+        return trainModel.getSizeOfPC();
+    }
+
+    public void addTrainView(){
         trainView.printAddTrainPage();
         trainView.printAddTrain();
     }
-    public void updateView(){
-        trainView.printtrainCode(trainModel.getTrainCode());
-        trainView.printtrainName(trainModel.getTrainName());
-        trainView.printtrainCoach(trainModel.getCoachs().size());
+    public ArrayList<TrainModel> fetchAll(ArrayList<TrainModel> trainModels){
+        return trainModels;
     }
-    public TrainModel readInput(String input){
+    public void allTrainView(ArrayList<TrainModel> trainModels){
+        TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
+        t.addColumn("Kode KAI", TrainModel::getTrainCode);
+        t.addColumn("NAMA KAI", TrainModel::getTrainName);
+        t.addColumn("GERBONG", TrainModel::getSizeOfBC);
+        t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
+        t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
+        String s = t.createString(trainModels);
+        System.out.println(s);
+    }
 
-        return new TrainModel();
+
+    public void trainView(){
+        trainView.printviewTrainPage();
+    }
+    public void showAllTrain(){
+//        ArrayList<TrainModel> trainModels;
+//        trainModels.add(new TrainModel("KAI18801","KUTOJAYA SELATAN",))
+
+    }
+
+    public void resultView(){
+        trainView.printtrainCode(getTrainCode());
+        trainView.printtrainName(getTrainName());
+        trainView.printtrainCoach(getCoachs().size());
+        trainView.printbussinessCoach(getSizeOfBC());
+        trainView.printpremiumCoach(getSizeOfPC());
     }
 //    public boolean validateInputTrain(){
 //        return validateCodeTrain() && validateSizeofCoach();
@@ -165,4 +209,5 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         }
         return valid;
     }
+
 }

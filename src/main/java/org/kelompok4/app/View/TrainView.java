@@ -9,11 +9,21 @@ public class TrainView {
         System.out.println("4. Delete Data Kereta Api ");
         System.out.println("99. Main Menu ");
         System.out.println(" ");
-        System.out.println("Pilih Menu : ");
+        System.out.print("Pilih Menu : ");
         System.out.flush();
     }
     public void printAddTrainPage() {
         System.out.println("#TAMBAH DATA KERETA#");
+        System.out.println("99. Kembali ke Menu Kelola Data Kereta API#");
+        System.out.println("");
+        System.out.println("");
+        System.out.flush();
+
+    }
+    public void printviewTrainPage() {
+        System.out.println("#LIHAT DATA KERETA API#");
+        System.out.println("#Data Lengkap Kereta Api#");
+        System.out.println("99. Kembali ke Menu Kelola Data Kereta API#");
         System.out.println("");
         System.out.println("");
         System.out.flush();
@@ -26,25 +36,25 @@ public class TrainView {
     }
 
     public void printtrainName(String trainName) {
-        System.out.print("Nama Kereta  : " + trainName);
+        System.out.println("Nama Kereta  : " + trainName);
         System.out.flush();
     }
     public void printtrainCode(String trainCode) {
-        System.out.print("Kode Kereta  : " + trainCode);
+        System.out.println("Kode Kereta  : " + trainCode);
         System.out.flush();
     }
     public void printtrainCoach(int trainCoach) {
-        System.out.print("Jumlah Gerbong  : " + trainCoach);
+        System.out.println("Jumlah Gerbong  : " + trainCoach);
         System.out.flush();
     }
 
     public void printbussinessCoach(int business) {
-        System.out.print("Jumlah Gerbong Bisnis  : " + business);
+        System.out.println("Jumlah Gerbong Bisnis  : " + business);
         System.out.flush();
     }
 
     public void printpremiumCoach(int premium) {
-        System.out.print("Jumlah Gerbong Premium  : " + premium);
+        System.out.println("Jumlah Gerbong Premium  : " + premium);
         System.out.flush();
     }
 

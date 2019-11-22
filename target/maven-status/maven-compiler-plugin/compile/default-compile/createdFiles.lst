@@ -5,6 +5,7 @@ org\kelompok4\app\Model\TimeModel.class
 org\kelompok4\app\Presenter\LoginPresenter.class
 org\kelompok4\app\Interface\ICanRead.class
 org\kelompok4\app\Interface\ICanValidateEmail.class
+org\kelompok4\app\Controller\TableStringBuilder.class
 org\kelompok4\app\Model\BusinessCoachModel.class
 org\kelompok4\app\Model\RouteModel.class
 org\kelompok4\app\Main.class

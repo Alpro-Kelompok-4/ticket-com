@@ -74,11 +74,15 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         for (UserModel user : usermodel) {
             System.out.println(user.getNama());
         }
-        return true;
+        if(this.getLoginEmail().equals("erwin@gmail.com")&&this.getLoginPassword().equals("12345678i")){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public void authResult() {
-        if (auth()) {
+    public void authResult(boolean auth) {
+        if (auth) {
             System.out.println("Login Sukses");
         } else {
             System.out.println("Login Gagal");
@@ -91,7 +95,6 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         view.printLoginPage();
         view.printEmail(this.getLoginEmail());
         view.printPassword(this.getLoginPassword());
-        authResult();
     }
 
 
@@ -99,6 +102,10 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+//    public void pressAnyKey() {
+//        System.out.print("\033[H\033[2J");
+//        System.out.flush();
+//    }
 
 
 }

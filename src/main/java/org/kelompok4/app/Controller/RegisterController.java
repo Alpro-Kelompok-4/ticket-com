@@ -89,10 +89,9 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
         view.printEmail(this.getEmail());
         view.printPassword(this.getPassword());
         view.printRePassword(this.getPassword());
-        registerResult();
     }
-    public void registerResult(){
-        if(this.register()){
+    public void registerResult(boolean result){
+        if(result){
             view.successRegister();
         }else {
             view.failedRegister();

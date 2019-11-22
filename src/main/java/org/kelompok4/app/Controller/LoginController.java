@@ -10,14 +10,30 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
 	/*kelompok2.Viewlogin v = new kelompok2.Viewlogin();
 	UserModel user = new UserModel();*/
 
-    LoginModel model;
-    LoginView view;
+    private LoginModel model;
+    private LoginView view;
 
 
     public LoginController(LoginModel model, LoginView view) {
         this.model = model;
         this.view = view;
 
+    }
+
+    public LoginModel getModel() {
+        return model;
+    }
+
+    public void setModel(LoginModel model) {
+        this.model = model;
+    }
+
+    public LoginView getView() {
+        return view;
+    }
+
+    public void setView(LoginView view) {
+        this.view = view;
     }
 
     @Override

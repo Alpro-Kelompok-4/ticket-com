@@ -1,5 +1,8 @@
 package org.kelompok4.app.Controller;
 
+import org.kelompok4.app.Interface.ICanAuthByPassword;
+import org.kelompok4.app.Interface.ICanLoginByEmail;
+import org.kelompok4.app.Interface.ICanValidateEmail;
 import org.kelompok4.app.Model.LoginModel;
 import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.View.LoginView;

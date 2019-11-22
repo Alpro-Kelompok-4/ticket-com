@@ -1,4 +1,4 @@
-package org.kelompok4.app.Controller;
+package org.kelompok4.app.Interface;
 
 public interface ICanAuthByPassword {
 

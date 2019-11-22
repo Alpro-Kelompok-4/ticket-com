@@ -1,6 +1,7 @@
 package org.kelompok4.app.Controller;
 
-import org.kelompok4.app.Model.ICanInputUser;
+import org.kelompok4.app.Interface.*;
+import org.kelompok4.app.Interface.ICanInputUser;
 import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.View.RegisterView;
 

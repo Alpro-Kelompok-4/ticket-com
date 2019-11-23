@@ -51,7 +51,6 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
         boolean valid;
         String input;
         do {
-
             trainController.addTrainView();
             input = sc.nextLine();
             valid = trainController.validateInputTrain(input);
@@ -63,23 +62,88 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
         if(input.equals("99")){
             run();
         } else if(valid){
-            trainController.create();
-            trainModels.add(trainController.getTrainModel());
-            System.out.println(trainModels.size());
-            trainController.resultView();
-//            System.out.println(trainController.getTrainModel().getTrainName());
-            trainController.resultAddTrain(valid);
-            showTrain();
-            pressEnterKey();
-            addTrain();
+            //trainController.create();
+            //true adalah train inputan user tidak ada di json
+            if(trainController.validateCodeTrain()){
+                trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
+                trainController.resultView();
+                trainController.resultAddTrain(valid);
+                pressEnterKey();
+                run();
+            }else{
+                trainController.resultView();
+                System.out.println("KERETA gagal ditambahkan, Kode KAI sudah Terdaftar");
+            }
+
         }
     }
+    public void showTable(){
+        trainController.trainTable(trainController.allTrainView(trainModels));
+    }
     public void showTrain() {
-        System.out.println(trainController.allTrainView(trainModels));
+        trainController.showTrainView();
+        showTable();
+        pressEnterKey();
+        run();
     }
     public void updateTrain() {
+        boolean valid;
+        String input;
+        do {
+            showTable();
+            trainController.editTrainView();
+            input = sc.nextLine();
+            valid = trainController.validateInputTrain(input);
+            if(!input.equals("99")&&!valid){
+                trainController.resultEditTrain(valid);
+                pressEnterKey();
+            }
+        }while(!valid && !input.equals("99"));
+        if(input.equals("99")){
+            run();
+        } else if(valid){
+            if(!trainController.validateCodeTrain()){
+                trainController.update();
+                //trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
+                trainController.resultView();
+                trainController.resultEditTrain(valid);
+                showTrain();
+                pressEnterKey();
+                run();
+            }else{
+                trainController.resultView();
+                System.out.println("KERETA gagal diedit, Kode KAI sudah tidak ada didatabase");
+            }
+        }
     }
     public void delTrain() {
+        boolean valid;
+        String input;
+        do {
+            showTable();
+            trainController.deleteTrainView();
+            input = sc.nextLine();
+            trainController.setTrainCode(input);
+            valid = trainController.validateCodeTrain();
+            if(!input.equals("99")&&!valid){
+                trainController.resultDeleteTrain(valid);
+                pressEnterKey();
+            }
+        }while(!valid && !input.equals("99"));
+        if(input.equals("99")){
+            run();
+        } else if(valid){
+            if(!trainController.validateCodeTrain()){
+                trainController.delete();
+                trainController.resultView();
+                trainController.resultDeleteTrain(valid);
+                pressEnterKey();
+                run();
+            }else{
+                trainController.resultView();
+                System.out.println("KERETA gagal dihapus, Kode KAI tidak ada didatabase");
+            }
+        }
     }
 
 }

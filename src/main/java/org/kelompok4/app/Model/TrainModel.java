@@ -68,4 +68,7 @@ public class TrainModel {
     public void setCoachs(ArrayList<CoachModel> coachs) {
         this.coachs = coachs;
     }
+    public int getNumberOfCoach(){
+        return getSizeOfBC()+getSizeOfPC();
+    }
 }

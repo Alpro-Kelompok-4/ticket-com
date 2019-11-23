@@ -23,7 +23,6 @@ public class TrainView {
     public void printviewTrainPage() {
         System.out.println("#LIHAT DATA KERETA API#");
         System.out.println("#Data Lengkap Kereta Api#");
-        System.out.println("99. Kembali ke Menu Kelola Data Kereta API#");
         System.out.println("");
         System.out.println("");
         System.out.flush();
@@ -72,6 +71,11 @@ public class TrainView {
         System.out.println("");
         System.out.flush();
     }
+    public void printShowTable(String S) {
+        System.out.println("#TABLE DATA KERETA#");
+        System.out.println(S);
+        System.out.flush();
+    }
 
     public void printDeleteTrain() {
         System.out.print("Hapus Data Kereta : ");
@@ -104,8 +108,20 @@ public class TrainView {
         System.out.flush();
     }
 
-    public void failedValidateEditTrain(){
-        System.out.println("Format edit kereta yang Anda masukan salah!");
+    public void failedEditTrain(){
+        System.out.println("Kode kereta tidak ditemukan! Pastikan inputan Kode kereta benar!");
+        System.out.flush();
+    }
+    public void successEditTrain(){
+        System.out.println("Kereta Api Berhasil Diedit!");
+        System.out.flush();
+    }
+    public void failedDeleteTrain(){
+        System.out.println("Kode kereta tidak ditemukan! Pastikan inputan Kode kereta benar!");
+        System.out.flush();
+    }
+    public void successDeleteTrain(){
+        System.out.println("Kereta Api Berhasil dihapus!");
         System.out.flush();
     }
 

@@ -36,6 +36,8 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         this.trainView = trainView;
     }
 
+
+
     @Override
     public void create() {
 
@@ -95,7 +97,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
 
     @Override
-    public void setTizeOfPC(int bp) {
+    public void setSizeOfPC(int bp) {
         trainModel.setSizeOfPC(bp);
     }
 
@@ -104,9 +106,16 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         return trainModel.getSizeOfPC();
     }
 
+    public int getSizeOfCoach(){
+        return trainModel.getSizeOfBC() + trainModel.getSizeOfPC();
+    }
     public void addTrainView(){
         trainView.printAddTrainPage();
         trainView.printAddTrain();
+    }
+    public void editTrainView(){
+        trainView.printEditTrainPage();
+        trainView.printEditTrain();
     }
     public ArrayList<TrainModel> fetchAll(ArrayList<TrainModel> trainModels){
         return trainModels;
@@ -115,7 +124,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
         t.addColumn("Kode KAI", TrainModel::getTrainCode);
         t.addColumn("NAMA KAI", TrainModel::getTrainName);
-        t.addColumn("GERBONG", TrainModel::getSizeOfBC);
+        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
         t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
         t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
         return t.createString(trainModels);
@@ -145,15 +154,28 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
 //    public boolean validateSizeofCoach(){
 //            return getCoachs().size()==6;
 //    }
-    public boolean validateCodeTrain(String trainCode){
+    public boolean validateCodeTrain(){
         //mengecek kode train dari json
         return true;
+    }
+    //mimik dari validateCodetrain yg return false
+    public boolean validateEditCodeTrain(){
+        //mengecek kode train dari json
+        return false;
     }
     public void resultAddTrain(boolean success){
         if(success){
             trainView.successAddTrain();
         }else {
             trainView.failedAddTrain();
+        }
+    }
+
+    public void resultEditTrain(boolean success){
+        if(success){
+            trainView.successEditTrain();
+        }else {
+            trainView.failedEditTrain();
         }
     }
     public boolean validateInputTrain(String input){
@@ -178,9 +200,8 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
                 if(inputs[1].charAt(1) >= '0' && inputs[1].charAt(1) <= '6' && inputs[3].charAt(1) >= '0' && inputs[3].charAt(1) <= '6' && inputs[2].charAt(1) >= '0' && inputs[2].charAt(1) <= '6'){
                     //validasi jumlah val G = B + P
                     if(Character.getNumericValue(inputs[3].charAt(1)) + Character.getNumericValue(inputs[2].charAt(1))==Character.getNumericValue(inputs[1].charAt(1))){
-                        if(validateCodeTrain(inputs[0])){
-                            trainModel.setTrainName(name);
-                            trainModel.setTrainCode(inputs[0]);
+                            setTrainName(name);
+                            setTrainCode(inputs[0]);
                             ArrayList<CoachModel> coachModels = new ArrayList<CoachModel>();
                             for(int i = 0 ; i < Character.getNumericValue(inputs[2].charAt(1));i++){
                                 coachModels.add(new BusinessCoachModel());
@@ -188,12 +209,10 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
                             for(int i = 0 ; i < Character.getNumericValue(inputs[3].charAt(1));i++){
                                 coachModels.add(new PremiumCoachModel());
                             }
-                            trainModel.setCoachs(coachModels);
+                            setSizeOfBC(Character.getNumericValue(inputs[2].charAt(1)));
+                            setSizeOfPC(Character.getNumericValue(inputs[3].charAt(1)));
+                            setCoachs(coachModels);
                             valid = true;
-
-                        }else{
-                            valid = false;
-                        }
                     }else{
                         valid = false;
                     }
@@ -209,4 +228,21 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         return valid;
     }
 
+    public void resultDeleteTrain(boolean success) {
+        if(success){
+            trainView.successDeleteTrain();
+        }else {
+            trainView.failedDeleteTrain();
+        }
+    }
+    public void showTrainView(){
+        trainView.printviewTrainPage();
+    }
+    public void trainTable(String S){
+        trainView.printShowTable(S);
+
+    }
+    public void deleteTrainView() {
+        trainView.printDeleteTrain();
+    }
 }

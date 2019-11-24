@@ -1,10 +1,12 @@
-public class RouteTimeView {
+package org.kelompok4.app.View;
 
-	public RouteTimeView(){
+public class ReportView {
+
+	public ReportView(){
 
     }
     
-    public void MenuRouteTimeView(){
+    public void MenuReportView(){
         System.out.println("********************************************************************************************************************");
 		System.out.println("                                                       TICKET.COM                                                   ");
 		System.out.println("********************************************************************************************************************");
@@ -14,4 +16,5 @@ public class RouteTimeView {
 		System.out.println("99. Main Menu ");
 		System.out.println("Pilih Menu : ");
 		System.out.println(" ");
-    }
+	}
+}

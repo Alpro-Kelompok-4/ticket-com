@@ -10,11 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-<<<<<<< HEAD
       <module name="train-ticketing" target="8" />
-=======
-      <module name="train-ticketing" target="1.7" />
->>>>>>> gayuh
     </bytecodeTargetLevel>
   </component>
 </project>

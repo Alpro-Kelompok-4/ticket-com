@@ -1,4 +1,4 @@
-//Author@gayuh
+package org.kelompok4.app.View;//Author@gayuh
 
 public class ReportView {
 
@@ -87,14 +87,7 @@ public class ReportView {
         System.out.flush();
     }
     
-}
 
-=======
-public class RouteTimeView {
-
-	public RouteTimeView(){
-
-    }
     
     public void MenuRouteTimeView(){
         System.out.println("********************************************************************************************************************");

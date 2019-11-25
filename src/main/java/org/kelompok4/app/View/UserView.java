@@ -1,23 +1,8 @@
- * @author gayuh
+package org.kelompok4.app.View;
+/* @author gayuh
  */
 
-// import com.fasterxml.jackson.core.type.TypeReference;
-// import org.apache.commons.lang3.StringUtils;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Date;
-// import static org.apache.commons.lang3.time.DateUtils.addDays;
-
-public class MenuView{
-
-	public static void main(String args[]){
-
+public class UserView{
 
         public void HeaderMenu(){
         System.out.println("********************************************************************************************************************");

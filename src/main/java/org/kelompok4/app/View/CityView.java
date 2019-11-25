@@ -1,11 +1,13 @@
-//@Author Gayuh 
+package org.kelompok4.app.View;
+
+//@Author Gayuh
 public class CityView {
 
 	public CityView(){
 
 	}
 
-	public void MenuCity(){
+	public void printCityMenu(){
 		System.out.println("#KELOLA KOTA#");
 		System.out.println("1.  Tambah Data Kota ");
 		System.out.println("2.  Lihat Data Kota ");
@@ -100,7 +102,18 @@ public class CityView {
 		System.out.println("Kota Gagal Diupdate");
 		System.out.flush();
     }
-    
+
+	public void printViewCity() {
+		System.out.println("#LIHAT DATA KOTA#");
+		System.out.println("Data Lengkap Kota");
+		System.out.println("********************************************************************************************************************");
+	}
+
+	public void printShowTable(String S) {
+		System.out.println("#LIHAT DATA KOTA#");
+		System.out.println(S);
+		System.out.flush();
+	}
     public void printDeleteCityPage() {
 		System.out.println("#HAPUS DATA KOTA#");
 		System.out.println("");
@@ -136,5 +149,14 @@ public class CityView {
 		System.out.println("#LIHAT DATA KOTA#");
 		System.out.println("Data Lengkap Kota");
 		System.out.println("********************************************************************************************************************");
+	}
+
+	public void printCityName(String CityName) {
+		System.out.println("Nama Kota  : " + CityName);
+		System.out.flush();
+	}
+	public void printCityCode(String CityCode) {
+		System.out.println("Kode Kota : " + CityCode);
+		System.out.flush();
 	}
 }

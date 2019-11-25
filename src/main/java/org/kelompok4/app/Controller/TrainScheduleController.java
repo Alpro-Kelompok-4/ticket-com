@@ -1,13 +1,18 @@
 package org.kelompok4.app.Controller;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanRead;
+import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.View.TrainScheduleView;
 
 public class TrainScheduleController implements ICanCreate, ICanRead {
     TrainScheduleModel trainScheduleModel;
     TrainScheduleView trainScheduleView;
+    Scanner scanner = new Scanner(System.in);
 
     public TrainScheduleController(TrainScheduleModel trainScheduleModel, TrainScheduleView trainScheduleView) {
         this.trainScheduleModel = trainScheduleModel;
@@ -39,5 +44,14 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     @Override
     public void read() {
 
+    }
+
+    public void generateTrainSchedule(){
+
+    }
+
+    public ArrayList<TrainScheduleModel> findTrainSchedule(RouteModel route){
+        
+        return new ArrayList<TrainScheduleModel>();
     }
 }

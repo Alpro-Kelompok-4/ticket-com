@@ -4,6 +4,7 @@ import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTrainModel;
+import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.View.RouteTrainView;
 
 public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
@@ -45,5 +46,17 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     @Override
     public void read() {
 
+    }
+
+    public void addTrain(TrainModel train){
+
+    }
+
+    public void displayTrain(){
+
+    }
+
+    public void deleteTrain(int id){
+        
     }
 }

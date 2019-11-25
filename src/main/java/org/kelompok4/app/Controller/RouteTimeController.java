@@ -4,6 +4,7 @@ import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTimeModel;
+import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.View.RouteTimeView;
 
 public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
@@ -45,6 +46,18 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 
     @Override
     public void read() {
+
+    }
+
+    public void addTime(TimeModel time){
+
+    }
+
+    public void displayTime(){
+
+    }
+
+    public void deleteTime(int id){
 
     }
 }

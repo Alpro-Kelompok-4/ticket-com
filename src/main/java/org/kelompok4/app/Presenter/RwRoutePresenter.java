@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICanInput {
     RwRouteController rwRouteController;
-    ArrayList<RwRouteModel> rwRouteModels;
+    ArrayList<RwRouteModel> rwRouteModels = new ArrayList<RwRouteModel>();
 
     public RwRoutePresenter(RwRouteController rwRouteController) {
         this.rwRouteController = rwRouteController;
@@ -107,13 +107,18 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
                 if(!track.equals("99")&&!valid_track) {
                     System.out.println("Format Masukan Anda Salah!");
                 }else{
-                    i++;
-                    tracks.add(new String(track));
+                    if(!track.equals("99")){
+                        i++;
+                        tracks.add(new String(track));
+                    }
                 }
             }while(!track.equals("99"));
             if(valid_track){
                 //kalo lolos semuanya
                 if(rwRouteController.validateCodeRoute()&&rwRouteController.validateListTrack(tracks)){
+                    System.out.println(rwRouteController.getRoute().toString());
+                    System.out.println(rwRouteController.getList().toString());
+                    System.out.println(rwRouteController.getSumOfDuration());
                     rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
                     rwRouteController.resultView();
                     rwRouteController.resultAddRwRoute(valid_track);

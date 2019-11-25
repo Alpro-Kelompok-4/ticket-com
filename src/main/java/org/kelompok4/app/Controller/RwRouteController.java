@@ -185,6 +185,7 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
             String[] track=tracks.get(i).split("\\s+");
             //String Origin
             //nanti diganti ngeget dari JSON
+            System.out.print(tracks.get(i));
             RwStationModel origin = new RwStationModel(track[0].substring(0,3),track[0]);
             //String Destination
             //nanti diganti ngeget dari JSON
@@ -192,14 +193,16 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
             rwTrackModels.add(new RwTrackModel(origin,destination,Integer.parseInt(track[2])));
             t_duration = t_duration + Integer.parseInt(track[2]);
             i++;
-            temp = track[0];
+            temp = track[1];
             //pengecekan destination dengan origin
             if(i>0){
+//                System.out.print(track[0] + " " + temp);
                 if(!temp.equals(track[1])){
                     valid = false;
                 }
             }
         }
+
         if(valid){
             setList(rwTrackModels);
             setSumOfDuration(t_duration);

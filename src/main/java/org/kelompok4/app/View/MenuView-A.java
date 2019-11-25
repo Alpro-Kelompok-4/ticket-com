@@ -1,3 +1,12 @@
+/*
+ * To change this license header, Pilih License Headers in Project Properties.
+ * To change this template file, Pilih Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+/**
+ *
  * @author gayuh
  */
 
@@ -26,7 +35,13 @@ public class MenuView{
         }
         //Tampilan Home
 		
-		
+		public void MenuHome(){
+            System.out.println("1. Login");
+            System.out.println("2. Register Customer");
+            System.out.println(" ");
+            System.out.println("Pilih Menu :");
+        }
+    
         public void MenuRegistration(){
             System.out.println("#REGISTER SISTEM#");
             System.out.println("Nomor KTP        :");

@@ -4,9 +4,7 @@ package org.kelompok4.app;
 import org.kelompok4.app.Controller.CustomerController;
 import org.kelompok4.app.Controller.LoginController;
 import org.kelompok4.app.Controller.RegisterController;
-import org.kelompok4.app.Model.LoginModel;
 import org.kelompok4.app.Model.UserModel;
-import org.kelompok4.app.View.LoginView;
 import org.kelompok4.app.View.RegisterView;
 
 import java.io.IOException;
@@ -18,23 +16,23 @@ public class Driver {
     public Driver() {
     }
 
-    public boolean login(LoginController loginController, LoginModel loginModel, LoginView loginView) throws IOException, InterruptedException {
+    public boolean login(LoginController loginController) throws IOException, InterruptedException {
         boolean failed = true;
 
         loginController.clearScreen();
-        loginView.printLoginPage();
+        loginController.getView().printLoginPage();
         //do while untuk regex email
         do {
             //saat pertama kali tidak muncul pesan gagal
             if (failed == false) {
-                loginView.failedValidate();
+                loginController.getView().failedValidate();
             }
-            loginView.printEmail();
+            loginController.getView().printEmail();
             loginController.setLoginEmail(scanner.nextLine());
             failed = loginController.validateEmail();
         } while (failed == false);
 
-        loginView.printPassword();
+        loginController.getView().printPassword();
         loginController.setLoginPassword(scanner.nextLine());
         //view setelah interaksi user
         loginController.updateView();

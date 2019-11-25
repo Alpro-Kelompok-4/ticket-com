@@ -1,5 +1,8 @@
 package org.kelompok4.app.Controller;
 
+import org.kelompok4.app.Interface.ICanAuthByPassword;
+import org.kelompok4.app.Interface.ICanLoginByEmail;
+import org.kelompok4.app.Interface.ICanValidateEmail;
 import org.kelompok4.app.Model.LoginModel;
 import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.View.LoginView;
@@ -10,14 +13,30 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
 	/*kelompok2.Viewlogin v = new kelompok2.Viewlogin();
 	UserModel user = new UserModel();*/
 
-    LoginModel model;
-    LoginView view;
+    private LoginModel model;
+    private LoginView view;
 
 
     public LoginController(LoginModel model, LoginView view) {
         this.model = model;
         this.view = view;
 
+    }
+
+    public LoginModel getModel() {
+        return model;
+    }
+
+    public void setModel(LoginModel model) {
+        this.model = model;
+    }
+
+    public LoginView getView() {
+        return view;
+    }
+
+    public void setView(LoginView view) {
+        this.view = view;
     }
 
     @Override
@@ -55,11 +74,15 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         for (UserModel user : usermodel) {
             System.out.println(user.getNama());
         }
-        return true;
+        if(this.getLoginEmail().equals("erwin@gmail.com")&&this.getLoginPassword().equals("12345678i")){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public void authResult() {
-        if (auth()) {
+    public void authResult(boolean auth) {
+        if (auth) {
             System.out.println("Login Sukses");
         } else {
             System.out.println("Login Gagal");
@@ -72,7 +95,6 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         view.printLoginPage();
         view.printEmail(this.getLoginEmail());
         view.printPassword(this.getLoginPassword());
-        authResult();
     }
 
 
@@ -80,6 +102,10 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+//    public void pressAnyKey() {
+//        System.out.print("\033[H\033[2J");
+//        System.out.flush();
+//    }
 
 
 }

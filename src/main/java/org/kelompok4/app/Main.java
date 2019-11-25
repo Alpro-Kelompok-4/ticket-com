@@ -3,10 +3,16 @@ package org.kelompok4.app;
 import org.kelompok4.app.Controller.CustomerController;
 import org.kelompok4.app.Controller.LoginController;
 import org.kelompok4.app.Controller.RegisterController;
+import org.kelompok4.app.Controller.TrainController;
 import org.kelompok4.app.Model.LoginModel;
+import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.Model.UserModel;
+import org.kelompok4.app.Presenter.LoginPresenter;
+import org.kelompok4.app.Presenter.RegisterPresenter;
+import org.kelompok4.app.Presenter.TrainPresenter;
 import org.kelompok4.app.View.LoginView;
 import org.kelompok4.app.View.RegisterView;
+import org.kelompok4.app.View.TrainView;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,7 +26,6 @@ public class Main {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner scanner = new Scanner(System.in);
 		int menu;
-
 		// instansiasi objek objek
 		Driver driver = new Driver();
 		LoginModel loginModel = new LoginModel(null, null);
@@ -30,71 +35,18 @@ public class Main {
 		RegisterView registerView = new RegisterView();
 		RegisterController registerController = new RegisterController(userModel, registerView);
 		CustomerController customerController = new CustomerController(userModel, registerView);
+		LoginPresenter loginPresenter = new LoginPresenter(loginController);
+		RegisterPresenter registerPresenter = new RegisterPresenter(registerController);
+//		registerPresenter.run();
+		TrainModel trainModel = new TrainModel();
+		TrainView trainView = new TrainView();
+		TrainController trainController = new TrainController(trainModel,trainView);
+//		trainController.validateInputTrain("KAI190801 'Kereta Api I Bulan 8 Tahun 2019' G6 B2 P4");
 		// driver.login(loginController,loginModel,loginView);
 		// driver.register(registerController,userModel,registerView);
 		// driver.updateinfouser(customerController, userModel, registerView);
-
-		System.out.println("#JENDELA UTAMA#");
-		System.out.println("1. Register penumpang");
-		System.out.println("2. Login");
-		System.out.print("Pilih menu: ");
-		menu = scanner.nextInt();
-		while (menu != 99) {
-			switch (menu) {
-			case 1: {
-				driver.register(registerController, userModel, registerView);
-				break;
-			}
-			case 2: {
-				if(driver.login(loginController, loginModel, loginView)){
-					System.out.println("#MENU PENGGUNA#");
-					System.out.println("Welcome");
-					System.out.println();
-					System.out.println("1. Booking Tiket");
-					System.out.println("2. Kelola Profile");
-					System.out.println("3. History Pembelian");
-					System.out.println("0. Logout");
-					System.out.println();
-					System.out.print("Pilihan: ");
-					menu = scanner.nextInt();
-					while (menu != 0){
-						switch (menu){
-							case 1:{
-								// driver.bookingTiket();
-								break;
-							}
-							case 2:{
-								// driver.kelolaProfile();
-								break;
-							}
-							case 3:{
-								// driver.historyPembelian();
-								break;
-							}
-							case 0:{
-								// driver.logout();
-								break;
-							}
-							default:{
-								System.out.println("Menu salah!");
-								System.out.print("Pilihan: ");
-								menu = scanner.nextInt();
-							}
-						}
-					}
-				};
-				break;
-			}
-			default: {
-				if (menu != 99) {
-					System.out.println("Pilihan menu salah!");
-					System.out.print("Pilih menu: ");
-					menu = scanner.nextInt();
-				}
-			}
-			}
-		}
-
+		TrainPresenter trainPresenter = new TrainPresenter(trainController);
+		trainPresenter.run();
 	}
 
 }

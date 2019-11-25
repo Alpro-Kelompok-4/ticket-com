@@ -1,12 +1,13 @@
 package org.kelompok4.app.Controller;
 
-import org.kelompok4.app.Model.ICanInputUser;
+import org.kelompok4.app.Interface.*;
+import org.kelompok4.app.Interface.ICanInputUser;
 import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.View.RegisterView;
 
 public class RegisterController implements ICanInputUser, ICanValidateEmail, ICanValidateName, ICanValidateNoHP, ICanValidateNoKTP, ICanValidatePassword {
-    UserModel model;
-    RegisterView view;
+    private UserModel model;
+    private RegisterView view;
     public RegisterController(UserModel model, RegisterView view){
         this.model = model;
         this.view = view;
@@ -88,10 +89,9 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
         view.printEmail(this.getEmail());
         view.printPassword(this.getPassword());
         view.printRePassword(this.getPassword());
-        registerResult();
     }
-    public void registerResult(){
-        if(this.register()){
+    public void registerResult(boolean result){
+        if(result){
             view.successRegister();
         }else {
             view.failedRegister();

@@ -5,14 +5,8 @@ import org.kelompok4.app.Model.CityModel;
 import org.kelompok4.app.Model.LoginModel;
 import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.Model.UserModel;
-import org.kelompok4.app.Presenter.CityPresenter;
-import org.kelompok4.app.Presenter.LoginPresenter;
-import org.kelompok4.app.Presenter.RegisterPresenter;
-import org.kelompok4.app.Presenter.TrainPresenter;
-import org.kelompok4.app.View.CityView;
-import org.kelompok4.app.View.LoginView;
-import org.kelompok4.app.View.RegisterView;
-import org.kelompok4.app.View.TrainView;
+import org.kelompok4.app.Presenter.*;
+import org.kelompok4.app.View.*;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -56,7 +50,12 @@ public class Main {
 		CityView cityView = new CityView();
 		CityController cityController = new CityController(cityModel,cityView);
 		CityPresenter cityPresenter = new CityPresenter(cityController);
-		cityPresenter.run();
+		//cityPresenter.run();
+
+		MenuView menuView = new MenuView();
+		MenuController menuController = new MenuController(menuView);
+		MenuPresenter menuPresenter = new MenuPresenter(menuController);
+		menuPresenter.run();
 	}
 
 }

@@ -1,4 +1,6 @@
-////@Author Gayuh 
+package org.kelompok4.app.View;
+
+//@Author Gayuh
 public class MenuView {
 
 	public MenuView(){
@@ -13,8 +15,30 @@ public class MenuView {
 		System.out.println("1. Login");
 		System.out.println("2. Register Customer");
 		System.out.println(" ");
-		System.out.println("Pilih Menu :");
     }
+
+	public void MenuLogin(){
+		//Tampilan Home
+		System.out.println("********************************************************************************************************************");
+		System.out.println("                                           SYSTEM TRAIN TICKET BOOKING                                              ");
+		System.out.println("********************************************************************************************************************");
+		System.out.println("Email     : ");
+		System.out.println("Password  : ");
+		System.out.println(" ");
+	}
+
+	public void MenuRegistration() {
+		System.out.println("********************************************************************************************************************");
+		System.out.println("                                                   REGISTRASI SISTEM                                                ");
+		System.out.println("********************************************************************************************************************");
+		System.out.println("Nomor KTP        :");
+		System.out.println("Nama Lengkap     :");
+		System.out.println("Nomor Handphone  :");
+		System.out.println("Email            :");
+		System.out.println("Password         :");
+		System.out.println("Re-Password      :");
+		System.out.println(" ");
+	}
 
     public void MenuAdmin(){
 		//Tampilan Menu Admin

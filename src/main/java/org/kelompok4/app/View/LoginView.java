@@ -4,7 +4,7 @@ public class LoginView {
 	public LoginView(){
 
 	}
-	public void printLoginPage() {
+	public static void printLoginPage() {
 		System.out.println("#LOGIN SISTEM#");
 		System.out.println("");
 		System.out.println("");

@@ -72,12 +72,14 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         ArrayList<TrainModel> current = routeTrainModel.getList();
         current.sort(Comparator.comparing(TrainModel::getTrainCode));
         routeTrainModel.setList(current);
+        // TODO: Update json
     }
 
     public void deleteTrain(TrainModel train){
         ArrayList<TrainModel> current = routeTrainModel.getList();
         if (current.remove(train)){
             routeTrainModel.setList(current);
+            // TODO: Update json
             routeTrainView.SuccessDeleteRouteTrain();
         } else {
             routeTrainView.FailedDeleteRouteTrain();

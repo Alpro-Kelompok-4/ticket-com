@@ -78,7 +78,8 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
     
     public ArrayList<TimeModel> getAllTime(){
-        ArrayList<TimeModel> times = new ArrayList<>();
+        ArrayList<TimeModel> times = new ArrayList<TimeModel>();
+        // TODO: Get from json
         return times;
     }
 
@@ -102,10 +103,11 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         // TODO: Display list
     }
 
-    public void sortTime() {
-        ArrayList<TimeModel> current = routeTimeModel.getList();
+    public void sortTime(RouteTimeModel routeTime) {
+        ArrayList<TimeModel> current = routeTime.getList();
         current.sort(Comparator.comparing(TimeModel::getTimeCode));
-        routeTimeModel.setList(current);
+        routeTime.setList(current);
+        // TODO: Update json
     }
 
     public void deleteTime(TimeModel time) {
@@ -145,6 +147,10 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         return t.createString(routeTimes);
     }
 
+    public void updateRouteTime(ArrayList<RouteTimeModel> routeTimes){
+        // TODO: Update json
+    }
+
     public boolean checkRouteAvailability(String routeCode){
         boolean check = false;
         for (RouteTimeModel r : getAllRouteTime()) {
@@ -182,5 +188,24 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
             }
         }
 		return rwRoute;
+	}
+
+	public boolean deleteRouteTime(String routeTimeCode) {
+        ArrayList<RouteTimeModel> routeTimes = new ArrayList<RouteTimeModel>();
+        boolean found = false;
+
+        for (RouteTimeModel r : routeTimes) {
+            if (r.getRouteTimeCode().equals(routeTimeCode)){
+                routeTimes.remove(r);
+                found = true;
+                break;
+            }
+        }
+
+        if (found){
+            updateRouteTime(routeTimes);
+        }
+
+        return found;
 	}
 }

@@ -4,7 +4,7 @@ import org.kelompok4.app.Controller.RouteTimeController;
 import org.kelompok4.app.Interface.ICanRun;
 import org.kelompok4.app.Model.RouteTimeModel;
 
-public class RouteTimePresenter extends ContinuePresenter implements ICanRun{
+public class RouteTimePresenter extends ContinuePresenter implements ICanRun {
     RouteTimeController routeTimeController;
 
     public RouteTimePresenter(RouteTimeController routeTimeController) {
@@ -28,50 +28,67 @@ public class RouteTimePresenter extends ContinuePresenter implements ICanRun{
         menu(menu);
     }
 
-    public void menu(int menu){
-        switch (menu){
-            case 1:{
-                addRouteTime();
-                break;
-            }
-            case 2:{
-                showRouteTime();
-                break;
-            }
-            case 3:{
-                delRouteTime();
-                break;
-            }
+    public void menu(int menu) {
+        switch (menu) {
+        case 1: {
+            addRouteTime();
+            break;
+        }
+        case 2: {
+            showRouteTime();
+            break;
+        }
+        case 3: {
+            delRouteTime();
+            break;
+        }
         }
     }
 
-    public void addRouteTime(){
+    public void addRouteTime() {
+        routeTimeController.getRouteTimeView().printAddRouteTimeViewPage();
         routeTimeController.getRouteTimeView().printCodeRouteTime();
         String routeCode = sc.nextLine();
-        if (routeTimeController.checkRouteAvailability(routeCode)){
+        if (routeTimeController.checkRouteAvailability(routeCode)) {
             String timeCode = sc.nextLine();
-            while (timeCode.equals("-99"))
-            if (routeTimeController.searchTime(timeCode)){
-                RouteTimeModel routeTime = new RouteTimeModel();
-                routeTime.setRouteTimeCode(routeTimeController.generateLastRouteTimeCode());
-                routeTime.setRwRoute(routeTimeController.getRwRoute(routeCode));
-                routeTimeController.addTime(routeTimeController.getTime(timeCode), routeTime);
-            } else {
-                
+            RouteTimeModel routeTime = new RouteTimeModel();
+            while (timeCode.equals("-99")) {
+                if (routeTimeController.searchTime(timeCode)) {
+                    routeTime.setRouteTimeCode(routeTimeController.generateLastRouteTimeCode());
+                    routeTime.setRwRoute(routeTimeController.getRwRoute(routeCode));
+                    routeTimeController.addTime(routeTimeController.getTime(timeCode), routeTime);
+                    routeTimeController.sortTime(routeTime);
+                } else {
+                    routeTimeController.getRouteTimeView().FailedAddRouteTime();
+                }
             }
-            
+            routeTimeController.setRouteTime(routeTime);
+            pressEnterKey();
+            run();
         } else {
             routeTimeController.getRouteTimeView().FailedAddRouteTime();
+            pressEnterKey();
+            run();
         }
-
     }
 
-    public void showRouteTime(){
-
+    public void showRouteTime() {
+        routeTimeController.getRouteTimeView().HeaderViewRouteTime();
+        System.out.println(routeTimeController.allRouteTimeView(routeTimeController.getAllRouteTime()));
+        pressEnterKey();
+        run();
     }
 
-    public void delRouteTime(){
-
+    public void delRouteTime() {
+        routeTimeController.getRouteTimeView().printDeleteRouteTimeViewPage();
+        routeTimeController.getRouteTimeView().printDeleteRouteTime();
+        String routeTimeCode = sc.nextLine();
+        if (routeTimeController.deleteRouteTime(routeTimeCode)){
+            routeTimeController.getRouteTimeView().SuccessDeleteRouteTime();
+        } else {
+            routeTimeController.getRouteTimeView().FailedDeleteRouteTime();
+        }
+        pressEnterKey();
+        run();
     }
-
 }

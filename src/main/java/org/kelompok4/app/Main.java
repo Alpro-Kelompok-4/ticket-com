@@ -3,15 +3,19 @@ package org.kelompok4.app;
 import org.kelompok4.app.Controller.CustomerController;
 import org.kelompok4.app.Controller.LoginController;
 import org.kelompok4.app.Controller.RegisterController;
+import org.kelompok4.app.Controller.RouteTimeController;
 import org.kelompok4.app.Controller.TrainController;
 import org.kelompok4.app.Model.LoginModel;
+import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.Presenter.LoginPresenter;
 import org.kelompok4.app.Presenter.RegisterPresenter;
+import org.kelompok4.app.Presenter.RouteTimePresenter;
 import org.kelompok4.app.Presenter.TrainPresenter;
 import org.kelompok4.app.View.LoginView;
 import org.kelompok4.app.View.RegisterView;
+import org.kelompok4.app.View.RouteTimeView;
 import org.kelompok4.app.View.TrainView;
 
 import java.io.IOException;
@@ -45,8 +49,14 @@ public class Main {
 		// driver.login(loginController,loginModel,loginView);
 		// driver.register(registerController,userModel,registerView);
 		// driver.updateinfouser(customerController, userModel, registerView);
-		TrainPresenter trainPresenter = new TrainPresenter(trainController);
-		trainPresenter.run();
+		// TrainPresenter trainPresenter = new TrainPresenter(trainController);
+		// trainPresenter.run();
+
+		RouteTimeModel routeTimeModel = new RouteTimeModel();
+		RouteTimeView routeTimeView = new RouteTimeView();
+		RouteTimeController routeTimeController = new RouteTimeController(routeTimeModel, routeTimeView);
+		RouteTimePresenter routeTimePresenter = new RouteTimePresenter(routeTimeController);
+		routeTimePresenter.run();
 	}
 
 }

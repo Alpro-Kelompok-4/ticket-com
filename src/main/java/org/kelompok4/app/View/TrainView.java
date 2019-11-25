@@ -18,7 +18,6 @@ public class TrainView {
         System.out.println("");
         System.out.println("");
         System.out.flush();
-
     }
     public void printviewTrainPage() {
         System.out.println("#LIHAT DATA KERETA API#");

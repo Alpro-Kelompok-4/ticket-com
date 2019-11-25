@@ -7,6 +7,7 @@ import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTimeModel;
+import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.View.RouteTimeView;
 
@@ -50,15 +51,49 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 
     }
 
-    public void addTime(TimeModel time) {
-        ArrayList<TimeModel> current = routeTimeModel.getList();
+    public TimeModel getTime(String timeCode){
+        TimeModel time = new TimeModel();
+
+        for (TimeModel t : getAllTime()) {
+            if (t.getTimeCode().equals(timeCode)){
+                time = t;
+                break;
+            }
+        }
+        
+        return time;
+    }
+
+    public boolean searchTime(String timeCode){
+        boolean check = false;
+
+        for (TimeModel t : getAllTime()) {
+            if (t.getTimeCode().equals(timeCode)){
+                check = true;
+                break;
+            }
+        }
+
+        return check;
+    }
+    
+    public ArrayList<TimeModel> getAllTime(){
+        ArrayList<TimeModel> times = new ArrayList<>();
+        return times;
+    }
+
+    public void setRouteTime(RouteTimeModel routeTime){
+        // TODO: Insert to json
+    }
+
+    public void addTime(TimeModel time, RouteTimeModel routeTime) {
+        ArrayList<TimeModel> current = routeTime.getList();
         if (current.contains(time)) {
             routeTimeView.FailedAddRouteTime();
         } else {
             current.add(time);
             routeTimeModel.setList(current);
             // TODO: Update json
-            routeTimeView.SuccessAddRouteTime();
         }
     }
 
@@ -83,6 +118,18 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         }
     }
 
+    public RouteTimeModel getRouteTime(String routeTimeCode){
+        // TODO: get from json
+        RouteTimeModel routeTime = new RouteTimeModel();
+        for (RouteTimeModel r : getAllRouteTime()) {
+            if (r.getRouteTimeCode().equals(routeTimeCode)){
+                routeTime = r;
+                break;
+            }
+        }
+        return routeTime;
+    }
+
     public ArrayList<RouteTimeModel> getAllRouteTime(){
         ArrayList<RouteTimeModel> routeTimes = new ArrayList<RouteTimeModel>();
         // TODO: Get from json
@@ -93,8 +140,47 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         routeTimeView.HeaderViewRouteTime();
         TableStringBuilder<RouteTimeModel> t = new TableStringBuilder<>();
         t.addColumn("Kode Kereta Rute", RouteTimeModel::getRouteTimeCode);
-        t.addColumn("Kode Rute", RouteTimeModel::getRwRouteCode);
+        t.addColumn("Kode Rute", RouteTimeModel::getRouteCode);
         t.addColumn("Waktu Tersedia Pada Rute", RouteTimeModel::getListString);
         return t.createString(routeTimes);
     }
+
+    public boolean checkRouteAvailability(String routeCode){
+        boolean check = false;
+        for (RouteTimeModel r : getAllRouteTime()) {
+            if (r.getRouteCode().equals(routeCode)){
+                check = true;
+                break;
+            }
+        }
+        return check;
+    }
+
+    public String getLastRouteTimeCode(){
+        return getAllRouteTime().get(getAllRouteTime().size()-1).getRouteTimeCode();
+    }
+
+    public String generateLastRouteTimeCode(){
+        String current = getLastRouteTimeCode();
+        int newCode = Integer.valueOf(current.split("WR")[0]);
+        String newString = "WR" + Integer.toString(newCode);
+        return newString;
+    }
+
+    public ArrayList<RwRouteModel> getAllRwRoute(){
+        ArrayList<RwRouteModel> rwRoutes = new ArrayList<RwRouteModel>();
+        // TODO: get from json
+        return rwRoutes;
+    }
+
+	public RwRouteModel getRwRoute(String routeCode) {
+        RwRouteModel rwRoute = new RwRouteModel();
+        for (RwRouteModel r : getAllRwRoute()) {
+            if (r.getRoute().getRouteCode().equals(routeCode)){
+                rwRoute = r;
+                break;
+            }
+        }
+		return rwRoute;
+	}
 }

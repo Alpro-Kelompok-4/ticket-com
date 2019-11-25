@@ -80,16 +80,16 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         // TODO: Update json
     }
 
-    // public void deleteTrain(TrainModel train){
-    //     ArrayList<TrainModel> current = routeTrainModel.getList();
-    //     if (current.remove(train)){
-    //         routeTrainModel.setList(current);
-    //         // TODO: Update json
-    //         routeTrainView.SuccessDeleteRouteTrain();
-    //     } else {
-    //         routeTrainView.FailedDeleteRouteTrain();
-    //     }
-    // }
+    public void deleteTrain(TrainModel train){
+        ArrayList<TrainModel> current = routeTrainModel.getList();
+        if (current.remove(train)){
+            routeTrainModel.setList(current);
+            // TODO: Update json
+            routeTrainView.SuccessDeleteRouteTrain();
+        } else {
+            routeTrainView.FailedDeleteRouteTrain();
+        }
+    }
 
     public ArrayList<RouteTrainModel> getAllRouteTrain(){
         ArrayList<RouteTrainModel> routeTrains = new ArrayList<RouteTrainModel>();
@@ -101,9 +101,19 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         routeTrainView.HeaderViewRouteTrain();
         TableStringBuilder<RouteTrainModel> t = new TableStringBuilder<>();
         t.addColumn("Kode Kereta Rute", RouteTrainModel::getRouteTrainCode);
-        t.addColumn("Kode Rute", RouteTrainModel::getRwRouteCode);
+        t.addColumn("Kode Rute", RouteTrainModel::getRouteCode);
         t.addColumn("Kereta Tersedia Pada Rute", RouteTrainModel::getListString);
         return t.createString(routeTrains);
     }
 
+    public boolean checkRouteAvailability(String routeCode){
+        boolean check = false;
+        for (RouteTrainModel r : getAllRouteTrain()) {
+            if (r.getRouteCode().equals(routeCode)){
+                check = true;
+                break;
+            }
+        }
+        return check;
+    }
 }

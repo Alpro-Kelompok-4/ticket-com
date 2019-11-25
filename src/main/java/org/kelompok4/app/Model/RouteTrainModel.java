@@ -40,13 +40,8 @@ public class RouteTrainModel {
         this.list = list;
     }
 
-    public String getRwRouteCode(){
-        String output = "";
-        output += rwRoute.getRoute().getDeparture().getCityCode();
-        output += "-";
-        output += rwRoute.getRoute().getArrival().getCityCode();
-
-        return output;
+    public String getRouteCode(){
+        return rwRoute.getRoute().getRouteCode();
     }
 
     public String getListString(){

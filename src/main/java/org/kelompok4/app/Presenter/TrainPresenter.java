@@ -62,9 +62,9 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
         if(input.equals("99")){
             run();
         } else if(valid){
-            //trainController.create();
             //true adalah train inputan user tidak ada di json
             if(trainController.validateCodeTrain()){
+                trainController.create();
                 trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
                 trainController.resultView();
                 trainController.resultAddTrain(valid);

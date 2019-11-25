@@ -82,4 +82,19 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
             routeTimeView.FailedDeleteRouteTime();
         }
     }
+
+    public ArrayList<RouteTimeModel> getAllRouteTime(){
+        ArrayList<RouteTimeModel> routeTimes = new ArrayList<RouteTimeModel>();
+        // TODO: Get from json
+        return routeTimes;
+    }
+
+    public String allRouteTimeView(ArrayList<RouteTimeModel> routeTimes){
+        routeTimeView.HeaderViewRouteTime();
+        TableStringBuilder<RouteTimeModel> t = new TableStringBuilder<>();
+        t.addColumn("Kode Kereta Rute", RouteTimeModel::getRouteTimeCode);
+        t.addColumn("Kode Rute", RouteTimeModel::getRwRouteCode);
+        t.addColumn("Waktu Tersedia Pada Rute", RouteTimeModel::getListString);
+        return t.createString(routeTimes);
+    }
 }

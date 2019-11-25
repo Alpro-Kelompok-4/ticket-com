@@ -38,4 +38,24 @@ public class RouteTimeModel {
     public void setList(ArrayList<TimeModel> list) {
         this.list = list;
     }
+
+    public String getRwRouteCode(){
+        String output = "";
+        output += rwRoute.getRoute().getDeparture().getCityCode();
+        output += "-";
+        output += rwRoute.getRoute().getArrival().getCityCode();
+
+        return output;
+    }
+
+    public String getListString(){
+        String output = "";
+        for (TimeModel timeModel : list) {
+            output += "- ";
+            output += timeModel.getTimeCode();
+            output += "\n";
+        }
+
+        return output;
+    }
 }

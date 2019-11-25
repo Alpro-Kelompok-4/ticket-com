@@ -1,5 +1,8 @@
 package org.kelompok4.app.Controller;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Interface.ICanRead;
@@ -49,14 +52,35 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public void addTrain(TrainModel train){
-
+        ArrayList<TrainModel> current = routeTrainModel.getList();
+        if (current.contains(train)){
+            routeTrainView.FailedAddRouteTrain();
+        } else {
+            current.add(train);
+            routeTrainModel.setList(current);
+            // TODO: Update json
+            routeTrainView.SuccessAddRouteTrain();
+        }
     }
 
     public void displayTrain(){
-
+        routeTrainView.HeaderViewRouteTrain();
+        // TODO: Display list
     }
 
-    public void deleteTrain(int id){
-        
+    public void sortTrain(){
+        ArrayList<TrainModel> current = routeTrainModel.getList();
+        current.sort(Comparator.comparing(TrainModel::getTrainCode));
+        routeTrainModel.setList(current);
+    }
+
+    public void deleteTrain(TrainModel train){
+        ArrayList<TrainModel> current = routeTrainModel.getList();
+        if (current.remove(train)){
+            routeTrainModel.setList(current);
+            routeTrainView.SuccessDeleteRouteTrain();
+        } else {
+            routeTrainView.FailedDeleteRouteTrain();
+        }
     }
 }

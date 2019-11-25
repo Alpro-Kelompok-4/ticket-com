@@ -1,5 +1,8 @@
 package org.kelompok4.app.Controller;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Interface.ICanRead;
@@ -10,7 +13,6 @@ import org.kelompok4.app.View.RouteTimeView;
 public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     RouteTimeModel routeTimeModel;
     RouteTimeView routeTimeView;
-
 
     public RouteTimeController(RouteTimeModel routeTimeModel, RouteTimeView routeTimeView) {
         this.routeTimeModel = routeTimeModel;
@@ -33,7 +35,6 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         this.routeTimeView = routeTimeView;
     }
 
-
     @Override
     public void create() {
 
@@ -49,15 +50,36 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 
     }
 
-    public void addTime(TimeModel time){
-
+    public void addTime(TimeModel time) {
+        ArrayList<TimeModel> current = routeTimeModel.getList();
+        if (current.contains(time)) {
+            routeTimeView.FailedAddRouteTime();
+        } else {
+            current.add(time);
+            routeTimeModel.setList(current);
+            // TODO: Update json
+            routeTimeView.SuccessAddRouteTime();
+        }
     }
 
-    public void displayTime(){
-
+    public void displayTime() {
+        routeTimeView.HeaderViewRouteTime();
+        // TODO: Display list
     }
 
-    public void deleteTime(int id){
+    public void sortTime() {
+        ArrayList<TimeModel> current = routeTimeModel.getList();
+        current.sort(Comparator.comparing(TimeModel::getTimeCode));
+        routeTimeModel.setList(current);
+    }
 
+    public void deleteTime(TimeModel time) {
+        ArrayList<TimeModel> current = routeTimeModel.getList();
+        if (current.remove(time)){
+            routeTimeModel.setList(current);
+            routeTimeView.SuccessDeleteRouteTime();
+        } else {
+            routeTimeView.FailedDeleteRouteTime();
+        }
     }
 }

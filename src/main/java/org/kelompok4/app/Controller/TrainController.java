@@ -181,7 +181,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
     public boolean validateInputTrain(String input){
         boolean valid;
-//        System.out.println(input);
+//      System.out.println(input);
         Pattern p = Pattern.compile("'([^']*)'");
         Matcher m = p.matcher(input);
         //cek apakah ada nama Train dengan format didalam tanda petik
@@ -245,5 +245,9 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
     public void deleteTrainView() {
         trainView.printDeleteTrain();
+    }
+
+    public void trainMenuView() {
+        trainView.printTrainMenu();
     }
 }

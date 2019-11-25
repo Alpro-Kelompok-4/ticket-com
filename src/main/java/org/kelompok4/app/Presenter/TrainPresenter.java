@@ -24,7 +24,7 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
 
     @Override
     public void run() {
-        trainController.getTrainView().printTrainMenu();
+        trainController.trainMenuView();
         int menu =sc.nextInt();
         sc.nextLine();
         menu(menu);

@@ -51,7 +51,7 @@ public class RouteTrainPresenter extends ContinuePresenter implements ICanRun{
         if (routeTrainController.checkRouteAvailability(routeCode)) {
             String trainCode = sc.nextLine();
             RouteTrainModel routeTime = new RouteTrainModel();
-            while (trainCode.equals("-99")) {
+            while (!trainCode.equals("-99")) {
                 if (routeTrainController.searchTrain(trainCode)) {
                     routeTime.setRouteTrainCode(routeTrainController.generateLastRouteTrainCode());
                     routeTime.setRwRoute(routeTrainController.getRwRoute(routeCode));
@@ -60,6 +60,7 @@ public class RouteTrainPresenter extends ContinuePresenter implements ICanRun{
                 } else {
                     routeTrainController.getRouteTrainView().FailedAddRouteTrain();
                 }
+                trainCode = sc.nextLine();
             }
             routeTrainController.setRouteTrain(routeTime);
             pressEnterKey();

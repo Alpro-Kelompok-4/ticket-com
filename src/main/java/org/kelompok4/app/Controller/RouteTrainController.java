@@ -9,12 +9,14 @@ import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTrainModel;
 import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TrainModel;
+import org.kelompok4.app.Repo.RouteTrainRepo;
 import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.View.RouteTrainView;
 
 public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     RouteTrainModel routeTrainModel;
     RouteTrainView routeTrainView;
+    RouteTrainRepo routeTrainRepo;
 
     public RouteTrainController(RouteTrainModel routeTrainModel, RouteTrainView routeTrainView) {
         this.routeTrainModel = routeTrainModel;
@@ -86,17 +88,17 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public void setRouteTrain(RouteTrainModel routeTrain){
-        // TODO: Insert to json
+        routeTrainRepo.create(routeTrain);
     }
 
     public void addTrain(TrainModel train, RouteTrainModel routeTrain){
-        ArrayList<TrainModel> current = routeTrainModel.getList();
+        ArrayList<TrainModel> current = routeTrain.getList();
         if (current.contains(train)){
             routeTrainView.FailedAddRouteTrain();
         } else {
             current.add(train);
-            routeTrainModel.setList(current);
-            // TODO: Update json
+            routeTrain.setList(current);
+            routeTrainRepo.update(routeTrain);
         }
     }
 
@@ -111,15 +113,14 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     public void sortTrain(RouteTrainModel routeTrain){
         ArrayList<TrainModel> current = routeTrain.getList();
         current.sort(Comparator.comparing(TrainModel::getTrainCode));
-        routeTrainModel.setList(current);
-        // TODO: Update json
+        routeTrain.setList(current);
+        routeTrainRepo.update(routeTrain);
     }
 
     public void deleteTrain(TrainModel train){
         ArrayList<TrainModel> current = routeTrainModel.getList();
         if (current.remove(train)){
             routeTrainModel.setList(current);
-            // TODO: Update json
             routeTrainView.SuccessDeleteRouteTrain();
         } else {
             routeTrainView.FailedDeleteRouteTrain();
@@ -136,9 +137,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<RouteTrainModel> getAllRouteTrain(){
-        ArrayList<RouteTrainModel> routeTrains = new ArrayList<RouteTrainModel>();
-        // TODO: Get from json
-        return routeTrains;
+        return routeTrainRepo.getAll();
     }
 
     public String allRouteTrainView(ArrayList<RouteTrainModel> routeTrains){

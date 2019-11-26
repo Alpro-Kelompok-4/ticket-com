@@ -26,6 +26,16 @@ public class RouteTrainRepo {
             e.printStackTrace();
         }
     }
+
+    public void create(ArrayList<RouteTrainModel> list){
+        try {
+            JsonNode root = mapper.valueToTree(list);
+            mapper.writeValue(new File(path), root);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     public ArrayList<RouteTrainModel> getAll() {
         ArrayList<RouteTrainModel> list = new ArrayList<>();
@@ -71,6 +81,11 @@ public class RouteTrainRepo {
             e.printStackTrace();
         }
     }
+
+    public void update(ArrayList<RouteTrainModel> list){
+        deleteAll();
+        create(list);
+    }
     
     public void delete(RouteTrainModel model) {
         try {
@@ -86,5 +101,15 @@ public class RouteTrainRepo {
             e.printStackTrace();
         }
     }
-    
+
+    public void deleteAll(){
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            ((ArrayNode) root).removeAll();
+            mapper.writeValue(new File(path), root);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -26,6 +26,16 @@ public class RouteTimeRepo {
             e.printStackTrace();
         }
     }
+
+    public void create(ArrayList<RouteTimeModel> list){
+        try {
+            JsonNode root = mapper.valueToTree(list);
+            mapper.writeValue(new File(path), root);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     public ArrayList<RouteTimeModel> getAll() {
         ArrayList<RouteTimeModel> list = new ArrayList<>();
@@ -71,6 +81,11 @@ public class RouteTimeRepo {
             e.printStackTrace();
         }
     }
+
+    public void update(ArrayList<RouteTimeModel> list){
+        deleteAll();
+        create(list);
+    }
     
     public void delete(RouteTimeModel model) {
         try {
@@ -80,6 +95,17 @@ public class RouteTimeRepo {
                     ((ArrayNode) root).remove(i);
                 }
             }
+            mapper.writeValue(new File(path), root);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAll(){
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            ((ArrayNode) root).removeAll();
             mapper.writeValue(new File(path), root);
             
         } catch (IOException e) {

@@ -9,12 +9,15 @@ import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TimeModel;
+import org.kelompok4.app.Repo.RouteTimeRepo;
+import org.kelompok4.app.Repo.RwRouteRepo;
 import org.kelompok4.app.Repo.TimeRepo;
 import org.kelompok4.app.View.RouteTimeView;
 
 public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     RouteTimeModel routeTimeModel;
     RouteTimeView routeTimeView;
+    RouteTimeRepo routeTimeRepo;
 
     public RouteTimeController(RouteTimeModel routeTimeModel, RouteTimeView routeTimeView) {
         this.routeTimeModel = routeTimeModel;
@@ -86,7 +89,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public void setRouteTime(RouteTimeModel routeTime){
-        // TODO: Insert to json
+        routeTimeRepo.create(routeTime);
     }
 
     public void addTime(TimeModel time, RouteTimeModel routeTime) {
@@ -95,8 +98,8 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
             routeTimeView.FailedAddRouteTime();
         } else {
             current.add(time);
-            routeTimeModel.setList(current);
-            // TODO: Update json
+            routeTime.setList(current);
+            routeTimeRepo.update(routeTime);
         }
     }
 
@@ -109,7 +112,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         ArrayList<TimeModel> current = routeTime.getList();
         current.sort(Comparator.comparing(TimeModel::getTimeCode));
         routeTime.setList(current);
-        // TODO: Update json
+        routeTimeRepo.update(routeTime);
     }
 
     public void deleteTime(TimeModel time) {
@@ -123,7 +126,6 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public RouteTimeModel getRouteTime(String routeTimeCode){
-        // TODO: get from json
         RouteTimeModel routeTime = new RouteTimeModel();
         for (RouteTimeModel r : getAllRouteTime()) {
             if (r.getRouteTimeCode().equals(routeTimeCode)){
@@ -135,9 +137,8 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<RouteTimeModel> getAllRouteTime(){
-        ArrayList<RouteTimeModel> routeTimes = new ArrayList<RouteTimeModel>();
-        // TODO: Get from json
-        return routeTimes;
+        
+        return routeTimeRepo.getAll();
     }
 
     public String allRouteTimeView(ArrayList<RouteTimeModel> routeTimes){
@@ -176,9 +177,8 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<RwRouteModel> getAllRwRoute(){
-        ArrayList<RwRouteModel> rwRoutes = new ArrayList<RwRouteModel>();
-        // TODO: get from json
-        return rwRoutes;
+        RwRouteRepo repo = new RwRouteRepo();
+        return repo.getAll();
     }
 
 	public RwRouteModel getRwRoute(String routeCode) {

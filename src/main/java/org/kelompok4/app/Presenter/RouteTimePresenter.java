@@ -52,7 +52,7 @@ public class RouteTimePresenter extends ContinuePresenter implements ICanRun {
         if (routeTimeController.checkRouteAvailability(routeCode)) {
             String timeCode = sc.nextLine();
             RouteTimeModel routeTime = new RouteTimeModel();
-            while (timeCode.equals("-99")) {
+            while (!timeCode.equals("-99")) {
                 if (routeTimeController.searchTime(timeCode)) {
                     routeTime.setRouteTimeCode(routeTimeController.generateLastRouteTimeCode());
                     routeTime.setRwRoute(routeTimeController.getRwRoute(routeCode));
@@ -61,6 +61,7 @@ public class RouteTimePresenter extends ContinuePresenter implements ICanRun {
                 } else {
                     routeTimeController.getRouteTimeView().FailedAddRouteTime();
                 }
+                timeCode = sc.nextLine();
             }
             routeTimeController.setRouteTime(routeTime);
             pressEnterKey();

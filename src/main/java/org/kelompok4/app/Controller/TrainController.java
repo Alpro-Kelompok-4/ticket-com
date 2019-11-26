@@ -126,24 +126,24 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     public ArrayList<TrainModel> fetchAll(){
         return trainRepo.getAll();
     }
-//    public String allTrainView(ArrayList<TrainModel> trainModels){
-//        return AsciiTable.getTable(trainModels, Arrays.asList(
-//        new Column().header("Kode KAI").with(trainModel ->trainModel.getTrainCode()),
-//        new Column().header("NAMA KAI").with(trainModel -> trainModel.getTrainName()),
-//        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSumOfDuration())),
-//        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSumOfDuration())),
-//        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSumOfDuration()))));
-//
-//    }
     public String allTrainView(ArrayList<TrainModel> trainModels){
-        TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
-        t.addColumn("Kode KAI", TrainModel::getTrainCode);
-        t.addColumn("NAMA KAI", TrainModel::getTrainName);
-        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
-        t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
-        t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
-        return t.createString(trainModels);
+        return AsciiTable.getTable(trainModels, Arrays.asList(
+        new Column().header("KODE KAI").with(trainModel ->trainModel.getTrainCode()),
+        new Column().header("NAMA KAI").with(trainModel -> trainModel.getTrainName()),
+        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getNumberOfCoach())),
+        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSizeOfBC())),
+        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSizeOfPC()))));
+
     }
+//    public String allTrainView(ArrayList<TrainModel> trainModels){
+//        TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
+//        t.addColumn("Kode KAI", TrainModel::getTrainCode);
+//        t.addColumn("NAMA KAI", TrainModel::getTrainName);
+//        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
+//        t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
+//        t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
+//        return t.createString(trainModels);
+//    }
 
 
     public void trainView(){

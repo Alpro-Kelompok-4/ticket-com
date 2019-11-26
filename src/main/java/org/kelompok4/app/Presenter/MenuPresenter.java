@@ -15,13 +15,35 @@ public class MenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
     LoginPresenter loginPresenter;
     RegisterPresenter registerPresenter;
-    CustomerMenuPresenter customerPresenter;
+    CustomerMenuPresenter customerMenuPresenter;
+    AdminMenuPresenter adminMenuPresenter;
 
-    public MenuPresenter(MenuController menuController, LoginPresenter loginPresenter,RegisterPresenter registerPresenter) {
+    public MenuPresenter(MenuController menuController, LoginPresenter loginPresenter, RegisterPresenter registerPresenter, CustomerMenuPresenter customerPresenter, AdminMenuPresenter adminMenuPresenter) {
         this.menuController = menuController;
-        this.loginPresenter= loginPresenter;
-        this.registerPresenter= registerPresenter;
+        this.loginPresenter = loginPresenter;
+        this.registerPresenter = registerPresenter;
+        this.customerMenuPresenter = customerPresenter;
+        this.adminMenuPresenter = adminMenuPresenter;
     }
+
+    public CustomerMenuPresenter getCustomerMenuPresenter() {
+        return customerMenuPresenter;
+    }
+
+    public void setCustomerMenuPresenter(CustomerMenuPresenter customerPresenter) {
+        this.customerMenuPresenter = customerPresenter;
+    }
+
+    public AdminMenuPresenter getAdminMenuPresenter() {
+        return adminMenuPresenter;
+    }
+
+    public void setAdminMenuPresenter(AdminMenuPresenter adminMenuPresenter) {
+        this.adminMenuPresenter = adminMenuPresenter;
+    }
+    
+
+    
 
     public MenuController getMenuController() {
         return menuController;
@@ -61,8 +83,12 @@ public class MenuPresenter extends ContinuePresenter implements ICanRun {
                 case 1:
                     loginPresenter.run();
                     if(loginPresenter.getLoginController().auth()){
-                        UserModel userModel = loginPresenter.getLoginController().getUserModelByEmail();
                         
+                        if(loginPresenter.getLoginController().getLoginEmail().equals("admin@ticket.com")){
+                            adminMenuPresenter.run();
+                        }else{
+                            customerMenuPresenter.run();
+                        }
                     }else{
                         run();
                     }

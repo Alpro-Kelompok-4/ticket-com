@@ -110,6 +110,96 @@ public class UserView{
             System.out.println(" ");
         }
 
+    public void successUpdateInfoUser() {
+        System.out.println("Data Berhasil Diupdate, Berikut Data Terbaru:");
+        System.out.flush();
+    }
+
+    public void failedUpdateInfoUser() {
+        System.out.println("Data gagal diupdate, mohon periksa kembali data yang masukan!");
+        System.out.flush();
+    }
+    public void printsearchByNoKTP(){
+        System.out.print("Masukkan Nomor KTP :");
+        System.out.flush();
+    }
+    public void printShowInfoUser(){
+        System.out.println("-- Data Pengguna --");
+        System.out.flush();
+    }
+    public void printChangeInfoUser(){
+        System.out.println("-- Ubah Data Pengguna --");
+        System.out.flush();
+    }
+    public void printUpdatePageCustomer(){
+        System.out.println("#KELOLA PROFILE BY PENUMPANG#\n");
+        System.out.println("");
+        System.out.println("");
+        System.out.flush();
+    }
+
+    public void printUpdatePageAdmin(){
+        System.out.println("#KELOLA AKUN BY ADMIN\n");
+        System.out.println("");
+        System.out.println("");
+        System.out.flush();
+    }
+
+    public void printNoKTP() {
+        System.out.print("Nomor KTP : ");
+        System.out.flush();
+    }
+
+    public void printNoKTP(String noKTP) {
+        System.out.print("Nomor KTP : " + noKTP);
+        System.out.println("");
+        System.out.flush();
+    }
+
+    public void printNamaLengkap() {
+        System.out.print("Nama Lengkap : ");
+        System.out.flush();
+    }
+
+    public void printNamaLengkap(String namaCustomer) {
+        System.out.print("Nama Lengkap : " + namaCustomer);
+        System.out.println("");
+        System.out.flush();
+    }
+
+    public void printNoHp() {
+        System.out.print("Nomor Handphone : ");
+        System.out.flush();
+    }
+
+    public void printNoHp(String noHP) {
+        System.out.print("Nomor Handphone : " + noHP);
+        System.out.println("");
+        System.out.flush();
+    }
+
+    public void printEmail() {
+        System.out.print("Email : ");
+        System.out.flush();
+    }
+
+    public void printEmail(String email) {
+        System.out.print("Email : " + email);
+        System.out.println("");
+        System.out.flush();
+    }
+
+    public void printPassword() {
+        System.out.print("Password : ");
+        System.out.flush();
+    }
+
+    public void printPassword(String password) {
+        System.out.print("Password : " + password);
+        System.out.println("");
+        System.out.flush();
+    }
+
         
 
 }

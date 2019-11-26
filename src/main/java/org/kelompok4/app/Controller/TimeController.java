@@ -3,7 +3,6 @@ package org.kelompok4.app.Controller;
 import com.github.freva.asciitable.AsciiTable;
 import com.github.freva.asciitable.Column;
 import org.kelompok4.app.Interface.ICanCreate;
-import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.JamModel;
 import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.View.TimeView;
@@ -103,4 +102,5 @@ public class TimeController implements  ICanCreate {
      public void timeTable(String S){
         timeView.printShowTable(S);
     }
+    
 }

@@ -8,6 +8,7 @@ import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RouteTrainModel;
+import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.View.TrainScheduleView;
 
@@ -48,19 +49,43 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     }
 
     public ArrayList<TrainScheduleModel> generateTrainSchedule(RouteTrainModel train, RouteTimeModel time){
-        ArrayList<TrainScheduleModel> schedule = new ArrayList<TrainScheduleModel>();
+        ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
 
         
 
         // TODO: Update json
 
 
-        return schedule;
+        return schedules;
     }
 
-    public ArrayList<TrainScheduleModel> findTrainSchedule(RouteModel route){
-        ArrayList<TrainScheduleModel> schedule = new ArrayList<TrainScheduleModel>();
+    public ArrayList<TrainScheduleModel> getAllTrainSchedule(){
+        ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
+        // TODO: Get from json
 
-        return schedule;
+        return schedules;
+    }
+
+    public ArrayList<TrainScheduleModel> findTrainSchedule(RouteModel route, TimeModel time){
+        ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
+        for (TrainScheduleModel t : getAllTrainSchedule()) {
+            if (t.getTimeModel().equals(time) && t.getRwRouteModel().getRoute().equals(route)){
+                schedules.add(t);
+            }
+        }
+        return schedules;
+    }
+
+    public String allTrainScheduleView(ArrayList<TrainScheduleModel> trainSchedules){
+        TableStringBuilder<TrainScheduleModel> t = new TableStringBuilder<TrainScheduleModel>();
+        t.addColumn("Kode Jadwal", TrainScheduleModel::getScheduleCode);
+        t.addColumn("Tanggal", TrainScheduleModel::getDateString);
+        t.addColumn("Waktu Keberangkatan", TrainScheduleModel::getDepartureTimeString);
+        t.addColumn("Keberangkatan", TrainScheduleModel::getDepartureCityString);
+        t.addColumn("Tujuan", TrainScheduleModel::getArrivalCityString);
+        t.addColumn("Waktu Tiba", TrainScheduleModel::getArrivalTimeString);
+        t.addColumn("KAI", TrainScheduleModel::getTrainCodeString);
+        t.addColumn("Status", TrainScheduleModel::getRemainingSeatString);
+        return t.createString(trainSchedules);
     }
 }

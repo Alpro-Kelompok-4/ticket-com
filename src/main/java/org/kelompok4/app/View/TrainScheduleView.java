@@ -7,7 +7,7 @@ public class TrainScheduleView {
 
     }
 
-    public void MenuRouteTimeView(){
+    public void MenuTrainScheduleView(){
         System.out.println("********************************************************************************************************************");
 		System.out.println("                                                       TICKET.COM                                                   ");
 		System.out.println("********************************************************************************************************************");

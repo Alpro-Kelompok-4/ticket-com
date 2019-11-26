@@ -58,6 +58,9 @@ public class Main {
 		//menuPresenter.run();
 
         AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
-        adminMenuPresenter.run();
+        //adminMenuPresenter.run();
+
+		CustomerMenuPresenter customerMenuPresenter = new CustomerMenuPresenter(menuController);
+		customerMenuPresenter.run();
 	}
 }

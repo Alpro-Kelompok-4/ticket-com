@@ -121,7 +121,7 @@ public class TrainScheduleModel {
         int maxSeat = 0;
         int filledSeat = 0;
         for (CoachModel c : trainModel.getCoachs()) {
-            maxSeat += c.getMaxSeat();
+            maxSeat += c.getSeatQty();
             filledSeat += c.getSeat().size();
         }
         if (maxSeat > filledSeat){

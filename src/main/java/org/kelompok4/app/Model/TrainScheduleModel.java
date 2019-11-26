@@ -1,17 +1,18 @@
 package org.kelompok4.app.Model;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 public class TrainScheduleModel {
     private String scheduleCode;
     private TimeModel timeModel;
-    private Date date;
+    private LocalDate date;
     private RwRouteModel rwRouteModel;
     private TrainModel trainModel;
 
     public TrainScheduleModel() {
     }
 
-    public TrainScheduleModel(String scheduleCode, TimeModel timeModel, Date date, RwRouteModel rwRouteModel, TrainModel trainModel) {
+    public TrainScheduleModel(String scheduleCode, TimeModel timeModel, LocalDate date, RwRouteModel rwRouteModel, TrainModel trainModel) {
         this.scheduleCode = scheduleCode;
         this.timeModel = timeModel;
         this.date = date;
@@ -35,11 +36,11 @@ public class TrainScheduleModel {
         this.timeModel = timeModel;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -42,12 +42,12 @@ public class CustomerController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getName() {
-        return userModel.getNama();
+        return userModel.getName();
     }
 
     @Override
     public void setName(String name) {
-        userModel.setNama(name);
+        userModel.setName(name);
     }
 
     @Override
@@ -62,12 +62,12 @@ public class CustomerController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getNoKTP() {
-        return userModel.getNoKTP();
+        return userModel.getId();
     }
 
     @Override
     public void setNoKTP(String noKTP) {
-        userModel.setNoKTP(noKTP);
+        userModel.setId(noKTP);
     }
 
     @Override

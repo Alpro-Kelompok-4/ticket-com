@@ -42,12 +42,12 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getName() {
-        return model.getNama();
+        return model.getName();
     }
 
     @Override
     public void setName(String name) {
-        model.setNama(name);
+        model.setName(name);
     }
 
     @Override
@@ -62,12 +62,12 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getNoKTP() {
-        return model.getNoKTP();
+        return model.getId();
     }
 
     @Override
     public void setNoKTP(String noKTP) {
-        model.setNoKTP(noKTP);
+        model.setId(noKTP);
     }
 
     @Override

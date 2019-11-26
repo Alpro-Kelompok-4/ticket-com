@@ -5,6 +5,7 @@ import org.kelompok4.app.Model.BusinessCoachModel;
 import org.kelompok4.app.Model.CoachModel;
 import org.kelompok4.app.Model.PremiumCoachModel;
 import org.kelompok4.app.Model.TrainModel;
+import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.View.TrainView;
 
 import java.util.ArrayList;
@@ -118,14 +119,14 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         trainView.printEditTrainPage();
         trainView.printEditTrain();
     }
-    public ArrayList<TrainModel> fetchAll(ArrayList<TrainModel> trainModels){
-        return trainModels;
+    public ArrayList<TrainModel> fetchAll(){
+        return new TrainRepo().getAll();
     }
     public String allTrainView(ArrayList<TrainModel> trainModels){
         TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
         t.addColumn("Kode KAI", TrainModel::getTrainCode);
         t.addColumn("NAMA KAI", TrainModel::getTrainName);
-        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
+        t.addColumn("GERBONG", TrainModel::numberOfCoach);
         t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
         t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
         return t.createString(trainModels);
@@ -181,7 +182,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
     public boolean validateInputTrain(String input){
         boolean valid;
-//        System.out.println(input);
+//      System.out.println(input);
         Pattern p = Pattern.compile("'([^']*)'");
         Matcher m = p.matcher(input);
         //cek apakah ada nama Train dengan format didalam tanda petik
@@ -245,5 +246,9 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
     public void deleteTrainView() {
         trainView.printDeleteTrain();
+    }
+
+    public void trainMenuView() {
+        trainView.printTrainMenu();
     }
 }

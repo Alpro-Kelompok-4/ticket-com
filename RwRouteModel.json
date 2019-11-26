@@ -1,0 +1,42 @@
+[{
+        "route": {
+            "departure": {
+                "cityCode": "JKT",
+                "cityName": "Jakarta"
+            },
+            "arrival": {
+                "cityCode": "BDG",
+                "cityName": "Bandung"
+            },
+            "routeCode": "JKT-BDG",
+            "business": {
+                "price": 30000.0
+            },
+            "premium": {
+                "price": 20000.0
+            }
+        },
+        "rwRouteCode": "JL01",
+        "list": [{
+                "origin": {
+                    "rwStationCode": "GMB",
+                    "rwStationName": "Gambir"
+                },
+                "destination": {
+                    "rwStationCode": "JTR",
+                    "rwStationName": "Jatinegara"
+                },
+                "duration": 30
+            }, {
+                "origin": {
+                    "rwStationCode": "JTR",
+                    "rwStationName": "Jatinegara"
+                },
+                "destination": {
+                    "rwStationCode": "BKS",
+                    "rwStationName": "Bekasi"
+                },
+                "duration": 30
+            }],
+        "sumOfDuration": 60
+    }]

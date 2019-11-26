@@ -2,21 +2,27 @@ package org.kelompok4.app.Model;
 
 import java.util.ArrayList;
 
+enum Status {
+    UNPAID,
+    PAID,
+    EXPIRED
+}
+
 public class BookingModel {
     private String bookingCode;
-    private String codeSchedule;
+    private String scheduleCode;
     private String trainCode;
     private String virtualAccount;
     private ArrayList<String> passenger;
     private ArrayList<String> seatCode;
-    private boolean paid; // jadi private enum UNPAID, PAID, EXPIRED, CANCELLED
+    private Status paid; // jadi private enum UNPAID, PAID, EXPIRED, CANCELLED
     private PriceModel totalPayment;
 
     public BookingModel() {
     }
 
-    public BookingModel(String codeSchedule, String trainCode, String bookingCode, String virtualAccount, ArrayList<String> passenger, ArrayList<String> seatCode, boolean paid, PriceModel totalPayment) {
-        this.codeSchedule = codeSchedule;
+    public BookingModel(String scheduleCode, String trainCode, String bookingCode, String virtualAccount, ArrayList<String> passenger, ArrayList<String> seatCode, Status paid, PriceModel totalPayment) {
+        this.scheduleCode = scheduleCode;
         this.trainCode = trainCode;
         this.bookingCode = bookingCode;
         this.virtualAccount = virtualAccount;
@@ -26,12 +32,12 @@ public class BookingModel {
         this.totalPayment = totalPayment;
     }
 
-    public String getCodeSchedule() {
-        return codeSchedule;
+    public String getScheduleCode() {
+        return scheduleCode;
     }
 
-    public void setCodeSchedule(String codeSchedule) {
-        this.codeSchedule = codeSchedule;
+    public void setScheduleCode(String code) {
+        this.scheduleCode = code;
     }
 
     public String getTrainCode() {
@@ -74,11 +80,11 @@ public class BookingModel {
         this.seatCode = seatCode;
     }
 
-    public boolean isPaid() {
+    public Status getPaid() {
         return paid;
     }
 
-    public void setPaid(boolean paid) {
+    public void setPaid(Status paid) {
         this.paid = paid;
     }
 

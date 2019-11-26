@@ -1,18 +1,12 @@
 package org.kelompok4.app;
 
 import org.kelompok4.app.Controller.*;
-import org.kelompok4.app.Model.LoginModel;
-import org.kelompok4.app.Model.RwRouteModel;
-import org.kelompok4.app.Model.TrainModel;
-import org.kelompok4.app.Model.UserModel;
+import org.kelompok4.app.Model.*;
 import org.kelompok4.app.Presenter.LoginPresenter;
 import org.kelompok4.app.Presenter.RegisterPresenter;
 import org.kelompok4.app.Presenter.RwRoutePresenter;
 import org.kelompok4.app.Presenter.TrainPresenter;
-import org.kelompok4.app.View.LoginView;
-import org.kelompok4.app.View.RegisterView;
-import org.kelompok4.app.View.RwRouteView;
-import org.kelompok4.app.View.TrainView;
+import org.kelompok4.app.View.*;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -51,7 +45,11 @@ public class Main {
 		TrainPresenter trainPresenter = new TrainPresenter(trainController);
 //		trainPresenter.run();
 		RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(rwRouteController);
-		rwRoutePresenter.run();
+//		rwRoutePresenter.run();
+		TimeModel timeModel = new TimeModel();
+		TimeView timeView = new TimeView();
+		TimeController timeController = new TimeController(timeModel,timeView);
+		timeController.generateTime();
 	}
 
 }

@@ -10,9 +10,11 @@ D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\UserRepo.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Model\CityModel.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Model\PremiumCoachModel.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanManageTrain.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\View\TimeView.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanUpdateUser.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanRun.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanValidateNoHP.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Presenter\TimePresenter.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Presenter\ContinuePresenter.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Model\TrainScheduleModel.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Model\SeatModel.java
@@ -31,6 +33,7 @@ D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Presenter\TrainPre
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Controller\LoginController.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Model\RwStationModel.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Presenter\RwRoutePresenter.java
+D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Controller\TimeController.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanLoginByEmail.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanAuthByPassword.java
 D:\Praktikum Alpro\ticket-com\src\main\java\org\kelompok4\app\Interface\ICanValidatePassword.java

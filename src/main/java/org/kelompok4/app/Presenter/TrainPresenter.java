@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class TrainPresenter extends ContinuePresenter implements ICanRun {
     TrainController trainController;
-    ArrayList<TrainModel> trainModels = new ArrayList<TrainModel>();
+//    ArrayList<TrainModel> trainModels = new ArrayList<TrainModel>();
 
     public TrainPresenter(TrainController trainController) {
         this.trainController = trainController;
@@ -65,7 +65,7 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
             //true adalah train inputan user tidak ada di json
             if(trainController.validateCodeTrain()){
                 trainController.create();
-                trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
+//                trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
                 trainController.resultView();
                 trainController.resultAddTrain(valid);
                 pressEnterKey();
@@ -73,12 +73,14 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
             }else{
                 trainController.resultView();
                 System.out.println("KERETA gagal ditambahkan, Kode KAI sudah Terdaftar");
+                pressEnterKey();
+                run();
             }
 
         }
     }
     public void showTable(){
-        trainController.trainTable(trainController.allTrainView(trainModels));
+        trainController.trainTable(trainController.allTrainView(trainController.fetchAll()));
     }
     public void showTrain() {
         trainController.showTrainView();
@@ -102,7 +104,7 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
         if(input.equals("99")){
             run();
         } else if(valid){
-            if(!trainController.validateCodeTrain()){
+            if(trainController.validateEditDeleteCodeTrain()){
                 trainController.update();
                 //trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
                 trainController.resultView();
@@ -113,6 +115,8 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
             }else{
                 trainController.resultView();
                 System.out.println("KERETA gagal diedit, Kode KAI sudah tidak ada didatabase");
+                pressEnterKey();
+                run();
             }
         }
     }
@@ -124,7 +128,7 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
             trainController.deleteTrainView();
             input = sc.nextLine();
             trainController.setTrainCode(input);
-            valid = trainController.validateCodeTrain();
+            valid = trainController.validateEditDeleteCodeTrain();
             if(!input.equals("99")&&!valid){
                 trainController.resultDeleteTrain(valid);
                 pressEnterKey();
@@ -133,15 +137,17 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
         if(input.equals("99")){
             run();
         } else if(valid){
-            if(!trainController.validateCodeTrain()){
+            if(trainController.validateEditDeleteCodeTrain()){
                 trainController.delete();
-                trainController.resultView();
+//                trainController.resultView();
                 trainController.resultDeleteTrain(valid);
                 pressEnterKey();
                 run();
             }else{
                 trainController.resultView();
                 System.out.println("KERETA gagal dihapus, Kode KAI tidak ada didatabase");
+                pressEnterKey();
+                run();
             }
         }
     }

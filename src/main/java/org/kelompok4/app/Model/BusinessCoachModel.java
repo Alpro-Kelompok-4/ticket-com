@@ -5,6 +5,6 @@ public class BusinessCoachModel extends CoachModel {
 
     public BusinessCoachModel(){
         super();
-        this.setMaxSeat(10);
+        this.setSeatQty(10);
     }
 }

@@ -37,7 +37,7 @@ public class RwRouteView {
         System.out.flush();
     }
     public void printTrackInputView(int i){
-        System.out.print("Time " + i + " : ");
+        System.out.print("Jalur " + i + " : ");
     }
     public void failedValidateCodeRwRouteView(){
         System.out.println("Format Kode rute yang Anda masukan salah!");
@@ -78,12 +78,12 @@ public class RwRouteView {
     }
 
     public void printDeleteRwRouteView() {
-        System.out.print("Hapus Jalur Pada Rute : ");
+        System.out.print("Hapus Kode Jalur : ");
         System.out.flush();
     }
 
     public void printDeleteRwRouteView(String formatDelRwRoute) {
-        System.out.print("Hapus Jalur Pada Rute : " + formatDelRwRoute);
+        System.out.print("Hapus Kode Jalur : " + formatDelRwRoute);
         System.out.flush();
     }
 
@@ -102,7 +102,6 @@ public class RwRouteView {
         System.out.flush();
     }
     public void printShowTable(String S) {
-        System.out.println("#TABLE DATA WAKTU AVAULABLE UNTUK RUTE#");
         System.out.println(S);
         System.out.flush();
     }

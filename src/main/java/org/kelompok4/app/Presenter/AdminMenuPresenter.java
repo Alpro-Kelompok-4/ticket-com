@@ -13,7 +13,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     CityPresenter cityPresenter;
 //    RwStasionController rwStasionController;
     TrainPresenter  trainPresenter ;
-//    TimePresenter  timePresenter ;
+    TimePresenter  timePresenter ;
 //    RoutePresenter  routePresenter ;
 //    RwRoutePresenter  rwRoutePresenter ;
 //    RouteTrainPresenter  routeTrainPresenter ;
@@ -58,6 +58,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     }
 
     public TrainPresenter getTrainPresenter() {
+            
         return trainPresenter;
     }
 
@@ -85,7 +86,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                     break;
                 case 3://Generate Waktu
                     System.out.println("//Nyambung ke timePresenter.run()");
-                    // timePresenter.run();
+                    timePresenter.run();
                     break;
                 case 4://Kelola Rute
                     System.out.println("//Nyambung ke rwRoutePresenter.run()");

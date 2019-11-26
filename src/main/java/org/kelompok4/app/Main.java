@@ -45,16 +45,16 @@ public class Main {
 		TrainModel trainModel = new TrainModel();
 		TrainView trainView = new TrainView();
 		TrainController trainController = new TrainController(trainModel,trainView);
-//		RwRouteModel rwRouteModel = new RwRouteModel();
-//		RwRouteView rwRouteView = new RwRouteView();
-//		RwRouteController rwRouteController = new RwRouteController(rwRouteModel,rwRouteView);
+RwRouteModel rwRouteModel = new RwRouteModel();
+RwRouteView rwRouteView = new RwRouteView();
+RwRouteController rwRouteController = new RwRouteController(rwRouteModel,rwRouteView);
 ////		trainController.validateInputTrain("KAI190801 'Kereta Api I Bulan 8 Tahun 2019' G6 B2 P4");
 //		// driver.login(loginController,loginModel,loginView);
 //		// driver.register(registerController,userModel,registerView);
 //		// driver.updateinfouser(customerController, userModel, registerView);
 		TrainPresenter trainPresenter = new TrainPresenter(trainController);
 ////                trainPresenter.run();
-//		RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(rwRouteController);
+                    RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(rwRouteController);
 //                //  System.out.print(asd);
 ////                rwRoutePresenter.run();
 //		TimeModel timeModel = new TimeModel();
@@ -71,7 +71,7 @@ public class Main {
                 MenuView menuView = new MenuView();
 		MenuController menuController = new MenuController(menuView);
                 AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
-                trainPresenter.run();
+                rwRoutePresenter.run();
 		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter,customerMenuPresenter,adminMenuPresenter);
 //		menuPresenter.run();
 	}

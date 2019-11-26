@@ -11,7 +11,7 @@ import org.kelompok4.app.Model.RwStationModel;
 
 public class RwStationRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\RwStationModel_1.json";
+    String path = System.getProperty("user.dir") + "\\RwStationModel.json";
     
     public void create(RwStationModel model) {
         try {
@@ -46,6 +46,21 @@ public class RwStationRepo {
             JsonNode root = mapper.readTree(new File(path));
             for (JsonNode node : root) {
                 if (node.path("rwStationCode").asText().equals(id)) {
+                    model = mapper.treeToValue(node, RwStationModel.class);
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
+     public RwStationModel getByName(String id) {
+        RwStationModel model = new RwStationModel();
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            for (JsonNode node : root) {
+                if (node.path("rwStationName").asText().equals(id)) {
                     model = mapper.treeToValue(node, RwStationModel.class);
                 }
             }

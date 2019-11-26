@@ -8,6 +8,7 @@ public class CoachModel {
 
     public CoachModel(int seatQty, ArrayList<SeatModel> seat) {
         this.seatQty = seatQty;
+
         this.seat = seat;
     }
 
@@ -21,6 +22,8 @@ public class CoachModel {
     public void setSeatQty(int seatQty) {
         this.seatQty = seatQty;
     }
+
+    
 
     public ArrayList<SeatModel> getSeat() {
         return seat;

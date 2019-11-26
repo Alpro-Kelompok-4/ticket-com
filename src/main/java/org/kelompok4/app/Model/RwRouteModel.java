@@ -15,7 +15,7 @@ public class RwRouteModel {
     }
     public RwRouteModel() {
     }
-    public String getRouteCodeFromRoute(){
+    public String routeCodeFromRoute(){
         return route.getRouteCode();
     }
 
@@ -32,9 +32,6 @@ public class RwRouteModel {
 
     public void setList(ArrayList<RwTrackModel> list) {
         this.list = list;
-    }
-    public String getRouteCode(){
-        return route.getRouteCode();
     }
 
     public String getRwRouteCode() {

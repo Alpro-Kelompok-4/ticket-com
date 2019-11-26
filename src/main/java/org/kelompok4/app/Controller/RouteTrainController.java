@@ -148,8 +148,8 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         routeTrainView.HeaderViewRouteTrain();
         return AsciiTable.getTable(routeTrains, Arrays.asList(
                 new Column().header("Kode Kereta Rute").with(routeTrain -> routeTrain.getRouteTrainCode()),
-                new Column().header("Kode Rute").with(routeTrain -> routeTrain.getRouteCode()),
-                new Column().header("Kereta Tersedia Pada Rute").with(routeTrain -> routeTrain.getListString())));
+                new Column().header("Kode Rute").with(routeTrain -> routeTrain.routeCode()),
+                new Column().header("Kereta Tersedia Pada Rute").with(routeTrain -> routeTrain.listString())));
     }
 
     public void updateRouteTrain(ArrayList<RouteTrainModel> routeTrains) {
@@ -159,7 +159,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     public boolean checkRouteAvailability(String routeCode) {
         boolean check = true;
         for (RouteTrainModel r : getAllRouteTrain()) {
-            if (r.getRouteCode().equals(routeCode)) {
+            if (r.routeCode().equals(routeCode)) {
                 check = false;
                 break;
             }
@@ -168,12 +168,16 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public String getLastRouteTrainCode() {
-        return getAllRouteTrain().get(getAllRouteTrain().size() - 1).getRouteTrainCode();
+        if (getAllRouteTrain().size() <= 0) {
+            return "KR0";
+        } else {
+            return getAllRouteTrain().get(getAllRouteTrain().size() - 1).getRouteTrainCode();
+        }
     }
 
     public String generateLastRouteTrainCode() {
         String current = getLastRouteTrainCode();
-        int newCode = Integer.valueOf(current.split("KR")[0]);
+        int newCode = Integer.valueOf(current.split("KR")[1]);
         String newString = "KR" + Integer.toString(newCode);
         return newString;
     }

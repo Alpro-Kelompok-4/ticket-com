@@ -216,11 +216,11 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
                 new Column().header("Kode Jadwal").with(trainSchedule -> trainSchedule.getScheduleCode()),
                 new Column().header("Tanggal").with(trainSchedule -> trainSchedule.getDate()),
                 new Column().header("Waktu Keberangkatan")
-                        .with(trainSchedule -> trainSchedule.getDepartureTimeString()),
-                new Column().header("Keberangkatan").with(trainSchedule -> trainSchedule.getDepartureCityString()),
-                new Column().header("Tujuan").with(trainSchedule -> trainSchedule.getArrivalCityString()),
-                new Column().header("Waktu Tiba").with(trainSchedule -> trainSchedule.getArrivalTimeString()),
-                new Column().header("KAI").with(trainSchedule -> trainSchedule.getTrainCodeString()),
-                new Column().header("Status").with(trainSchedule -> trainSchedule.getRemainingSeatString())));
+                        .with(trainSchedule -> trainSchedule.departureTimeString()),
+                new Column().header("Keberangkatan").with(trainSchedule -> trainSchedule.departureCityString()),
+                new Column().header("Tujuan").with(trainSchedule -> trainSchedule.arrivalCityString()),
+                new Column().header("Waktu Tiba").with(trainSchedule -> trainSchedule.arrivalTimeString()),
+                new Column().header("KAI").with(trainSchedule -> trainSchedule.trainCodeString()),
+                new Column().header("Status").with(trainSchedule -> trainSchedule.remainingSeatString())));
     }
 }

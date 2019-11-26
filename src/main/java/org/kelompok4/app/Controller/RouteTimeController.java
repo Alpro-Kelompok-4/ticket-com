@@ -9,6 +9,7 @@ import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TimeModel;
+import org.kelompok4.app.Repo.TimeRepo;
 import org.kelompok4.app.View.RouteTimeView;
 
 public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
@@ -78,9 +79,10 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
     
     public ArrayList<TimeModel> getAllTime(){
-        ArrayList<TimeModel> times = new ArrayList<TimeModel>();
-        // TODO: Get from json
-        return times;
+        
+        TimeRepo timeRepo = new TimeRepo();
+        
+        return timeRepo.getAll();
     }
 
     public void setRouteTime(RouteTimeModel routeTime){

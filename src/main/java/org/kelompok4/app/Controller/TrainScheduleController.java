@@ -8,6 +8,7 @@ import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RouteTrainModel;
+import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.View.TrainScheduleView;
@@ -48,15 +49,15 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
 
     }
 
-    public ArrayList<TrainScheduleModel> generateTrainSchedule(RouteTrainModel train, RouteTimeModel time){
-        ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
-
+    public boolean generateTrainSchedule(ArrayList<RwRouteModel> rwRoutes, ArrayList<RouteTimeModel> routeTimes, ArrayList<RouteTrainModel> routeTrains){
+        ArrayList<TrainScheduleModel> trainSchedules = new ArrayList<TrainScheduleModel>();
+        boolean generateStatus = true;
+        for (RwRouteModel r : rwRoutes) {
+            
+        }
         
-
         // TODO: Update json
-
-
-        return schedules;
+        return generateStatus;
     }
 
     public ArrayList<TrainScheduleModel> getAllTrainSchedule(){

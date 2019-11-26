@@ -9,6 +9,7 @@ import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.RouteTrainModel;
 import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TrainModel;
+import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.View.RouteTrainView;
 
 public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
@@ -79,9 +80,9 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<TrainModel> getAllTrain(){
-        ArrayList<TrainModel> trains = new ArrayList<TrainModel>();
-        // TODO: Get from json
-        return trains;
+        TrainRepo trainRepo = new TrainRepo();
+
+        return trainRepo.getAll();
     }
 
     public void setRouteTrain(RouteTrainModel routeTrain){

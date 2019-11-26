@@ -21,7 +21,6 @@ public class RouteTrainPresenter extends ContinuePresenter implements ICanRun{
 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         routeTrainController.getRouteTrainView().MenuRouteTrainView();
         int menu = sc.nextInt();
         sc.nextLine();

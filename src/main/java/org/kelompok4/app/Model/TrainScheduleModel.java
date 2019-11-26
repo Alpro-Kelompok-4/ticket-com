@@ -5,14 +5,16 @@ import java.time.LocalDate;
 public class TrainScheduleModel {
     private String scheduleCode;
     private TimeModel timeModel;
-    private LocalDate date;
+    // private LocalDate date; -- sementara pakai string
+    private String date;
     private RwRouteModel rwRouteModel;
     private TrainModel trainModel;
 
     public TrainScheduleModel() {
     }
 
-    public TrainScheduleModel(String scheduleCode, TimeModel timeModel, LocalDate date, RwRouteModel rwRouteModel, TrainModel trainModel) {
+    public TrainScheduleModel(String scheduleCode, TimeModel timeModel, String date, RwRouteModel rwRouteModel,
+            TrainModel trainModel) {
         this.scheduleCode = scheduleCode;
         this.timeModel = timeModel;
         this.date = date;
@@ -36,11 +38,11 @@ public class TrainScheduleModel {
         this.timeModel = timeModel;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

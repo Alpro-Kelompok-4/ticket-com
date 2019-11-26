@@ -157,10 +157,10 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public boolean checkRouteAvailability(String routeCode) {
-        boolean check = false;
+        boolean check = true;
         for (RouteTrainModel r : getAllRouteTrain()) {
             if (r.getRouteCode().equals(routeCode)) {
-                check = true;
+                check = false;
                 break;
             }
         }

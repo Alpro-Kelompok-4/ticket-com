@@ -54,8 +54,10 @@ public class Main {
 
 		MenuView menuView = new MenuView();
 		MenuController menuController = new MenuController(menuView);
-		MenuPresenter menuPresenter = new MenuPresenter(menuController);
-		menuPresenter.run();
-	}
+		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter);
+		//menuPresenter.run();
 
+        AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
+        adminMenuPresenter.run();
+	}
 }

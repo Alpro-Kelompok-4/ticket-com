@@ -55,7 +55,7 @@ public class MenuView {
 		System.out.println("6.  Kelola Jalur Stasiun Pada Rute ");
 		System.out.println("7.  Kelola Waktu Pada Rute ");
 		System.out.println("8.  Kelola Kereta Pada Rute ");
-		System.out.println("9.  Generate Jadwal Kereta Apie ");
+		System.out.println("9.  Generate Jadwal Kereta Api ");
 		System.out.println("10. Lihat Pemasukan ");
 		System.out.println("11. Lihat Jadwal Kereta Api ");
 		System.out.println("0.  Logout ");

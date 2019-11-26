@@ -39,7 +39,6 @@ public class LoginPresenter extends ContinuePresenter implements ICanRun {
         loginController.setLoginPassword(sc.nextLine());
         loginController.updateView();
         loginController.authResult(loginController.auth());
-        pressEnterKey();
-        sc.close();
     }
+    
 }

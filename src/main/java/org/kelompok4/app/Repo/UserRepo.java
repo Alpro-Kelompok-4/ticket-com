@@ -41,12 +41,27 @@ public class UserRepo {
         return list;
     }
     
-    public UserModel get(String id) {
+    public UserModel get(String noKTP) {
         UserModel model = new UserModel();
         try {
             JsonNode root = mapper.readTree(new File(path));
             for (JsonNode node : root) {
-                if (node.path("id").asText().equals(id)) {
+                if (node.path("noKTP").asText().equals(noKTP)) {
+                    model = mapper.treeToValue(node, UserModel.class);
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
+    public UserModel getByEmail(String email) {
+        UserModel model = new UserModel();
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            for (JsonNode node : root) {
+                if (node.path("email").asText().equals(email)) {
                     model = mapper.treeToValue(node, UserModel.class);
                 }
             }
@@ -61,7 +76,7 @@ public class UserRepo {
         try {
             JsonNode root = mapper.readTree(new File(path));
             for (int i = 0; i < root.size(); i++) {
-                if (root.get(i).path("id").asText().equals(model.getNoKTP())) {
+                if (root.get(i).path("noKTP").asText().equals(model.getNoKTP())) {
                     ((ArrayNode) root).set(i, mapper.valueToTree(model));
                 }
             }
@@ -76,7 +91,7 @@ public class UserRepo {
         try {
             JsonNode root = mapper.readTree(new File(path));
             for (int i = 0; i < root.size(); i++) {
-                if (root.get(i).path("id").asText().equals(model.getNoKTP())) {
+                if (root.get(i).path("noKTP").asText().equals(model.getNoKTP())) {
                     ((ArrayNode) root).remove(i);
                 }
             }

@@ -8,6 +8,7 @@ import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.View.LoginView;
 
 import java.util.ArrayList;
+import org.kelompok4.app.Repo.UserRepo;
 
 public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, ICanValidateEmail {
 	/*kelompok2.Viewlogin v = new kelompok2.Viewlogin();
@@ -15,6 +16,7 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
 
     private LoginModel model;
     private LoginView view;
+    private UserRepo userRepo = new UserRepo();
 
 
     public LoginController(LoginModel model, LoginView view) {
@@ -69,13 +71,13 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
     //untuk pengecekan user dan password
 
     public boolean auth() {
-        ArrayList<UserModel> usermodel = new ArrayList<>();
-
-        for (UserModel user : usermodel) {
-            System.out.println(user.getNama());
-        }
-        if(this.getLoginEmail().equals("erwin@gmail.com")&&this.getLoginPassword().equals("12345678i")){
-            return true;
+        UserModel userModel = userRepo.getByEmail(this.getLoginEmail());
+        if(userModel.getEmail() != null){
+            if(this.getLoginEmail().equals(userModel.getEmail())&&this.getLoginPassword().equals(userModel.getPassword())){
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
@@ -101,6 +103,10 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
     public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+    
+    public UserModel getUserModelByEmail(){
+        return userRepo.getByEmail(this.getLoginEmail());
     }
 //    public void pressAnyKey() {
 //        System.out.print("\033[H\033[2J");

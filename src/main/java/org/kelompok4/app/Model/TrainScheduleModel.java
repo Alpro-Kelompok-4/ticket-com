@@ -82,10 +82,7 @@ public class TrainScheduleModel {
 
     public String getArrivalTimeString(){
         String output = "";
-        int totalDuration = 0;
-        for (RwTrackModel r : rwRouteModel.getList()) {
-            totalDuration += r.getDuration();
-        }
+        int totalDuration = rwRouteModel.getSumOfDuration();
         int addHH = totalDuration/60;
         int addMM = totalDuration%60;
         int addedHH = timeModel.getJam().getHH() + addHH;

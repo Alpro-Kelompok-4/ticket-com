@@ -11,7 +11,7 @@ import org.kelompok4.app.Model.RwStationModel;
 
 public class RwStationRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\RwStationModel.json";
+    String path = System.getProperty("user.dir") + "\\RwStationModel_1.json";
     
     public void create(RwStationModel model) {
         try {

@@ -22,6 +22,8 @@ org\kelompok4\app\Main.class
 org\kelompok4\app\Model\SeatModel.class
 org\kelompok4\app\Interface\ICanAuthByPassword.class
 org\kelompok4\app\Interface\ICanLoginByEmail.class
+org\kelompok4\app\Interface\ICanManageRwRoute.class
+org\kelompok4\app\Presenter\RwRoutePresenter.class
 org\kelompok4\app\Interface\ICanValidateName.class
 org\kelompok4\app\Controller\RegisterController.class
 org\kelompok4\app\Model\RwStationModel.class
@@ -34,7 +36,10 @@ org\kelompok4\app\Model\RwTrackModel.class
 org\kelompok4\app\Presenter\RouteTrainPresenter.class
 org\kelompok4\app\Presenter\TrainPresenter.class
 org\kelompok4\app\Controller\LoginController.class
+<<<<<<< HEAD
 org\kelompok4\app\View\RouteView.class
+=======
+>>>>>>> erwin
 org\kelompok4\app\Presenter\TimePresenter.class
 org\kelompok4\app\View\TrainView.class
 org\kelompok4\app\Model\PremiumCoachModel.class
@@ -52,6 +57,7 @@ org\kelompok4\app\Interface\ICanUpdate.class
 org\kelompok4\app\Model\RwRouteModel.class
 org\kelompok4\app\Controller\CoachFactory.class
 org\kelompok4\app\Driver.class
+org\kelompok4\app\View\TimeView.class
 org\kelompok4\app\Model\UserModel.class
 org\kelompok4\app\Model\CustomerModel.class
 org\kelompok4\app\Model\RouteTrainModel.class
@@ -59,6 +65,7 @@ org\kelompok4\app\View\BookingView.class
 org\kelompok4\app\Model\RouteTimeModel.class
 org\kelompok4\app\Interface\ICanValidateNoKTP.class
 org\kelompok4\app\Model\LoginModel.class
+org\kelompok4\app\Controller\RwRouteController.class
 org\kelompok4\app\Interface\ICanManageTrain.class
 org\kelompok4\app\Presenter\TrainSchedulePresenter.class
 org\kelompok4\app\View\RegisterView.class

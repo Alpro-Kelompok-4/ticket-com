@@ -3,6 +3,7 @@ package org.kelompok4.app.Repo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import org.kelompok4.app.Model.CityModel;
 
 public class CityRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\CityModel.json";
+    String path = System.getProperty("user.dir") + "\\CityModel_1.json";
     
     public void create(CityModel model) {
         try {

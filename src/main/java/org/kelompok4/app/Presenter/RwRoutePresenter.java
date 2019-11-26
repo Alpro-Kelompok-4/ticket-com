@@ -51,7 +51,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
         run();
     }
     public void showTable(){
-        rwRouteController.rwRouteTable(rwRouteController.allRwRouteView((rwRouteModels)));
+        rwRouteController.rwRouteTable(rwRouteController.allRwRouteView(rwRouteController.fetchAll()));
     }
 
     public void delRwRoute(){
@@ -119,7 +119,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
                     System.out.println(rwRouteController.getRoute().toString());
                     System.out.println(rwRouteController.getList().toString());
                     System.out.println(rwRouteController.getSumOfDuration());
-                    // rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
+                    rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
                     rwRouteController.resultView();
                     rwRouteController.resultAddRwRoute(valid_track);
                     pressEnterKey();

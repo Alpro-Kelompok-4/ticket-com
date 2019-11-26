@@ -11,7 +11,7 @@ import org.kelompok4.app.Model.TrainModel;
 
 public class TrainRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\TrainModel.json";
+    String path = System.getProperty("user.dir") + "\\TrainModel_1.json";
     
     public void create(TrainModel model) {
         try {

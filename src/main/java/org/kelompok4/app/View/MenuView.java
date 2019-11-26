@@ -1,21 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.kelompok4.app.View;
 
-////@Author Gayuh 
+//@Author Gayuh
 public class MenuView {
 
-	public MenuView(){
+    public MenuView(){
 
-	}
+    }
 
-	public void MenuHome(){
-		//Tampilan Home
-		System.out.println("********************************************************************************************************************");
-		System.out.println("                                           SYSTEM TRAIN TICKET BOOKING                                              ");
-		System.out.println("********************************************************************************************************************");
-		System.out.println("1. Login");
-		System.out.println("2. Register Customer");
-		System.out.println(" ");
-		System.out.println("Pilih Menu :");
+    public void MenuHome(){
+            //Tampilan Home
+            System.out.println("********************************************************************************************************************");
+            System.out.println("                                           SYSTEM TRAIN TICKET BOOKING                                              ");
+            System.out.println("********************************************************************************************************************");
+            System.out.println("1. Login");
+            System.out.println("2. Register Customer");
+            System.out.println(" ");
+    }
+
+    public void MenuLogin(){
+            //Tampilan Home
+            System.out.println("********************************************************************************************************************");
+            System.out.println("                                           SYSTEM TRAIN TICKET BOOKING                                              ");
+            System.out.println("********************************************************************************************************************");
+            System.out.println("Email     : ");
+            System.out.println("Password  : ");
+            System.out.println(" ");
+    }
+
+    public void MenuRegistration() {
+            System.out.println("********************************************************************************************************************");
+            System.out.println("                                                   REGISTRASI SISTEM                                                ");
+            System.out.println("********************************************************************************************************************");
+            System.out.println("Nomor KTP        :");
+            System.out.println("Nama Lengkap     :");
+            System.out.println("Nomor Handphone  :");
+            System.out.println("Email            :");
+            System.out.println("Password         :");
+            System.out.println("Re-Password      :");
+            System.out.println(" ");
     }
 
     public void MenuAdmin(){
@@ -33,14 +60,14 @@ public class MenuView {
 		System.out.println("6.  Kelola Jalur Stasiun Pada Rute ");
 		System.out.println("7.  Kelola Waktu Pada Rute ");
 		System.out.println("8.  Kelola Kereta Pada Rute ");
-		System.out.println("9.  Generate Jadwal Kereta Apie ");
+		System.out.println("9.  Generate Jadwal Kereta Api ");
 		System.out.println("10. Lihat Pemasukan ");
 		System.out.println("11. Lihat Jadwal Kereta Api ");
 		System.out.println("0.  Logout ");
 		System.out.println(" ");
-	}
+    }
 
-	public void MenuCustomer(){
+    public void MenuCustomer(){
 		//Tampilan Menu Customer
 		System.out.println("********************************************************************************************************************");
 		System.out.println("                                                      TICKET.COM                                                    ");
@@ -59,14 +86,13 @@ public class MenuView {
 		System.out.flush();
 	}
 
-	public void printChooseMenu(int Menu) {
-		System.out.print("Pilih Menu : " + Menu);
-		System.out.flush();
-	}
+    public void printChooseMenu(int Menu) {
+            System.out.print("Pilih Menu : " + Menu);
+            System.out.flush();
+    }
 
     public void failedValidateMenu(){
 		System.out.println("Pilihan menu yang Anda masukan salah!");
 		System.out.flush();
 	}
-
 }

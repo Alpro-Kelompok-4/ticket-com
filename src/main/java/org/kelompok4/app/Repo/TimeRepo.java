@@ -13,12 +13,9 @@ public class TimeRepo {
     private final ObjectMapper mapper = new ObjectMapper();
     String path = System.getProperty("user.dir") + "\\TimeModel.json";
     
-    public void create(TimeModel model) {
+    public void create(ArrayList<TimeModel> list) {
         try {
-            JsonNode root = mapper.readTree(new File(path));
-            JsonNode node = mapper.valueToTree(model);
-            
-            ((ArrayNode) root).add(node);
+            JsonNode root = mapper.valueToTree(list);
             mapper.writeValue(new File(path), root);
             
         } catch (IOException e) {

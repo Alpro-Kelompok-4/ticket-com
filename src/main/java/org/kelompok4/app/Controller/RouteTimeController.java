@@ -105,7 +105,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 
     public void displayTime() {
         routeTimeView.HeaderViewRouteTime();
-        // TODO: Display list
+        // TODO: Unused
     }
 
     public void sortTime(RouteTimeModel routeTime) {
@@ -151,7 +151,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public void updateRouteTime(ArrayList<RouteTimeModel> routeTimes){
-        // TODO: Update json
+        routeTimeRepo.update(routeTimes);
     }
 
     public boolean checkRouteAvailability(String routeCode){

@@ -10,6 +10,7 @@ import org.kelompok4.app.Model.RouteTrainModel;
 import org.kelompok4.app.Model.RwRouteModel;
 import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.Repo.RouteTrainRepo;
+import org.kelompok4.app.Repo.RwRouteRepo;
 import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.View.RouteTrainView;
 
@@ -107,7 +108,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
             
         // }
 
-        // TODO: Display list
+        // TODO: Unused
     }
 
     public void sortTrain(RouteTrainModel routeTrain){
@@ -150,7 +151,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public void updateRouteTrain(ArrayList<RouteTrainModel> routeTrains){
-        // TODO: Update json
+        routeTrainRepo.update(routeTrains);
     }
 
     public boolean checkRouteAvailability(String routeCode){
@@ -176,9 +177,8 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<RwRouteModel> getAllRwRoute(){
-        ArrayList<RwRouteModel> rwRoutes = new ArrayList<RwRouteModel>();
-        // TODO: Get from json
-        return rwRoutes;
+        RwRouteRepo repo = new RwRouteRepo();
+        return repo.getAll();
     }
 
 	public RwRouteModel getRwRoute(String routeCode) {

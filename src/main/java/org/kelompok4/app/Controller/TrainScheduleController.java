@@ -20,7 +20,7 @@ import org.kelompok4.app.View.TrainScheduleView;
 public class TrainScheduleController implements ICanCreate, ICanRead {
     TrainScheduleModel trainScheduleModel;
     TrainScheduleView trainScheduleView;
-    Scanner scanner = new Scanner(System.in);
+    TrainScheduleRepo trainScheduleRepo;
 
     public TrainScheduleController(TrainScheduleModel trainScheduleModel, TrainScheduleView trainScheduleView) {
         this.trainScheduleModel = trainScheduleModel;
@@ -96,8 +96,7 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
         }
 
         if (generateStatus) {
-            TrainScheduleRepo repo = new TrainScheduleRepo();
-            repo.deleteAll();
+            trainScheduleRepo.deleteAll();
             LocalDate currentDate = LocalDate.now();
             int is = 1; //Counter for assign schedule code
             for (RwRouteModel r : rwRoutes) {
@@ -110,14 +109,12 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
                         trainSchedule.setTimeModel(t);
                         trainSchedule.setTrainModel(routeTrainFromArray(routeTrains, r).getList().get(j));
                         trainSchedule.setScheduleCode("JW"+is);
-                        repo.create(trainSchedule);
+                        trainScheduleRepo.create(trainSchedule);
                         is++;
                         j++;
                     }
                 }
             }
-            
-            // TODO: Update json
         }
 
         return generateStatus;
@@ -197,10 +194,7 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     }
 
     public ArrayList<TrainScheduleModel> getAllTrainSchedule() {
-        ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
-        // TODO: Get from json
-        
-        return schedules;
+        return trainScheduleRepo.getAll();
     }
 
     public ArrayList<TrainScheduleModel> findTrainSchedule(RouteModel route, TimeModel time) {

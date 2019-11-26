@@ -62,12 +62,12 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getNoKTP() {
-        return model.getId();
+        return model.getNoKTP();
     }
 
     @Override
     public void setNoKTP(String noKTP) {
-        model.setId(noKTP);
+        model.setNoKTP(noKTP);
     }
 
     @Override

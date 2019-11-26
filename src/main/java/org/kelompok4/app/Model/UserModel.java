@@ -4,7 +4,7 @@ public class UserModel {
 	private String password;
 	private boolean isAdmin;
 	private String name;
-	private String id;
+	private String noKTP;
 	private String noHP;
 	public UserModel(String email, String password, String nama, String noKTP, String noHP){
 		this.email = email;
@@ -12,7 +12,7 @@ public class UserModel {
 		this.isAdmin = false;
 		this.name = nama;
 		this.noHP = noHP;
-		this.id = noKTP;
+		this.noKTP = noKTP;
 	}
 
 	public UserModel() {
@@ -51,12 +51,12 @@ public class UserModel {
 	}
 
 
-	public String getId() {
-		return id;
+	public String getNoKTP() {
+		return noKTP;
 	}
 
-	public void setId(String noKTP) {
-		this.id = noKTP;
+	public void setNoKTP(String noKTP) {
+		this.noKTP = noKTP;
 	}
 
 	public String getNoHP() {

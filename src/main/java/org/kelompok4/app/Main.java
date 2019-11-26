@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.kelompok4.app.Presenter.AdminMenuPresenter;
+import org.kelompok4.app.Presenter.CityPresenter;
 import org.kelompok4.app.Presenter.CustomerMenuPresenter;
 import org.kelompok4.app.Presenter.MenuPresenter;
 import org.kelompok4.app.Presenter.TimePresenter;
@@ -41,9 +42,9 @@ public class Main {
 		LoginPresenter loginPresenter = new LoginPresenter(loginController);
 		RegisterPresenter registerPresenter = new RegisterPresenter(registerController);
 //		registerPresenter.run();
-//		TrainModel trainModel = new TrainModel();
-//		TrainView trainView = new TrainView();
-//		TrainController trainController = new TrainController(trainModel,trainView);
+		TrainModel trainModel = new TrainModel();
+		TrainView trainView = new TrainView();
+		TrainController trainController = new TrainController(trainModel,trainView);
 //		RwRouteModel rwRouteModel = new RwRouteModel();
 //		RwRouteView rwRouteView = new RwRouteView();
 //		RwRouteController rwRouteController = new RwRouteController(rwRouteModel,rwRouteView);
@@ -51,7 +52,7 @@ public class Main {
 //		// driver.login(loginController,loginModel,loginView);
 //		// driver.register(registerController,userModel,registerView);
 //		// driver.updateinfouser(customerController, userModel, registerView);
-//		TrainPresenter trainPresenter = new TrainPresenter(trainController);
+		TrainPresenter trainPresenter = new TrainPresenter(trainController);
 ////                trainPresenter.run();
 //		RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(rwRouteController);
 //                //  System.out.print(asd);
@@ -62,12 +63,17 @@ public class Main {
 //                TimePresenter timePresenter = new TimePresenter(timeController);
 //                timePresenter.run();
 //		timeController.generateTime();
+                CityView cityView = new CityView();
+                CityModel cityModel = new CityModel();
+                CityController cityController = new CityController(cityModel,cityView);
+                CityPresenter cityPresenter = new CityPresenter(cityController);
                 CustomerMenuPresenter customerMenuPresenter = new CustomerMenuPresenter();
-                AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter();
                 MenuView menuView = new MenuView();
 		MenuController menuController = new MenuController(menuView);
+                AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
+                trainPresenter.run();
 		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter,customerMenuPresenter,adminMenuPresenter);
-		menuPresenter.run();
+//		menuPresenter.run();
 	}
 
 }

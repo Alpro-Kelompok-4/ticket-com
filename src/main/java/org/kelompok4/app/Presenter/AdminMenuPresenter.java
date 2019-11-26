@@ -10,7 +10,7 @@ import org.kelompok4.app.Interface.ICanRun;
 
 public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
-    CityPresenter cityPresenter ;
+    CityPresenter cityPresenter;
 //    RwStasionController rwStasionController;
     TrainPresenter  trainPresenter ;
 //    TimePresenter  timePresenter ;

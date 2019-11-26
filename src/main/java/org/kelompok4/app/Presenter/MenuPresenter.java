@@ -87,6 +87,7 @@ public class MenuPresenter extends ContinuePresenter implements ICanRun {
                         if(loginPresenter.getLoginController().getLoginEmail().equals("admin@ticket.com")){
                             adminMenuPresenter.run();
                         }else{
+                            customerMenuPresenter.getUserController().setUserModel(loginPresenter.getLoginController().getUserModelByEmail());
                             customerMenuPresenter.run();
                         }
                     }else{

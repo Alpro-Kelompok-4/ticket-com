@@ -20,6 +20,22 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
 
     }
 
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
+    }
+
+    public UserView getUserView() {
+        return userView;
+    }
+
+    public void setUserView(UserView userView) {
+        this.userView = userView;
+    }
+    
     @Override
     public void update() {
 

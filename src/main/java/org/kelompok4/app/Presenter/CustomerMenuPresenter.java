@@ -6,11 +6,12 @@
 package org.kelompok4.app.Presenter;
 
 import org.kelompok4.app.Controller.MenuController;
+import org.kelompok4.app.Controller.UserController;
 import org.kelompok4.app.Interface.ICanRun;
 
 public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun {
-    MenuController menuController;
-    UserController userController;
+    private MenuController menuController;
+    private UserController userController;
 //  BookingPresenter bookingPresenter;
     public CustomerMenuPresenter(){
         
@@ -20,6 +21,14 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
         //this.bookingPresenter = bookingPresenter;
     }
 
+    public UserController getUserController() {
+        return userController;
+    }
+
+    public void setUserController(UserController userController) {
+        this.userController = userController;
+    }
+    
     public MenuController getMenuController() {
         return menuController;
     }

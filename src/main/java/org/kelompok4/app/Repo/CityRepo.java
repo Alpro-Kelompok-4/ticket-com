@@ -12,7 +12,7 @@ import org.kelompok4.app.Model.CityModel;
 
 public class CityRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\CityModel_1.json";
+    String path = System.getProperty("user.dir") + "\\CityModel.json";
     
     public void create(CityModel model) {
         try {

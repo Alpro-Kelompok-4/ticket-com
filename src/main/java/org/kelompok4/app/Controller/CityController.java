@@ -1,14 +1,19 @@
 package org.kelompok4.app.Controller;
 
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 import org.kelompok4.app.Interface.*;
 import org.kelompok4.app.Model.CityModel;
 import org.kelompok4.app.View.CityView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import org.kelompok4.app.Repo.CityRepo;
 
 public class CityController implements ICanCreate, ICanRead, ICanUpdate, ICanDelete, ICanManageCity, ICanValidateName{
     private CityModel cityModel;
     private CityView cityView;
+    private CityRepo cityRepo = new CityRepo();
 
     public CityController(CityModel cityModel, CityView cityView) {
         this.cityModel = cityModel;
@@ -33,22 +38,23 @@ public class CityController implements ICanCreate, ICanRead, ICanUpdate, ICanDel
 
     @Override
     public void create() {
-
+        cityRepo.create(cityModel);
     }
 
     @Override
     public void delete() {
-
+        setCityModel(cityRepo.get(getCityCode()));
+        cityRepo.delete(cityModel);
     }
 
     @Override
     public void read() {
-
+        
     }
 
     @Override
     public void update() {
-
+        cityRepo.update(cityModel);
     }
 
 
@@ -93,14 +99,32 @@ public class CityController implements ICanCreate, ICanRead, ICanUpdate, ICanDel
     }
 
     public boolean validateCodeCity(){
+        CityModel cityModel = cityRepo.get(this.getCityCode());
+        if(cityModel.getCityCode()== null){
+            return true;
+        }else{
+            return false;
+        }
         //mengecek kode city dari json
-        return true;
     }
-    public String allCityView(ArrayList<CityModel> CityModels){
-        TableStringBuilder<CityModel> t = new TableStringBuilder<CityModel>();
-        t.addColumn("KODE KOTA", CityModel::getCityCode);
-        t.addColumn("NAMA KOTA",CityModel::getCityName);
-        return t.createString(CityModels);
+    public boolean validateUpdateDeleteCodeCity(){
+        CityModel cityModel = cityRepo.get(this.getCityCode());
+        if(cityModel.getCityCode()== null){
+            return false;
+        }else{
+            return true;
+        }
+        //mengecek kode city dari json
+    }
+    public ArrayList<CityModel> fetchAll(){
+        return cityRepo.getAll();
+    }
+    
+    public String allCityView(ArrayList<CityModel> cityModels){
+        return AsciiTable.getTable(cityModels, Arrays.asList(
+        new Column().header("KODE KOTA").with(cityModel ->cityModel.getCityCode()),
+        new Column().header("NAMA KOTA").with(cityModel ->cityModel.getCityName())));
+
     }
 
     public void resultView(){
@@ -143,7 +167,6 @@ public class CityController implements ICanCreate, ICanRead, ICanUpdate, ICanDel
             }else {
                 valid=false;
             }
-
             cityModel.setCityName(inputs[1]);
             if (validateName()){
                 valid=true;
@@ -171,4 +194,7 @@ public class CityController implements ICanCreate, ICanRead, ICanUpdate, ICanDel
     public void deleteCityView() {
         cityView.printDeleteCity();
     }
+//    public CityModel cityByCode(){
+//        return cityRepo.get(getCityCode());
+//    }
 }

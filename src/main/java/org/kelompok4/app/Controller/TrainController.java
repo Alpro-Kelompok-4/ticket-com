@@ -1,5 +1,7 @@
 package org.kelompok4.app.Controller;
 
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 import org.kelompok4.app.Interface.*;
 import org.kelompok4.app.Model.BusinessCoachModel;
 import org.kelompok4.app.Model.CoachModel;
@@ -8,12 +10,15 @@ import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.View.TrainView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.kelompok4.app.Repo.TrainRepo;
 
 public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDelete, ICanManageTrain {
     private TrainModel trainModel;
     private TrainView trainView;
+    private TrainRepo trainRepo =  new TrainRepo();
 
     public TrainController(TrainModel trainModel, TrainView trainView) {
         this.trainModel = trainModel;
@@ -118,9 +123,18 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         trainView.printEditTrainPage();
         trainView.printEditTrain();
     }
-    public ArrayList<TrainModel> fetchAll(ArrayList<TrainModel> trainModels){
-        return trainModels;
+    public ArrayList<TrainModel> fetchAll(){
+        return trainRepo.getAll();
     }
+//    public String allTrainView(ArrayList<TrainModel> trainModels){
+//        return AsciiTable.getTable(trainModels, Arrays.asList(
+//        new Column().header("Kode KAI").with(trainModel ->trainModel.getTrainCode()),
+//        new Column().header("NAMA KAI").with(trainModel -> trainModel.getTrainName()),
+//        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSumOfDuration())),
+//        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSumOfDuration())),
+//        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSumOfDuration()))));
+//
+//    }
     public String allTrainView(ArrayList<TrainModel> trainModels){
         TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
         t.addColumn("Kode KAI", TrainModel::getTrainCode);
@@ -250,4 +264,5 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     public void trainMenuView() {
         trainView.printTrainMenu();
     }
+
 }

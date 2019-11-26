@@ -1,0 +1,50 @@
+[
+    {
+        "email": "admin@ticket.com",
+        "password": "admin123",
+        "isAdmin": true,
+        "name": "admin",
+        "id": "0000000000000000",
+        "noHP": "08123456789"
+    },
+    {
+        "email": "erwin@gmail.com",
+        "password": "111111qw",
+        "isAdmin": false,
+        "name": "Erwin",
+        "id": "1111111111111111",
+        "noHP": "08198765432"
+    },
+    {
+        "email": "fakhri@gmail.com",
+        "password": "222222qw",
+        "isAdmin": false,
+        "name": "Fakhri",
+        "id": "2222222222222222",
+        "noHP": "08298765432"
+    },
+    {
+        "email": "arfan@gmail.com",
+        "password": "333333qw",
+        "isAdmin": false,
+        "name": "Arfan",
+        "id": "3333333333333333",
+        "noHP": "08398765432"
+    },
+    {
+        "email": "gayuh@gmail.com",
+        "password": "444444qw",
+        "isAdmin": false,
+        "name": "Gayuh",
+        "id": "4444444444444444",
+        "noHP": "08498765432"
+    },
+    {
+        "email": "naufan@gmail.com",
+        "password": "555555qw",
+        "isAdmin": false,
+        "name": "Naufan",
+        "id": "5555555555555555",
+        "noHP": "08598765432"
+    }
+]

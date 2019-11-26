@@ -7,6 +7,8 @@ import org.kelompok4.app.Interface.ICanRun;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RouteTrainModel;
 import org.kelompok4.app.Model.RwRouteModel;
+import org.kelompok4.app.Repo.RouteTimeRepo;
+import org.kelompok4.app.Repo.RouteTrainRepo;
 import org.kelompok4.app.Repo.RwRouteRepo;
 
 public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun {
@@ -26,7 +28,6 @@ public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun
 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         trainScheduleController.getTrainScheduleView().MenuTrainScheduleView();
         int menu = sc.nextInt();
         sc.nextLine();
@@ -49,21 +50,18 @@ public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun
         char c = sc.nextLine().charAt(0);
         if (c == 'Y') {
             RwRouteRepo rwRouteRepo = new RwRouteRepo();
-            
-            
-            ArrayList<RwRouteModel> rwRoutes = rwRouteRepo.getAll();
-            ArrayList<RouteTimeModel> routeTimes = new ArrayList<>();
-            ArrayList<RouteTrainModel> routeTrains = new ArrayList<>();
+            RouteTimeRepo routeTimeRepo = new RouteTimeRepo();
+            RouteTrainRepo routeTrainRepo = new RouteTrainRepo();
 
-            
-            
-            if (trainScheduleController.generateTrainSchedule(rwRoutes, routeTimes, routeTrains)){
+            ArrayList<RwRouteModel> rwRoutes = rwRouteRepo.getAll();
+            ArrayList<RouteTimeModel> routeTimes = routeTimeRepo.getAll();
+            ArrayList<RouteTrainModel> routeTrains = routeTrainRepo.getAll();
+
+            if (trainScheduleController.generateTrainSchedule(rwRoutes, routeTimes, routeTrains)) {
                 trainScheduleController.getTrainScheduleView().SuccessGenerateSchedule();
             } else {
                 trainScheduleController.getTrainScheduleView().FailedGenerateSchedule();
             }
-            // TODO: Generate schedule
-            
         } else if (c == 'N') {
             trainScheduleController.getTrainScheduleView().FailedGenerateSchedule();
         } else {
@@ -79,4 +77,4 @@ public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun
         pressEnterKey();
         run();
     }
-} 
+}

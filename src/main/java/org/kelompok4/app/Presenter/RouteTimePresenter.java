@@ -21,7 +21,6 @@ public class RouteTimePresenter extends ContinuePresenter implements ICanRun {
 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         routeTimeController.getRouteTimeView().MenuRouteTimeView();
         int menu = sc.nextInt();
         sc.nextLine();

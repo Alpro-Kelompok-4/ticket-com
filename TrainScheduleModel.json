@@ -7,20 +7,7 @@
                 "mm": 0
             }
         },
-        "date": {
-            "year": 2019,
-            "month": "NOVEMBER",
-            "era": "CE",
-            "dayOfWeek": "TUESDAY",
-            "dayOfYear": 330,
-            "leapYear": false,
-            "dayOfMonth": 26,
-            "monthValue": 11,
-            "chronology": {
-                "id": "ISO",
-                "calendarType": "iso8601"
-            }
-        },
+        "date": "2019-11-26",
         "rwRouteModel": {
             "route": {
                 "departure": {

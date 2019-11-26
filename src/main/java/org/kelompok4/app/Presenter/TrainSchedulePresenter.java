@@ -57,9 +57,13 @@ public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun
 
             
             
-            trainScheduleController.generateTrainSchedule(rwRoutes, routeTimes, routeTrains);
+            if (trainScheduleController.generateTrainSchedule(rwRoutes, routeTimes, routeTrains)){
+                trainScheduleController.getTrainScheduleView().SuccessGenerateSchedule();
+            } else {
+                trainScheduleController.getTrainScheduleView().FailedGenerateSchedule();
+            }
             // TODO: Generate schedule
-            trainScheduleController.getTrainScheduleView().SuccessGenerateSchedule();
+            
         } else if (c == 'N') {
             trainScheduleController.getTrainScheduleView().FailedGenerateSchedule();
         } else {
@@ -75,4 +79,4 @@ public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun
         pressEnterKey();
         run();
     }
-}
+} 

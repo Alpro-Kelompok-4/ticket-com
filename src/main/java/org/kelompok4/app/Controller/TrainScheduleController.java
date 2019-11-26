@@ -199,7 +199,7 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     public ArrayList<TrainScheduleModel> getAllTrainSchedule() {
         ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
         // TODO: Get from json
-
+        
         return schedules;
     }
 

@@ -11,8 +11,6 @@ public class SeatModel {
         this.number = number;
     }
 
-    public SeatModel() {}
-
     public int getStatus() {
     	return status;
     }

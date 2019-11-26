@@ -10,8 +10,11 @@ import org.kelompok4.app.Interface.ICanRun;
 
 public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
+    UserController userController;
 //  BookingPresenter bookingPresenter;
-
+    public CustomerMenuPresenter(){
+        
+    }
     public CustomerMenuPresenter(MenuController menuController){
         this.menuController =menuController;
         //this.bookingPresenter = bookingPresenter;
@@ -34,6 +37,7 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
     }
 
     private void menu(int choice) {
+        
         if (menuController.ValidateInputMenuCustomer(choice)){
             switch (choice) {
                 case 1:

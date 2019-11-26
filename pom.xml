@@ -44,6 +44,20 @@
       <artifactId>jackson-annotations</artifactId>
       <version>2.9.4</version>
     </dependency>
+
+    <!-- Apache Commons Lang for random string generator -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+    </dependency>
+
+    <!-- ASCII Table -->
+    <dependency>
+      <groupId>com.github.freva</groupId>
+      <artifactId>ascii-table</artifactId>
+      <version>1.1.0</version>
+    </dependency>
   </dependencies>
 
   <build>

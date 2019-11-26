@@ -1,0 +1,36 @@
+[
+	{
+		"departure": {
+			"cityCode": "JKT",
+			"cityName": "Jakarta"
+		},
+		"arrival": {
+			"cityCode": "BDG",
+			"cityName": "Bandung"
+		},
+		"routeCode": "JKT-BDG",
+		"business": {
+			"price": 30000.00
+		},
+		"premium": {
+			"price": 20000.00
+		}
+	},
+	{
+		"departure": {
+			"cityCode": "BDG",
+			"cityName": "Bandung"
+		},
+		"arrival": {
+			"cityCode": "JKT",
+			"cityName": "Jakarta"
+		},
+		"routeCode": "BDG-JKT",
+		"business": {
+			"price": 30000.00
+		},
+		"premium": {
+			"price": 20000.00
+		}
+	}
+]

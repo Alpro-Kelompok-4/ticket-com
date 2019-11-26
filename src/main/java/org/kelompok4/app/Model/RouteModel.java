@@ -15,6 +15,7 @@ public class RouteModel {
         this.premium = premium;
     }
 
+    public RouteModel() {}
 
     public CityModel getDeparture() {
         return departure;

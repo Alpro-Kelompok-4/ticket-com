@@ -11,7 +11,8 @@ public class TrainScheduleView {
         System.out.println("********************************************************************************************************************");
 		System.out.println("                                                       TICKET.COM                                                   ");
 		System.out.println("********************************************************************************************************************");
-		System.out.println("1. Lihat Jadwal Kereta Api ");
+		System.out.println("1. Generate Jadwal Kereta Api");
+		System.out.println("2. Lihat Jadwal Kereta Api ");
 		System.out.println("99. Main Menu ");
 		System.out.println(" ");
 		System.out.println("Pilih Menu : ");

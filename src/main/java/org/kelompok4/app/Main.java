@@ -33,7 +33,9 @@ public class Main {
 		TrainSchedulePresenter trainSchedulePresenter = new TrainSchedulePresenter(
 				new TrainScheduleController(new TrainScheduleModel(), new TrainScheduleView()));
 		
-		routeTimePresenter.run();
+		// routeTimePresenter.run();
+		// routeTrainPresenter.run();
+		trainSchedulePresenter.run();
 	}
 
 }

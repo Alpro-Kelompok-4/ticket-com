@@ -63,11 +63,7 @@ public class TrainScheduleModel {
     }
 
     public String departureTimeString(){
-        String output = "";
-        output += timeModel.getJam().getHH();
-        output += ":";
-        output += timeModel.getJam().getMM();
-        return output;
+        return timeModel.printJam();
     }
 
     public String arrivalTimeString(){
@@ -81,10 +77,9 @@ public class TrainScheduleModel {
             addedHH++;
             addedMM -= 60;
         }
-        output += addedHH;
-        output += ":";
-        output += addedMM;
-        return output;
+        TimeModel timeModel = new TimeModel();
+        timeModel.setJam(new JamModel(addedHH, addedMM));
+        return timeModel.printJam();
     }
 
     public String departureCityString(){
@@ -109,7 +104,7 @@ public class TrainScheduleModel {
         int filledSeat = 0;
         for (CoachModel c : trainModel.getCoachs()) {
             maxSeat += c.getSeatQty();
-            filledSeat += c.getSeat().size();
+            filledSeat += c.filledSeat();
         }
         if (maxSeat > filledSeat){
             output += "Sisa ";

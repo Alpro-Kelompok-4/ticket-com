@@ -56,10 +56,12 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
 
     }
 
-    public boolean generateTrainSchedule(ArrayList<RwRouteModel> rwRoutes, ArrayList<RouteTimeModel> routeTimes,
+    public void generateTrainSchedule(ArrayList<RwRouteModel> rwRoutes, ArrayList<RouteTimeModel> routeTimes,
             ArrayList<RouteTrainModel> routeTrains) {
         boolean generateStatus = true;
+        trainScheduleRepo.deleteAll();
         for (RwRouteModel r : rwRoutes) {
+            System.out.println("Generating schedule at route " + r.getRoute().getRouteCode());
             if (searchRwRouteFromRouteTime(routeTimes, r) && searchRwRouteFromRouteTrain(routeTrains, r)) {
                 RouteTimeModel routeTime = routeTimeFromArray(routeTimes, r);
                 RouteTrainModel routeTrain = routeTrainFromArray(routeTrains, r);
@@ -79,7 +81,6 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
                                         "Failed to generate, has intersection at " + opposite.getRoute().getRouteCode()
                                                 + " opposite route from " + r.getRoute().getRouteCode());
                                 generateStatus = false;
-                                break;
                             } else {
                                 // Generating model case has opposite with schedule
                             }
@@ -94,15 +95,10 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
                 System.out.println(
                         "Failed to generate, no routeTime or routeTrain file at " + r.getRoute().getRouteCode());
                 generateStatus = false;
-                break;
             }
-        }
-
-        if (generateStatus) {
-            trainScheduleRepo.deleteAll();
-            LocalDate currentDate = LocalDate.now();
-            int is = 1; // Counter for assign schedule code
-            for (RwRouteModel r : rwRoutes) {
+            if (generateStatus) {
+                LocalDate currentDate = LocalDate.now();
+                int is = 1; // Counter for assign schedule code
                 TrainScheduleModel trainSchedule = new TrainScheduleModel();
                 for (int i = 0; i < 30; i++) {
                     int j = 0; // Counter for assign train
@@ -119,8 +115,6 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
                 }
             }
         }
-
-        return generateStatus;
     }
 
     public boolean checkIntersect(RouteTimeModel routeTime, RouteTimeModel routeTimeOpposite) {
@@ -155,9 +149,9 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     public RouteTimeModel routeTimeFromArray(ArrayList<RouteTimeModel> routeTimes, RwRouteModel rwRoute) {
         RouteTimeModel output = new RouteTimeModel();
         for (RouteTimeModel r : routeTimes) {
-            if (r.getRwRoute().equals(rwRoute)) {
+            if (r.getRwRoute().getRoute().getRouteCode().equals(rwRoute.getRoute().getRouteCode())) {
                 output = r;
-                break;
+                return output;
             }
         }
         return output;
@@ -166,9 +160,9 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     public boolean searchRwRouteFromRouteTime(ArrayList<RouteTimeModel> routeTimes, RwRouteModel rwRoute) {
         boolean check = false;
         for (RouteTimeModel r : routeTimes) {
-            if (r.getRwRoute().equals(rwRoute)) {
+            if (r.getRwRoute().getRoute().getRouteCode().equals(rwRoute.getRoute().getRouteCode())) {
                 check = true;
-                break;
+                return check;
             }
         }
         return check;
@@ -177,9 +171,9 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     public RouteTrainModel routeTrainFromArray(ArrayList<RouteTrainModel> routeTrains, RwRouteModel rwRoute) {
         RouteTrainModel output = new RouteTrainModel();
         for (RouteTrainModel r : routeTrains) {
-            if (r.getRwRoute().equals(rwRoute)) {
+            if (r.getRwRoute().getRoute().getRouteCode().equals(rwRoute.getRoute().getRouteCode())) {
                 output = r;
-                break;
+                return output;
             }
         }
         return output;
@@ -188,9 +182,9 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     public boolean searchRwRouteFromRouteTrain(ArrayList<RouteTrainModel> routeTrains, RwRouteModel rwRoute) {
         boolean check = false;
         for (RouteTrainModel r : routeTrains) {
-            if (r.getRwRoute().equals(rwRoute)) {
+            if (r.getRwRoute().getRoute().getRouteCode().equals(rwRoute.getRoute().getRouteCode())) {
                 check = true;
-                break;
+                return check;
             }
         }
         return check;
@@ -212,15 +206,15 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
 
     public String allTrainScheduleView(ArrayList<TrainScheduleModel> trainSchedules) {
 
-        return AsciiTable.getTable(trainSchedules, Arrays.asList(
-                new Column().header("Kode Jadwal").with(trainSchedule -> trainSchedule.getScheduleCode()),
-                new Column().header("Tanggal").with(trainSchedule -> trainSchedule.getDate()),
-                new Column().header("Waktu Keberangkatan")
-                        .with(trainSchedule -> trainSchedule.departureTimeString()),
-                new Column().header("Keberangkatan").with(trainSchedule -> trainSchedule.departureCityString()),
-                new Column().header("Tujuan").with(trainSchedule -> trainSchedule.arrivalCityString()),
-                new Column().header("Waktu Tiba").with(trainSchedule -> trainSchedule.arrivalTimeString()),
-                new Column().header("KAI").with(trainSchedule -> trainSchedule.trainCodeString()),
-                new Column().header("Status").with(trainSchedule -> trainSchedule.remainingSeatString())));
+        return AsciiTable.getTable(trainSchedules,
+                Arrays.asList(new Column().header("Kode Jadwal").with(trainSchedule -> trainSchedule.getScheduleCode()),
+                        new Column().header("Tanggal").with(trainSchedule -> trainSchedule.getDate()),
+                        new Column().header("Waktu Keberangkatan")
+                                .with(trainSchedule -> trainSchedule.departureTimeString()),
+                        new Column().header("Keberangkatan").with(trainSchedule -> trainSchedule.departureCityString()),
+                        new Column().header("Tujuan").with(trainSchedule -> trainSchedule.arrivalCityString()),
+                        new Column().header("Waktu Tiba").with(trainSchedule -> trainSchedule.arrivalTimeString()),
+                        new Column().header("KAI").with(trainSchedule -> trainSchedule.trainCodeString()),
+                        new Column().header("Status").with(trainSchedule -> trainSchedule.remainingSeatString())));
     }
 }

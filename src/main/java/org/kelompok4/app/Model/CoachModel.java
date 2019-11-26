@@ -29,4 +29,14 @@ public class CoachModel {
     public void setSeat(ArrayList<SeatModel> seat) {
         this.seat = seat;
     }
+
+    public int filledSeat(){
+        int count = 0;
+        for (SeatModel s : seat) {
+            if (s.getStatus() > 0){
+                count++;
+            }
+        }
+        return count;
+    }
 }

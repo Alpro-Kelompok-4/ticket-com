@@ -203,7 +203,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public boolean deleteRouteTrain(String routeTrainCode) {
-        ArrayList<RouteTrainModel> routeTrains = new ArrayList<RouteTrainModel>();
+        ArrayList<RouteTrainModel> routeTrains = routeTrainRepo.getAll();
         boolean found = false;
 
         for (RouteTrainModel r : routeTrains) {

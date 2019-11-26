@@ -1,7 +1,11 @@
 package org.kelompok4.app.Controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
@@ -40,7 +44,6 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         this.routeTrainView = routeTrainView;
     }
 
-
     @Override
     public void create() {
 
@@ -56,11 +59,11 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
 
     }
 
-    public TrainModel getTrain(String trainCode){
+    public TrainModel getTrain(String trainCode) {
         TrainModel train = new TrainModel();
 
-        for (TrainModel t : getAllTrain()){
-            if (t.getTrainCode().equals(trainCode)){
+        for (TrainModel t : getAllTrain()) {
+            if (t.getTrainCode().equals(trainCode)) {
                 train = t;
                 break;
             }
@@ -69,11 +72,11 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         return train;
     }
 
-    public boolean searchTrain(String trainCode){
+    public boolean searchTrain(String trainCode) {
         boolean check = false;
 
-        for (TrainModel t : getAllTrain()){
-            if (t.getTrainCode().equals(trainCode)){
+        for (TrainModel t : getAllTrain()) {
+            if (t.getTrainCode().equals(trainCode)) {
                 check = true;
                 break;
             }
@@ -82,19 +85,19 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         return check;
     }
 
-    public ArrayList<TrainModel> getAllTrain(){
+    public ArrayList<TrainModel> getAllTrain() {
         TrainRepo trainRepo = new TrainRepo();
 
         return trainRepo.getAll();
     }
 
-    public void setRouteTrain(RouteTrainModel routeTrain){
+    public void setRouteTrain(RouteTrainModel routeTrain) {
         routeTrainRepo.create(routeTrain);
     }
 
-    public void addTrain(TrainModel train, RouteTrainModel routeTrain){
+    public void addTrain(TrainModel train, RouteTrainModel routeTrain) {
         ArrayList<TrainModel> current = routeTrain.getList();
-        if (current.contains(train)){
+        if (current.contains(train)) {
             routeTrainView.FailedAddRouteTrain();
         } else {
             current.add(train);
@@ -103,24 +106,24 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         }
     }
 
-    public void displayRouteTrain(){
+    public void displayRouteTrain() {
         // for (TrainModel trainModel : routeTrainModel.getList()) {
-            
+
         // }
 
         // TODO: Unused
     }
 
-    public void sortTrain(RouteTrainModel routeTrain){
+    public void sortTrain(RouteTrainModel routeTrain) {
         ArrayList<TrainModel> current = routeTrain.getList();
         current.sort(Comparator.comparing(TrainModel::getTrainCode));
         routeTrain.setList(current);
         routeTrainRepo.update(routeTrain);
     }
 
-    public void deleteTrain(TrainModel train){
+    public void deleteTrain(TrainModel train) {
         ArrayList<TrainModel> current = routeTrainModel.getList();
-        if (current.remove(train)){
+        if (current.remove(train)) {
             routeTrainModel.setList(current);
             routeTrainView.SuccessDeleteRouteTrain();
         } else {
@@ -128,7 +131,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         }
     }
 
-    public RouteTrainModel getRouteTrain(String routeTrainCode){
+    public RouteTrainModel getRouteTrain(String routeTrainCode) {
         RouteTrainModel routeTrain = new RouteTrainModel();
         for (RouteTrainModel r : getAllRouteTrain()) {
             routeTrain = r;
@@ -137,27 +140,26 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         return routeTrain;
     }
 
-    public ArrayList<RouteTrainModel> getAllRouteTrain(){
+    public ArrayList<RouteTrainModel> getAllRouteTrain() {
         return routeTrainRepo.getAll();
     }
 
-    public String allRouteTrainView(ArrayList<RouteTrainModel> routeTrains){
+    public String allRouteTrainView(ArrayList<RouteTrainModel> routeTrains) {
         routeTrainView.HeaderViewRouteTrain();
-        TableStringBuilder<RouteTrainModel> t = new TableStringBuilder<>();
-        t.addColumn("Kode Kereta Rute", RouteTrainModel::getRouteTrainCode);
-        t.addColumn("Kode Rute", RouteTrainModel::getRouteCode);
-        t.addColumn("Kereta Tersedia Pada Rute", RouteTrainModel::getListString);
-        return t.createString(routeTrains);
+        return AsciiTable.getTable(routeTrains, Arrays.asList(
+                new Column().header("Kode Kereta Rute").with(routeTrain -> routeTrain.getRouteTrainCode()),
+                new Column().header("Kode Rute").with(routeTrain -> routeTrain.getRouteCode()),
+                new Column().header("Kereta Tersedia Pada Rute").with(routeTrain -> routeTrain.getListString())));
     }
 
-    public void updateRouteTrain(ArrayList<RouteTrainModel> routeTrains){
+    public void updateRouteTrain(ArrayList<RouteTrainModel> routeTrains) {
         routeTrainRepo.update(routeTrains);
     }
 
-    public boolean checkRouteAvailability(String routeCode){
+    public boolean checkRouteAvailability(String routeCode) {
         boolean check = false;
         for (RouteTrainModel r : getAllRouteTrain()) {
-            if (r.getRouteCode().equals(routeCode)){
+            if (r.getRouteCode().equals(routeCode)) {
                 check = true;
                 break;
             }
@@ -165,46 +167,46 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
         return check;
     }
 
-    public String getLastRouteTrainCode(){
-        return getAllRouteTrain().get(getAllRouteTrain().size()-1).getRouteTrainCode();
+    public String getLastRouteTrainCode() {
+        return getAllRouteTrain().get(getAllRouteTrain().size() - 1).getRouteTrainCode();
     }
 
-    public String generateLastRouteTrainCode(){
+    public String generateLastRouteTrainCode() {
         String current = getLastRouteTrainCode();
         int newCode = Integer.valueOf(current.split("KR")[0]);
         String newString = "KR" + Integer.toString(newCode);
         return newString;
     }
 
-    public ArrayList<RwRouteModel> getAllRwRoute(){
+    public ArrayList<RwRouteModel> getAllRwRoute() {
         RwRouteRepo repo = new RwRouteRepo();
         return repo.getAll();
     }
 
-	public RwRouteModel getRwRoute(String routeCode) {
+    public RwRouteModel getRwRoute(String routeCode) {
         RwRouteModel rwRoute = new RwRouteModel();
         for (RwRouteModel r : getAllRwRoute()) {
-            if (r.getRoute().getRouteCode().equals(routeCode)){
+            if (r.getRoute().getRouteCode().equals(routeCode)) {
                 rwRoute = r;
                 break;
             }
         }
-		return rwRoute;
+        return rwRoute;
     }
-    
-    public boolean deleteRouteTrain(String routeTrainCode){
+
+    public boolean deleteRouteTrain(String routeTrainCode) {
         ArrayList<RouteTrainModel> routeTrains = new ArrayList<RouteTrainModel>();
         boolean found = false;
 
-        for (RouteTrainModel r : routeTrains){
-            if (r.getRouteTrainCode().equals(routeTrainCode)){
+        for (RouteTrainModel r : routeTrains) {
+            if (r.getRouteTrainCode().equals(routeTrainCode)) {
                 routeTrains.remove(r);
                 found = true;
                 break;
             }
         }
 
-        if (found){
+        if (found) {
             updateRouteTrain(routeTrains);
         }
 

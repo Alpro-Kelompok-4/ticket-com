@@ -1,7 +1,11 @@
 package org.kelompok4.app.Controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
@@ -143,11 +147,11 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 
     public String allRouteTimeView(ArrayList<RouteTimeModel> routeTimes){
         routeTimeView.HeaderViewRouteTime();
-        TableStringBuilder<RouteTimeModel> t = new TableStringBuilder<>();
-        t.addColumn("Kode Kereta Rute", RouteTimeModel::getRouteTimeCode);
-        t.addColumn("Kode Rute", RouteTimeModel::getRouteCode);
-        t.addColumn("Waktu Tersedia Pada Rute", RouteTimeModel::getListString);
-        return t.createString(routeTimes);
+        return AsciiTable.getTable(routeTimes, Arrays.asList(
+            new Column().header("Kode Kereta Rute").with(routeTime -> routeTime.getRouteTimeCode()),
+            new Column().header("Kode Rute").with(routeTime -> routeTime.getRouteCode()),
+            new Column().header("Waktu Tersedia Pada Rute").with(routeTime -> routeTime.getListString())
+        ));
     }
 
     public void updateRouteTime(ArrayList<RouteTimeModel> routeTimes){

@@ -2,7 +2,11 @@ package org.kelompok4.app.Controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanRead;
@@ -98,17 +102,17 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
         if (generateStatus) {
             trainScheduleRepo.deleteAll();
             LocalDate currentDate = LocalDate.now();
-            int is = 1; //Counter for assign schedule code
+            int is = 1; // Counter for assign schedule code
             for (RwRouteModel r : rwRoutes) {
                 TrainScheduleModel trainSchedule = new TrainScheduleModel();
-                for (int i = 0; i < 30; i++){
-                    int j = 0; //Counter for assign train
+                for (int i = 0; i < 30; i++) {
+                    int j = 0; // Counter for assign train
                     for (TimeModel t : routeTimeFromArray(routeTimes, r).getList()) {
-                        trainSchedule.setDate(currentDate.plusDays(i));
+                        trainSchedule.setDate(currentDate.plusDays(i).toString());
                         trainSchedule.setRwRouteModel(r);
                         trainSchedule.setTimeModel(t);
                         trainSchedule.setTrainModel(routeTrainFromArray(routeTrains, r).getList().get(j));
-                        trainSchedule.setScheduleCode("JW"+is);
+                        trainSchedule.setScheduleCode("JW" + is);
                         trainScheduleRepo.create(trainSchedule);
                         is++;
                         j++;
@@ -208,15 +212,16 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     }
 
     public String allTrainScheduleView(ArrayList<TrainScheduleModel> trainSchedules) {
-        TableStringBuilder<TrainScheduleModel> t = new TableStringBuilder<TrainScheduleModel>();
-        t.addColumn("Kode Jadwal", TrainScheduleModel::getScheduleCode);
-        t.addColumn("Tanggal", TrainScheduleModel::getDateString);
-        t.addColumn("Waktu Keberangkatan", TrainScheduleModel::getDepartureTimeString);
-        t.addColumn("Keberangkatan", TrainScheduleModel::getDepartureCityString);
-        t.addColumn("Tujuan", TrainScheduleModel::getArrivalCityString);
-        t.addColumn("Waktu Tiba", TrainScheduleModel::getArrivalTimeString);
-        t.addColumn("KAI", TrainScheduleModel::getTrainCodeString);
-        t.addColumn("Status", TrainScheduleModel::getRemainingSeatString);
-        return t.createString(trainSchedules);
+
+        return AsciiTable.getTable(trainSchedules, Arrays.asList(
+                new Column().header("Kode Jadwal").with(trainSchedule -> trainSchedule.getScheduleCode()),
+                new Column().header("Tanggal").with(trainSchedule -> trainSchedule.getDate()),
+                new Column().header("Waktu Keberangkatan")
+                        .with(trainSchedule -> trainSchedule.getDepartureTimeString()),
+                new Column().header("Keberangkatan").with(trainSchedule -> trainSchedule.getDepartureCityString()),
+                new Column().header("Tujuan").with(trainSchedule -> trainSchedule.getArrivalCityString()),
+                new Column().header("Waktu Tiba").with(trainSchedule -> trainSchedule.getArrivalTimeString()),
+                new Column().header("KAI").with(trainSchedule -> trainSchedule.getTrainCodeString()),
+                new Column().header("Status").with(trainSchedule -> trainSchedule.getRemainingSeatString())));
     }
 }

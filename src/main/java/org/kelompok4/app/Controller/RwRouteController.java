@@ -1,17 +1,22 @@
 package org.kelompok4.app.Controller;
 
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Interface.ICanManageRwRoute;
 import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.*;
 import org.kelompok4.app.View.RwRouteView;
+import org.kelompok4.app.Repo.RwRouteRepo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanManageRwRoute {
     RwRouteModel rwRouteModel;
     RwRouteView rwRouteView;
+    RwRouteRepo rwRouteRepo = new RwRouteRepo();
 
     public RwRouteController() {
     }
@@ -55,6 +60,11 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
     @Override
     public RouteModel getRoute() {
         return rwRouteModel.getRoute();
+    }
+
+    public ArrayList<RwRouteModel> fetchAll(){
+//        System.out.println(rwRouteRepo.getAll().get(0).stringRwTrack());
+        return rwRouteRepo.getAll();
     }
 
     @Override
@@ -133,12 +143,12 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
         rwRouteView.printDeleteRwRouteView();
     }
     public String allRwRouteView(ArrayList<RwRouteModel> rwRouteModels){
-        TableStringBuilder<RwRouteModel> t = new TableStringBuilder<RwRouteModel>();
-        t.addColumn("Kode Jalur", RwRouteModel::getRouteCode);
-        t.addColumn("Kode Rute", RwRouteModel::getRouteCodeFromRoute);
-        t.addColumn("Jalur Yang Dilewati", RwRouteModel::getRouteCodeFromRoute);
-        t.addColumn("Waktu", RwRouteModel::getSumOfDuration);
-        return t.createString(rwRouteModels);
+        return AsciiTable.getTable(rwRouteModels, Arrays.asList(
+        new Column().header("Kode Jalur").with(rwRouteModel ->rwRouteModel.getRwRouteCode()),
+        new Column().header("Kode Rute").with(rwRouteModel -> rwRouteModel.getRouteCodeFromRoute()),
+        new Column().header("Jalur Yang Dilewati").with(rwRouteModel ->rwRouteModel.stringRwTrack() ),
+        new Column().header("Waktu").with(rwRouteModel -> Integer.toString(rwRouteModel.getSumOfDuration()))));
+
     }
     public void resultAddRwRoute(boolean success){
         if(success){

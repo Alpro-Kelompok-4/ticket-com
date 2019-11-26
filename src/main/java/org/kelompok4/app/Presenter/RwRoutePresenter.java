@@ -51,7 +51,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
         run();
     }
     public void showTable(){
-        rwRouteController.rwRouteTable(rwRouteController.allRwRouteView((rwRouteModels)));
+        rwRouteController.rwRouteTable(rwRouteController.allRwRouteView(rwRouteController.fetchAll()));
     }
 
     public void delRwRoute(){

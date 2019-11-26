@@ -1,0 +1,20 @@
+[
+	{
+		"bookingCode": "B01010",
+		"scheduleCode": "JW00001",
+		"trainCode": "KAI01",
+		"virtualAccount": "123456789012",
+		"passenger": [
+			"Steve",
+			"Jobs"
+		],
+		"seatCode": [
+			"P1-19",
+			"P1-20"
+		],
+		"paid": "PAID",
+		"totalPayment": {
+			"price": 100.99
+		}
+	}
+]

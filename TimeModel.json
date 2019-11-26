@@ -1,0 +1,577 @@
+[{
+        "timeCode": "TM1",
+        "jam": {
+            "hh": 0,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM2",
+        "jam": {
+            "hh": 0,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM3",
+        "jam": {
+            "hh": 0,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM4",
+        "jam": {
+            "hh": 0,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM5",
+        "jam": {
+            "hh": 1,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM6",
+        "jam": {
+            "hh": 1,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM7",
+        "jam": {
+            "hh": 1,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM8",
+        "jam": {
+            "hh": 1,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM9",
+        "jam": {
+            "hh": 2,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM10",
+        "jam": {
+            "hh": 2,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM11",
+        "jam": {
+            "hh": 2,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM12",
+        "jam": {
+            "hh": 2,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM13",
+        "jam": {
+            "hh": 3,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM14",
+        "jam": {
+            "hh": 3,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM15",
+        "jam": {
+            "hh": 3,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM16",
+        "jam": {
+            "hh": 3,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM17",
+        "jam": {
+            "hh": 4,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM18",
+        "jam": {
+            "hh": 4,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM19",
+        "jam": {
+            "hh": 4,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM20",
+        "jam": {
+            "hh": 4,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM21",
+        "jam": {
+            "hh": 5,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM22",
+        "jam": {
+            "hh": 5,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM23",
+        "jam": {
+            "hh": 5,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM24",
+        "jam": {
+            "hh": 5,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM25",
+        "jam": {
+            "hh": 6,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM26",
+        "jam": {
+            "hh": 6,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM27",
+        "jam": {
+            "hh": 6,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM28",
+        "jam": {
+            "hh": 6,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM29",
+        "jam": {
+            "hh": 7,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM30",
+        "jam": {
+            "hh": 7,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM31",
+        "jam": {
+            "hh": 7,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM32",
+        "jam": {
+            "hh": 7,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM33",
+        "jam": {
+            "hh": 8,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM34",
+        "jam": {
+            "hh": 8,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM35",
+        "jam": {
+            "hh": 8,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM36",
+        "jam": {
+            "hh": 8,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM37",
+        "jam": {
+            "hh": 9,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM38",
+        "jam": {
+            "hh": 9,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM39",
+        "jam": {
+            "hh": 9,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM40",
+        "jam": {
+            "hh": 9,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM41",
+        "jam": {
+            "hh": 10,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM42",
+        "jam": {
+            "hh": 10,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM43",
+        "jam": {
+            "hh": 10,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM44",
+        "jam": {
+            "hh": 10,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM45",
+        "jam": {
+            "hh": 11,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM46",
+        "jam": {
+            "hh": 11,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM47",
+        "jam": {
+            "hh": 11,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM48",
+        "jam": {
+            "hh": 11,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM49",
+        "jam": {
+            "hh": 12,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM50",
+        "jam": {
+            "hh": 12,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM51",
+        "jam": {
+            "hh": 12,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM52",
+        "jam": {
+            "hh": 12,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM53",
+        "jam": {
+            "hh": 13,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM54",
+        "jam": {
+            "hh": 13,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM55",
+        "jam": {
+            "hh": 13,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM56",
+        "jam": {
+            "hh": 13,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM57",
+        "jam": {
+            "hh": 14,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM58",
+        "jam": {
+            "hh": 14,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM59",
+        "jam": {
+            "hh": 14,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM60",
+        "jam": {
+            "hh": 14,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM61",
+        "jam": {
+            "hh": 15,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM62",
+        "jam": {
+            "hh": 15,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM63",
+        "jam": {
+            "hh": 15,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM64",
+        "jam": {
+            "hh": 15,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM65",
+        "jam": {
+            "hh": 16,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM66",
+        "jam": {
+            "hh": 16,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM67",
+        "jam": {
+            "hh": 16,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM68",
+        "jam": {
+            "hh": 16,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM69",
+        "jam": {
+            "hh": 17,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM70",
+        "jam": {
+            "hh": 17,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM71",
+        "jam": {
+            "hh": 17,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM72",
+        "jam": {
+            "hh": 17,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM73",
+        "jam": {
+            "hh": 18,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM74",
+        "jam": {
+            "hh": 18,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM75",
+        "jam": {
+            "hh": 18,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM76",
+        "jam": {
+            "hh": 18,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM77",
+        "jam": {
+            "hh": 19,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM78",
+        "jam": {
+            "hh": 19,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM79",
+        "jam": {
+            "hh": 19,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM80",
+        "jam": {
+            "hh": 19,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM81",
+        "jam": {
+            "hh": 20,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM82",
+        "jam": {
+            "hh": 20,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM83",
+        "jam": {
+            "hh": 20,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM84",
+        "jam": {
+            "hh": 20,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM85",
+        "jam": {
+            "hh": 21,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM86",
+        "jam": {
+            "hh": 21,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM87",
+        "jam": {
+            "hh": 21,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM88",
+        "jam": {
+            "hh": 21,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM89",
+        "jam": {
+            "hh": 22,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM90",
+        "jam": {
+            "hh": 22,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM91",
+        "jam": {
+            "hh": 22,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM92",
+        "jam": {
+            "hh": 22,
+            "mm": 45
+        }
+    }, {
+        "timeCode": "TM93",
+        "jam": {
+            "hh": 23,
+            "mm": 0
+        }
+    }, {
+        "timeCode": "TM94",
+        "jam": {
+            "hh": 23,
+            "mm": 15
+        }
+    }, {
+        "timeCode": "TM95",
+        "jam": {
+            "hh": 23,
+            "mm": 30
+        }
+    }, {
+        "timeCode": "TM96",
+        "jam": {
+            "hh": 23,
+            "mm": 45
+        }
+    }]

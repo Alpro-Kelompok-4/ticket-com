@@ -3,8 +3,7 @@ package org.kelompok4.app.View;
 public class TimeView {
 
     public void printTimeMenu(){
-        System.out.println("1. Generate Waktu ");
-        System.out.println("2. Lihat Data Waktu ");
+        System.out.println("1. Lihat Data Waktu ");
         System.out.println("99. Main Menu ");
         System.out.println(" ");
         System.out.print("Pilih Menu : ");
@@ -27,6 +26,11 @@ public class TimeView {
     }
     public void FailedGenerateTime(){
         System.out.println("Generate Waktu Gagal!");
+        System.out.flush();
+    }
+     public void printShowTable(String S) {
+        System.out.println("#DATA LENGKAP WAKTU#");
+        System.out.println(S);
         System.out.flush();
     }
 }

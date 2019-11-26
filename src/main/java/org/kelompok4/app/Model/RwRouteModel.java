@@ -22,7 +22,6 @@ public class RwRouteModel {
     public RouteModel getRoute() {
         return route;
     }
-
     public void setRoute(RouteModel route) {
         this.route = route;
     }
@@ -52,5 +51,12 @@ public class RwRouteModel {
 
     public void setSumOfDuration(int sumOfDuration) {
         this.sumOfDuration = sumOfDuration;
+    }
+    public String stringRwTrack(){
+        String result = "";
+        for(RwTrackModel rw : list){
+            result += "-   " + rw.getOrigin().getRwStationCode()+"-" + rw.getDestination().getRwStationCode()+System.lineSeparator();
+        }
+        return result;
     }
 }

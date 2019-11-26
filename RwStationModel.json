@@ -1,0 +1,20 @@
+[{
+		"rwStationCode": "GMB",
+		"rwStationName": "Gambir"
+	}, {
+		"rwStationCode": "JTN",
+		"rwStationName": "Jatinegara"
+	}, {
+		"rwStationCode": "BDN",
+		"rwStationName": "Bandung"
+	}, {
+		"rwStationCode": "CMH",
+		"rwStationName": "Cimahi"
+	}, {
+		"rwStationCode": "KAC",
+		"rwStationName": "Kiaracondong"
+	}, {
+		"rwStationCode": "SGU",
+		"rwStationName": "Surabaya Gubeng"
+	}
+]

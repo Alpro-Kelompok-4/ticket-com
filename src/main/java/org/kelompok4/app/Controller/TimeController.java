@@ -1,5 +1,7 @@
 package org.kelompok4.app.Controller;
 
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanRead;
 import org.kelompok4.app.Model.JamModel;
@@ -7,11 +9,13 @@ import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.View.TimeView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import org.kelompok4.app.Repo.TimeRepo;
 
-public class TimeController implements ICanRead, ICanCreate {
+public class TimeController implements  ICanCreate {
     TimeModel timeModel;
     TimeView timeView;
-    ArrayList<TimeModel> timeModels = new ArrayList<TimeModel>();
+    TimeRepo timeRepo = new TimeRepo();
     public TimeController(TimeModel timeModel, TimeView timeView) {
         this.timeModel = timeModel;
         this.timeView = timeView;
@@ -36,18 +40,23 @@ public class TimeController implements ICanRead, ICanCreate {
 
     @Override
     public void create() {
+        //write ka json
+        ArrayList<TimeModel> timeModels = generateTime();
 
+        //masukan ke json
     }
-
-    @Override
-    public void read() {
-
+    public void menuTimePageView(){
+        timeView.printAddTimePage();
     }
     public void generateTimeView(){
-        timeView.printAddTimePage();
         timeView.printGenerateTime();
     }
-    public boolean generateTime(){
+    public void menuTimeView(){
+        timeView.printTimeMenu();
+    }
+
+    public ArrayList<TimeModel> generateTime(){
+        ArrayList<TimeModel> timeModels = new ArrayList<TimeModel>();
         int hour = 0;
         int minute = 0;
         String code = "TM";
@@ -63,8 +72,7 @@ public class TimeController implements ICanRead, ICanCreate {
             }
 
         }while (hour<24);
-        timeModels.forEach((n) -> System.out.println(n.getTimeCode()));
-        return true;
+        return timeModels;
     }
     public void resultGenerateTime(boolean valid){
         if(valid){
@@ -72,5 +80,27 @@ public class TimeController implements ICanRead, ICanCreate {
         }else{
             timeView.FailedGenerateTime();
         }
+    }
+    public boolean checkJsonTime(){
+        if(timeRepo.getAll().size()==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public TimeModel getTime(String code){
+        return timeRepo.get(code);
+    }
+    public ArrayList<TimeModel> fetchAll(){
+//        System.out.println(rwRouteRepo.getAll().get(0).stringRwTrack());
+        return timeRepo.getAll();
+    }
+    public String allTimeView(ArrayList<TimeModel> timeModels){
+        return AsciiTable.getTable(timeModels, Arrays.asList(
+        new Column().header("Kode Waktu").with(timeModel ->timeModel.getTimeCode()),
+        new Column().header("Waktu").with(timeModel -> timeModel.printJam())));
+    }
+     public void timeTable(String S){
+        timeView.printShowTable(S);
     }
 }

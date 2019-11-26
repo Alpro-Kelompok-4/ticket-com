@@ -27,4 +27,19 @@ public class TimeModel {
     public void setJam(JamModel jam) {
         this.jam = jam;
     }
+    public String printJam(){
+        String HH;
+        String MM;
+        if(jam.getHH()<10){
+            HH = "0" +jam.getHH();
+        }else{
+            HH = String.valueOf(jam.getHH());
+        }
+        if(jam.getMM()<10){
+            MM = "0" +jam.getMM();
+        }else{
+            MM = String.valueOf(jam.getMM());
+        }
+        return new String(HH+":"+MM);
+    }
 }

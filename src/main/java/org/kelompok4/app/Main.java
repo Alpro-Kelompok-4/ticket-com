@@ -1,5 +1,6 @@
 package org.kelompok4.app;
 
+import com.github.freva.asciitable.AsciiTable;
 import org.kelompok4.app.Controller.*;
 import org.kelompok4.app.Model.*;
 import org.kelompok4.app.Presenter.LoginPresenter;
@@ -7,23 +8,28 @@ import org.kelompok4.app.Presenter.RegisterPresenter;
 import org.kelompok4.app.Presenter.RwRoutePresenter;
 import org.kelompok4.app.Presenter.TrainPresenter;
 import org.kelompok4.app.View.*;
-
+import org.kelompok4.app.Repo.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import org.kelompok4.app.Presenter.TimePresenter;
 
 
 public class Main {
 	public Main() {
 
 	}
-
 	public static void main(String[] args) throws IOException, InterruptedException {
-		Scanner scanner = new Scanner(System.in);
+		
+//		UserRepo us = new UserRepo();
+//                System.out.print(us.getAll().toString());
+                Scanner scanner = new Scanner(System.in);
 		int menu;
 		// instansiasi objek objek
 		Driver driver = new Driver();
 		LoginModel loginModel = new LoginModel(null, null);
 		LoginView loginView = new LoginView();
+                
 		LoginController loginController = new LoginController(loginModel, loginView);
 		UserModel userModel = new UserModel("erwin@gmail.com", "123123as", "Erwin", "1231231231231231", "123123123123");
 		RegisterView registerView = new RegisterView();
@@ -43,13 +49,16 @@ public class Main {
 		// driver.register(registerController,userModel,registerView);
 		// driver.updateinfouser(customerController, userModel, registerView);
 		TrainPresenter trainPresenter = new TrainPresenter(trainController);
-//		trainPresenter.run();
+//                trainPresenter.run();
 		RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(rwRouteController);
-//		rwRoutePresenter.run();
+                //  System.out.print(asd);
+//                rwRoutePresenter.run();
 		TimeModel timeModel = new TimeModel();
 		TimeView timeView = new TimeView();
 		TimeController timeController = new TimeController(timeModel,timeView);
-		timeController.generateTime();
+                TimePresenter timePresenter = new TimePresenter(timeController);
+                timePresenter.run();
+//		timeController.generateTime();
 	}
 
 }

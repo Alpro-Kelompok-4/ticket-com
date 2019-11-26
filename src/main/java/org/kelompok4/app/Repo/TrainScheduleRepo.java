@@ -86,5 +86,16 @@ public class TrainScheduleRepo {
             e.printStackTrace();
         }
     }
+
+    public void deleteAll(){
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            ((ArrayNode) root).removeAll();
+            mapper.writeValue(new File(path), root);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
 }

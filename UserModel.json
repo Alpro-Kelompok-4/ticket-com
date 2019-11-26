@@ -1,1 +1,50 @@
-[{"email":"admin@ticket.com","password":"admin123","isAdmin":true,"nama":"admin","noKTP":"0000000000000000","noHP":"08123456789"},{"email":"erwin@gmail.com","password":"111111qw","isAdmin":false,"nama":"Erwin","noKTP":"1111111111111111","noHP":"08198765432"},{"email":"fakhri@gmail.com","password":"222222qw","isAdmin":false,"nama":"Fakhri","noKTP":"2222222222222222","noHP":"08298765432"},{"email":"arfan@gmail.com","password":"333333qw","isAdmin":false,"nama":"Arfan","noKTP":"3333333333333333","noHP":"08398765432"},{"email":"gayuh@gmail.com","password":"444444qw","isAdmin":false,"nama":"Gayuh","noKTP":"4444444444444444","noHP":"08498765432"},{"email":"naufan@gmail.com","password":"555555qw","isAdmin":false,"nama":"Naufan","noKTP":"5555555555555555","noHP":"08598765432"},{"email":"Fackri@om.buncit","password":"prevret123","isAdmin":false,"nama":"Fackri Husaini","noKTP":"1231231231231231","noHP":"089123123123"}]
+[
+    {
+        "email": "admin@ticket.com",
+        "password": "admin123",
+        "isAdmin": true,
+        "name": "admin",
+        "noKTP": "0000000000000000",
+        "noHP": "08123456789"
+    },
+    {
+        "email": "erwin@gmail.com",
+        "password": "111111qw",
+        "isAdmin": false,
+        "name": "Erwin",
+        "noKTP": "1111111111111111",
+        "noHP": "08198765432"
+    },
+    {
+        "email": "fakhri@gmail.com",
+        "password": "222222qw",
+        "isAdmin": false,
+        "name": "Fakhri",
+        "noKTP": "2222222222222222",
+        "noHP": "08298765432"
+    },
+    {
+        "email": "arfan@gmail.com",
+        "password": "333333qw",
+        "isAdmin": false,
+        "name": "Arfan",
+        "noKTP": "3333333333333333",
+        "noHP": "08398765432"
+    },
+    {
+        "email": "gayuh@gmail.com",
+        "password": "444444qw",
+        "isAdmin": false,
+        "name": "Gayuh",
+        "noKTP": "4444444444444444",
+        "noHP": "08498765432"
+    },
+    {
+        "email": "naufan@gmail.com",
+        "password": "555555qw",
+        "isAdmin": false,
+        "name": "Naufan",
+        "noKTP": "5555555555555555",
+        "noHP": "08598765432"
+    }
+]

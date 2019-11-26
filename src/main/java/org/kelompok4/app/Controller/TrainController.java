@@ -7,6 +7,7 @@ import org.kelompok4.app.Model.BusinessCoachModel;
 import org.kelompok4.app.Model.CoachModel;
 import org.kelompok4.app.Model.PremiumCoachModel;
 import org.kelompok4.app.Model.TrainModel;
+import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.View.TrainView;
 
 import java.util.ArrayList;
@@ -125,6 +126,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
     public ArrayList<TrainModel> fetchAll(){
         return trainRepo.getAll();
+
     }
 //    public String allTrainView(ArrayList<TrainModel> trainModels){
 //        return AsciiTable.getTable(trainModels, Arrays.asList(
@@ -139,7 +141,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
         t.addColumn("Kode KAI", TrainModel::getTrainCode);
         t.addColumn("NAMA KAI", TrainModel::getTrainName);
-        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
+        t.addColumn("GERBONG", TrainModel::numberOfCoach);
         t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
         t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
         return t.createString(trainModels);

@@ -213,11 +213,11 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
             }
         }
 
-        if(valid){
+        if (valid) {
             setList(rwTrackModels);
             setSumOfDuration(t_duration);
             setRwRouteCode("JL01");
-        }else{
+        } else {
             valid = false;
         }
         return valid;

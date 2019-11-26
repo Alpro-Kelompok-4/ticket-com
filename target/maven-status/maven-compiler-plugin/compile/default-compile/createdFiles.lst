@@ -1,8 +1,17 @@
+org\kelompok4\app\View\RwStationView.class
+org\kelompok4\app\View\RouteTimeView.class
 org\kelompok4\app\Interface\ICanRun.class
+org\kelompok4\app\Controller\RouteTimeController.class
+org\kelompok4\app\Controller\RouteTrainController.class
+org\kelompok4\app\View\TrainScheduleView.class
+org\kelompok4\app\View\MenuView.class
 org\kelompok4\app\Interface\ICanDelete.class
 org\kelompok4\app\Interface\ICanUpdateUser.class
+org\kelompok4\app\View\RouteTrainView.class
 org\kelompok4\app\Model\TimeModel.class
 org\kelompok4\app\Presenter\LoginPresenter.class
+org\kelompok4\app\View\ReportView.class
+org\kelompok4\app\Controller\TrainScheduleController.class
 org\kelompok4\app\Interface\ICanRead.class
 org\kelompok4\app\Interface\ICanValidateEmail.class
 org\kelompok4\app\Controller\TimeController.class
@@ -22,15 +31,23 @@ org\kelompok4\app\Interface\ICanInput.class
 org\kelompok4\app\Model\CoachModel.class
 org\kelompok4\app\Controller\CustomerController.class
 org\kelompok4\app\Interface\ICanValidatePassword.class
+org\kelompok4\app\Presenter\RouteTimePresenter.class
 org\kelompok4\app\Model\RwTrackModel.class
+org\kelompok4\app\Presenter\RouteTrainPresenter.class
 org\kelompok4\app\Presenter\TrainPresenter.class
 org\kelompok4\app\Controller\LoginController.class
+<<<<<<< HEAD
+org\kelompok4\app\View\RouteView.class
+=======
+>>>>>>> erwin
 org\kelompok4\app\Presenter\TimePresenter.class
 org\kelompok4\app\View\TrainView.class
 org\kelompok4\app\Model\PremiumCoachModel.class
+org\kelompok4\app\View\CityView.class
 org\kelompok4\app\Controller\TrainController.class
 org\kelompok4\app\Model\JamModel.class
 org\kelompok4\app\Model\BookingModel.class
+org\kelompok4\app\View\UserView.class
 org\kelompok4\app\Presenter\ContinuePresenter.class
 org\kelompok4\app\View\RwRouteView.class
 org\kelompok4\app\UserRepo.class
@@ -44,11 +61,13 @@ org\kelompok4\app\View\TimeView.class
 org\kelompok4\app\Model\UserModel.class
 org\kelompok4\app\Model\CustomerModel.class
 org\kelompok4\app\Model\RouteTrainModel.class
+org\kelompok4\app\View\BookingView.class
 org\kelompok4\app\Model\RouteTimeModel.class
 org\kelompok4\app\Interface\ICanValidateNoKTP.class
 org\kelompok4\app\Model\LoginModel.class
 org\kelompok4\app\Controller\RwRouteController.class
 org\kelompok4\app\Interface\ICanManageTrain.class
+org\kelompok4\app\Presenter\TrainSchedulePresenter.class
 org\kelompok4\app\View\RegisterView.class
 org\kelompok4\app\Presenter\RegisterPresenter.class
 org\kelompok4\app\View\LoginView.class

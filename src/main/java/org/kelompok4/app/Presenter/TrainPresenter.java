@@ -78,7 +78,7 @@ public class TrainPresenter extends ContinuePresenter implements ICanRun {
         }
     }
     public void showTable(){
-        trainController.trainTable(trainController.allTrainView(trainModels));
+        trainController.trainTable(trainController.allTrainView(trainController.fetchAll()));
     }
     public void showTrain() {
         trainController.showTrainView();

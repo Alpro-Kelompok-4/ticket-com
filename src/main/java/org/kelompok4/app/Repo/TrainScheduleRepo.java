@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import org.kelompok4.app.Model.TrainScheduleModel;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

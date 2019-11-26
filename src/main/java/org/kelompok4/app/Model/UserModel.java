@@ -3,16 +3,16 @@ public class UserModel {
 	private String email;
 	private String password;
 	private boolean isAdmin;
-	private String nama;
-	private String noKTP;
+	private String name;
+	private String id;
 	private String noHP;
 	public UserModel(String email, String password, String nama, String noKTP, String noHP){
 		this.email = email;
 		this.password = password;
 		this.isAdmin = false;
-		this.nama = nama;
+		this.name = nama;
 		this.noHP = noHP;
-		this.noKTP = noKTP;
+		this.id = noKTP;
 	}
 
 	public UserModel() {
@@ -42,21 +42,21 @@ public class UserModel {
 		this.isAdmin = isAdmin;
 	}
 
-	public String getNama() {
-		return nama;
+	public String getName() {
+		return name;
 	}
 
-	public void setNama(String nama) {
-		this.nama = nama;
+	public void setName(String nama) {
+		this.name = nama;
 	}
 
 
-	public String getNoKTP() {
-		return noKTP;
+	public String getId() {
+		return id;
 	}
 
-	public void setNoKTP(String noKTP) {
-		this.noKTP = noKTP;
+	public void setId(String noKTP) {
+		this.id = noKTP;
 	}
 
 	public String getNoHP() {

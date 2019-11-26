@@ -15,6 +15,10 @@ public class RwRouteModel {
     }
     public RwRouteModel() {
     }
+    
+    public String routeCode() {
+        return route.getRouteCode();
+    }
 
     public RouteModel getRoute() {
         return route;

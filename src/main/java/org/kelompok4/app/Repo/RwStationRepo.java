@@ -7,10 +7,11 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import org.kelompok4.app.Model.RwStationModel;
 
 public class RwStationRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\RwStationModel_1.json";
+    String path = System.getProperty("user.dir") + "\\RwStationModel.json";
     
     public void create(RwStationModel model) {
         try {

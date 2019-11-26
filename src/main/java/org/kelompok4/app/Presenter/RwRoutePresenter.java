@@ -119,7 +119,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
                     System.out.println(rwRouteController.getRoute().toString());
                     System.out.println(rwRouteController.getList().toString());
                     System.out.println(rwRouteController.getSumOfDuration());
-                    rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
+                    // rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
                     rwRouteController.resultView();
                     rwRouteController.resultAddRwRoute(valid_track);
                     pressEnterKey();

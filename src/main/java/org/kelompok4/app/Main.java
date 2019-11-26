@@ -49,9 +49,9 @@ public class Main {
 		// driver.register(registerController,userModel,registerView);
 		// driver.updateinfouser(customerController, userModel, registerView);
 		TrainPresenter trainPresenter = new TrainPresenter(trainController);
-//		trainPresenter.run();
+		trainPresenter.run();
 		RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(rwRouteController);
-		rwRoutePresenter.run();
+		// rwRoutePresenter.run();
 	}
 
 }

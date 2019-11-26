@@ -72,7 +72,7 @@ public class LoginController implements ICanLoginByEmail, ICanAuthByPassword, IC
         ArrayList<UserModel> usermodel = new ArrayList<>();
 
         for (UserModel user : usermodel) {
-            System.out.println(user.getNama());
+            System.out.println(user.getName());
         }
         if(this.getLoginEmail().equals("erwin@gmail.com")&&this.getLoginPassword().equals("12345678i")){
             return true;

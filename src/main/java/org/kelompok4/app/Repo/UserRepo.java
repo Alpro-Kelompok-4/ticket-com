@@ -4,13 +4,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import org.kelompok4.app.Model.UserModel;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\UserModel_1.json";
+    String path = System.getProperty("user.dir") + "\\UserModel.json";
     
     public void create(UserModel model) {
         try {

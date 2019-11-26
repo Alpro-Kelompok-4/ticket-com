@@ -23,7 +23,7 @@ import org.kelompok4.app.View.TrainScheduleView;
 public class TrainScheduleController implements ICanCreate, ICanRead {
     TrainScheduleModel trainScheduleModel;
     TrainScheduleView trainScheduleView;
-    TrainScheduleRepo trainScheduleRepo;
+    TrainScheduleRepo trainScheduleRepo = new TrainScheduleRepo();
 
     public TrainScheduleController(TrainScheduleModel trainScheduleModel, TrainScheduleView trainScheduleView) {
         this.trainScheduleModel = trainScheduleModel;

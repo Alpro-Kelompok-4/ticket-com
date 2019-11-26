@@ -21,7 +21,7 @@ import org.kelompok4.app.View.RouteTimeView;
 public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     RouteTimeModel routeTimeModel;
     RouteTimeView routeTimeView;
-    RouteTimeRepo routeTimeRepo;
+    RouteTimeRepo routeTimeRepo = new RouteTimeRepo();
 
     public RouteTimeController(RouteTimeModel routeTimeModel, RouteTimeView routeTimeView) {
         this.routeTimeModel = routeTimeModel;

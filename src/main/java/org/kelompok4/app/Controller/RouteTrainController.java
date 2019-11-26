@@ -21,7 +21,7 @@ import org.kelompok4.app.View.RouteTrainView;
 public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     RouteTrainModel routeTrainModel;
     RouteTrainView routeTrainView;
-    RouteTrainRepo routeTrainRepo;
+    RouteTrainRepo routeTrainRepo = new RouteTrainRepo();
 
     public RouteTrainController(RouteTrainModel routeTrainModel, RouteTrainView routeTrainView) {
         this.routeTrainModel = routeTrainModel;

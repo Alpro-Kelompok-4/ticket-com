@@ -24,11 +24,11 @@ public class RouteTrainModel {
         this.rwRoute = rwRoute;
     }
 
-    public String getRouteTimeCode() {
+    public String getRouteTrainCode() {
         return routeTrainCode;
     }
 
-    public void setRouteTimeCode(String routeTrainCode) {
+    public void setRouteTrainCode(String routeTrainCode) {
         this.routeTrainCode = routeTrainCode;
     }
 

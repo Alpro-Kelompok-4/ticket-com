@@ -6,7 +6,7 @@ public class RouteModel {
     private String routeCode;
     private PriceModel business;
     private PriceModel premium;
-
+    
     public RouteModel(CityModel departure, CityModel arrival, String routeCode, PriceModel business, PriceModel premium) {
         this.departure = departure;
         this.arrival = arrival;
@@ -15,7 +15,10 @@ public class RouteModel {
         this.premium = premium;
     }
 
+    public RouteModel() {
+    }
 
+    
     public CityModel getDeparture() {
         return departure;
     }

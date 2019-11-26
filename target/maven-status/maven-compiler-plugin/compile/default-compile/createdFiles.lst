@@ -5,6 +5,7 @@ org\kelompok4\app\Model\TimeModel.class
 org\kelompok4\app\Presenter\LoginPresenter.class
 org\kelompok4\app\Interface\ICanRead.class
 org\kelompok4\app\Interface\ICanValidateEmail.class
+org\kelompok4\app\Controller\TimeController.class
 org\kelompok4\app\Controller\TableStringBuilder.class
 org\kelompok4\app\Model\BusinessCoachModel.class
 org\kelompok4\app\Model\RouteModel.class
@@ -12,6 +13,8 @@ org\kelompok4\app\Main.class
 org\kelompok4\app\Model\SeatModel.class
 org\kelompok4\app\Interface\ICanAuthByPassword.class
 org\kelompok4\app\Interface\ICanLoginByEmail.class
+org\kelompok4\app\Interface\ICanManageRwRoute.class
+org\kelompok4\app\Presenter\RwRoutePresenter.class
 org\kelompok4\app\Interface\ICanValidateName.class
 org\kelompok4\app\Controller\RegisterController.class
 org\kelompok4\app\Model\RwStationModel.class
@@ -22,12 +25,14 @@ org\kelompok4\app\Interface\ICanValidatePassword.class
 org\kelompok4\app\Model\RwTrackModel.class
 org\kelompok4\app\Presenter\TrainPresenter.class
 org\kelompok4\app\Controller\LoginController.class
+org\kelompok4\app\Presenter\TimePresenter.class
 org\kelompok4\app\View\TrainView.class
 org\kelompok4\app\Model\PremiumCoachModel.class
 org\kelompok4\app\Controller\TrainController.class
 org\kelompok4\app\Model\JamModel.class
 org\kelompok4\app\Model\BookingModel.class
 org\kelompok4\app\Presenter\ContinuePresenter.class
+org\kelompok4\app\View\RwRouteView.class
 org\kelompok4\app\UserRepo.class
 org\kelompok4\app\Model\CityModel.class
 org\kelompok4\app\Interface\ICanCreate.class
@@ -35,12 +40,14 @@ org\kelompok4\app\Interface\ICanUpdate.class
 org\kelompok4\app\Model\RwRouteModel.class
 org\kelompok4\app\Controller\CoachFactory.class
 org\kelompok4\app\Driver.class
+org\kelompok4\app\View\TimeView.class
 org\kelompok4\app\Model\UserModel.class
 org\kelompok4\app\Model\CustomerModel.class
 org\kelompok4\app\Model\RouteTrainModel.class
 org\kelompok4\app\Model\RouteTimeModel.class
 org\kelompok4\app\Interface\ICanValidateNoKTP.class
 org\kelompok4\app\Model\LoginModel.class
+org\kelompok4\app\Controller\RwRouteController.class
 org\kelompok4\app\Interface\ICanManageTrain.class
 org\kelompok4\app\View\RegisterView.class
 org\kelompok4\app\Presenter\RegisterPresenter.class

@@ -47,8 +47,8 @@ public class RouteTimeModel {
         String output = "";
         for (TimeModel timeModel : list) {
             output += "- ";
-            output += timeModel.getTimeCode();
-            output += "\n";
+            output += timeModel.printJam();
+            output += System.lineSeparator();
         }
 
         return output;

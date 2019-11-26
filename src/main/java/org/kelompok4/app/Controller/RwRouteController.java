@@ -103,7 +103,7 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
     }
 
     public String getRouteCode() {
-        return rwRouteModel.getRouteCode();
+        return rwRouteModel.routeCode();
     }
 
     public void addRwRoute(){
@@ -145,7 +145,7 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
     public String allRwRouteView(ArrayList<RwRouteModel> rwRouteModels){
         return AsciiTable.getTable(rwRouteModels, Arrays.asList(
         new Column().header("Kode Jalur").with(rwRouteModel ->rwRouteModel.getRwRouteCode()),
-        new Column().header("Kode Rute").with(rwRouteModel -> rwRouteModel.getRouteCodeFromRoute()),
+        new Column().header("Kode Rute").with(rwRouteModel -> rwRouteModel.routeCodeFromRoute()),
         new Column().header("Jalur Yang Dilewati").with(rwRouteModel ->rwRouteModel.stringRwTrack() ),
         new Column().header("Waktu").with(rwRouteModel -> Integer.toString(rwRouteModel.getSumOfDuration()))));
 

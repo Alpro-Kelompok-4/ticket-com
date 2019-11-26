@@ -49,7 +49,7 @@ public class RouteTrainModel {
         for (TrainModel trainModel : list) {
             output += "- ";
             output += trainModel.getTrainCode();
-            output += "\n";
+            output += System.lineSeparator();
         }
 
         return output;

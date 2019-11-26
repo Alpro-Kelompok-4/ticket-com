@@ -141,7 +141,6 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<RouteTimeModel> getAllRouteTime(){
-        
         return routeTimeRepo.getAll();
     }
 
@@ -180,6 +179,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     public String generateLastRouteTimeCode(){
         String current = getLastRouteTimeCode();
         int newCode = Integer.valueOf(current.split("WR")[1]);
+        newCode++;
         String newString = "WR" + Integer.toString(newCode);
         return newString;
     }
@@ -201,7 +201,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 	}
 
 	public boolean deleteRouteTime(String routeTimeCode) {
-        ArrayList<RouteTimeModel> routeTimes = new ArrayList<RouteTimeModel>();
+        ArrayList<RouteTimeModel> routeTimes = routeTimeRepo.getAll();
         boolean found = false;
 
         for (RouteTimeModel r : routeTimes) {

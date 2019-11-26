@@ -23,7 +23,9 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
 //    UserPresenter  userPresenter ;
 
 
-
+    public AdminMenuPresenter(){
+        
+    }
 
     public AdminMenuPresenter(MenuController menuController, CityPresenter cityPresenter, TrainPresenter trainPresenter) {
         this.menuController = menuController;

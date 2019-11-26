@@ -12,6 +12,8 @@ import org.kelompok4.app.Repo.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.kelompok4.app.Presenter.AdminMenuPresenter;
+import org.kelompok4.app.Presenter.CustomerMenuPresenter;
 import org.kelompok4.app.Presenter.MenuPresenter;
 import org.kelompok4.app.Presenter.TimePresenter;
 
@@ -60,9 +62,11 @@ public class Main {
 //                TimePresenter timePresenter = new TimePresenter(timeController);
 //                timePresenter.run();
 //		timeController.generateTime();
+                CustomerMenuPresenter customerMenuPresenter = new CustomerMenuPresenter();
+                AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter();
                 MenuView menuView = new MenuView();
 		MenuController menuController = new MenuController(menuView);
-		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter);
+		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter,customerMenuPresenter,adminMenuPresenter);
 		menuPresenter.run();
 	}
 

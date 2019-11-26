@@ -42,20 +42,20 @@ public class UserModel {
 		this.isAdmin = isAdmin;
 	}
 
-	public String getName() {
+	public String getNama() {
 		return name;
 	}
 
-	public void setName(String nama) {
+	public void setNama(String nama) {
 		this.name = nama;
 	}
 
 
-	public String getId() {
+	public String getNoKTP() {
 		return id;
 	}
 
-	public void setId(String noKTP) {
+	public void setNoKTP(String noKTP) {
 		this.id = noKTP;
 	}
 

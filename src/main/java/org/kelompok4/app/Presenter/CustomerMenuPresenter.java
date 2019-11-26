@@ -10,7 +10,7 @@ import org.kelompok4.app.Interface.ICanRun;
 
 public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
-    UserController userController;
+    // UserController userController;
 //  BookingPresenter bookingPresenter;
     public CustomerMenuPresenter(){
         

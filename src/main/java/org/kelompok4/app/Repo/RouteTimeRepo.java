@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class RouteTimeRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\RouteTimeModel.json";
+    String path = System.getProperty("user.dir") + "\\RouteTime.json";
     
     public void create(RouteTimeModel model) {
         try {

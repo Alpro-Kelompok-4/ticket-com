@@ -54,14 +54,13 @@ public class TrainSchedulePresenter extends ContinuePresenter implements ICanRun
             RouteTrainRepo routeTrainRepo = new RouteTrainRepo();
 
             ArrayList<RwRouteModel> rwRoutes = rwRouteRepo.getAll();
+            System.out.println(rwRoutes.get(0).getRoute().getRouteCode());
             ArrayList<RouteTimeModel> routeTimes = routeTimeRepo.getAll();
+            System.out.println(routeTimes.get(0).getRwRoute().getRoute().getRouteCode());
             ArrayList<RouteTrainModel> routeTrains = routeTrainRepo.getAll();
+            System.out.println(routeTrains.get(0).getRwRoute().getRoute().getRouteCode());
 
-            if (trainScheduleController.generateTrainSchedule(rwRoutes, routeTimes, routeTrains)) {
-                trainScheduleController.getTrainScheduleView().SuccessGenerateSchedule();
-            } else {
-                trainScheduleController.getTrainScheduleView().FailedGenerateSchedule();
-            }
+            trainScheduleController.generateTrainSchedule(rwRoutes, routeTimes, routeTrains);
         } else if (c == 'N') {
             trainScheduleController.getTrainScheduleView().FailedGenerateSchedule();
         } else {

@@ -39,16 +39,16 @@ public class RouteTimeModel {
         this.list = list;
     }
 
-    public String getRouteCode(){
+    public String routeCode(){
         return rwRoute.getRoute().getRouteCode();
     }
 
-    public String getListString(){
+    public String listString(){
         String output = "";
         for (TimeModel timeModel : list) {
             output += "- ";
-            output += timeModel.getTimeCode();
-            output += "\n";
+            output += timeModel.printJam();
+            output += System.lineSeparator();
         }
 
         return output;

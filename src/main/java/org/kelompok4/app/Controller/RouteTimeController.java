@@ -21,7 +21,7 @@ import org.kelompok4.app.View.RouteTimeView;
 public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     RouteTimeModel routeTimeModel;
     RouteTimeView routeTimeView;
-    RouteTimeRepo routeTimeRepo;
+    RouteTimeRepo routeTimeRepo = new RouteTimeRepo();
 
     public RouteTimeController(RouteTimeModel routeTimeModel, RouteTimeView routeTimeView) {
         this.routeTimeModel = routeTimeModel;
@@ -141,7 +141,6 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public ArrayList<RouteTimeModel> getAllRouteTime(){
-        
         return routeTimeRepo.getAll();
     }
 
@@ -149,8 +148,8 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
         routeTimeView.HeaderViewRouteTime();
         return AsciiTable.getTable(routeTimes, Arrays.asList(
             new Column().header("Kode Kereta Rute").with(routeTime -> routeTime.getRouteTimeCode()),
-            new Column().header("Kode Rute").with(routeTime -> routeTime.getRouteCode()),
-            new Column().header("Waktu Tersedia Pada Rute").with(routeTime -> routeTime.getListString())
+            new Column().header("Kode Rute").with(routeTime -> routeTime.routeCode()),
+            new Column().header("Waktu Tersedia Pada Rute").with(routeTime -> routeTime.listString())
         ));
     }
 
@@ -159,10 +158,10 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public boolean checkRouteAvailability(String routeCode){
-        boolean check = false;
+        boolean check = true;
         for (RouteTimeModel r : getAllRouteTime()) {
-            if (r.getRouteCode().equals(routeCode)){
-                check = true;
+            if (r.routeCode().equals(routeCode)){
+                check = false;
                 break;
             }
         }
@@ -170,12 +169,17 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public String getLastRouteTimeCode(){
-        return getAllRouteTime().get(getAllRouteTime().size()-1).getRouteTimeCode();
+        if (getAllRouteTime().size() <= 0){
+            return "WR0";
+        } else {
+            return getAllRouteTime().get(getAllRouteTime().size()-1).getRouteTimeCode();
+        }
     }
 
     public String generateLastRouteTimeCode(){
         String current = getLastRouteTimeCode();
-        int newCode = Integer.valueOf(current.split("WR")[0]);
+        int newCode = Integer.valueOf(current.split("WR")[1]);
+        newCode++;
         String newString = "WR" + Integer.toString(newCode);
         return newString;
     }
@@ -197,7 +201,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 	}
 
 	public boolean deleteRouteTime(String routeTimeCode) {
-        ArrayList<RouteTimeModel> routeTimes = new ArrayList<RouteTimeModel>();
+        ArrayList<RouteTimeModel> routeTimes = routeTimeRepo.getAll();
         boolean found = false;
 
         for (RouteTimeModel r : routeTimes) {

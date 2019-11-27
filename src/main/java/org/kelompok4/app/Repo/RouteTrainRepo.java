@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class RouteTrainRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\RouteTrainModel.json";
+    String path = System.getProperty("user.dir") + "\\RouteTrain.json";
     
     public void create(RouteTrainModel model) {
         try {

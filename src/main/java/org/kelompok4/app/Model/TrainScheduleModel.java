@@ -62,27 +62,11 @@ public class TrainScheduleModel {
         this.trainModel = trainModel;
     }
 
-    public String getDateString(){
-        String output = "";
-        output += date.toString().split(" ")[0];
-        output += " ";
-        output += date.toString().split(" ")[1];
-        output += " ";
-        output += date.toString().split(" ")[2];
-        output += " ";
-        output += date.toString().split(" ")[5];
-        return output;
+    public String departureTimeString(){
+        return timeModel.printJam();
     }
 
-    public String getDepartureTimeString(){
-        String output = "";
-        output += timeModel.getJam().getHH();
-        output += ":";
-        output += timeModel.getJam().getMM();
-        return output;
-    }
-
-    public String getArrivalTimeString(){
+    public String arrivalTimeString(){
         String output = "";
         int totalDuration = rwRouteModel.getSumOfDuration();
         int addHH = totalDuration/60;
@@ -93,35 +77,34 @@ public class TrainScheduleModel {
             addedHH++;
             addedMM -= 60;
         }
-        output += addedHH;
-        output += ":";
-        output += addedMM;
-        return output;
+        TimeModel timeModel = new TimeModel();
+        timeModel.setJam(new JamModel(addedHH, addedMM));
+        return timeModel.printJam();
     }
 
-    public String getDepartureCityString(){
+    public String departureCityString(){
         String output = "";
         output += rwRouteModel.getRoute().getDeparture().getCityName();
         return output;
     }
 
-    public String getArrivalCityString(){
+    public String arrivalCityString(){
         String output = "";
         output += rwRouteModel.getRoute().getArrival().getCityName();
         return output;
     }
 
-    public String getTrainCodeString(){
+    public String trainCodeString(){
         return trainModel.getTrainCode();
     }
 
-    public String getRemainingSeatString(){
+    public String remainingSeatString(){
         String output = "";
         int maxSeat = 0;
         int filledSeat = 0;
         for (CoachModel c : trainModel.getCoachs()) {
             maxSeat += c.getSeatQty();
-            filledSeat += c.getSeat().size();
+            filledSeat += c.filledSeat();
         }
         if (maxSeat > filledSeat){
             output += "Sisa ";

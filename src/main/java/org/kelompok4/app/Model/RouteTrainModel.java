@@ -40,16 +40,16 @@ public class RouteTrainModel {
         this.list = list;
     }
 
-    public String getRouteCode(){
+    public String routeCode(){
         return rwRoute.getRoute().getRouteCode();
     }
 
-    public String getListString(){
+    public String listString(){
         String output = "";
         for (TrainModel trainModel : list) {
             output += "- ";
             output += trainModel.getTrainCode();
-            output += "\n";
+            output += System.lineSeparator();
         }
 
         return output;

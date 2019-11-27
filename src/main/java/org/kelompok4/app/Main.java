@@ -44,6 +44,7 @@ public class Main {
                 
 		LoginController loginController = new LoginController(loginModel, loginView);
 		UserModel userModel = new UserModel();
+                UserController userController = new UserController(userModel,new UserView());
 		RegisterView registerView = new RegisterView();
 		RegisterController registerController = new RegisterController(userModel, registerView);
 //		CustomerController customerController = new CustomerController(userModel, registerView);
@@ -75,13 +76,14 @@ RwRouteController rwRouteController = new RwRouteController(rwRouteModel,rwRoute
                 CityModel cityModel = new CityModel();
                 CityController cityController = new CityController(cityModel,cityView);
                 CityPresenter cityPresenter = new CityPresenter(cityController);
-                CustomerMenuPresenter customerMenuPresenter = new CustomerMenuPresenter();
+                
                 MenuView menuView = new MenuView();
 		MenuController menuController = new MenuController(menuView);
+                CustomerMenuPresenter customerMenuPresenter = new CustomerMenuPresenter(menuController,userController);
                 AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
-                rwRoutePresenter.run();
+//                rwRoutePresenter.run();
 		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter,customerMenuPresenter,adminMenuPresenter);
-//		menuPresenter.run();
+                menuPresenter.run();
 
 	}
 

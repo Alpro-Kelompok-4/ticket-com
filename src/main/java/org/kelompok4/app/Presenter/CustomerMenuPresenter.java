@@ -21,6 +21,11 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
         //this.bookingPresenter = bookingPresenter;
     }
 
+    public CustomerMenuPresenter(MenuController menuController, UserController userController) {
+        this.menuController = menuController;
+        this.userController = userController;
+    }
+    
     public UserController getUserController() {
         return userController;
     }

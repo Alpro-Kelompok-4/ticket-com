@@ -61,4 +61,60 @@ public class TrainScheduleModel {
     public void setTrainModel(TrainModel trainModel) {
         this.trainModel = trainModel;
     }
+
+    public String departureTimeString(){
+        return timeModel.printJam();
+    }
+
+    public String arrivalTimeString(){
+        String output = "";
+        int totalDuration = rwRouteModel.getSumOfDuration();
+        int addHH = totalDuration/60;
+        int addMM = totalDuration%60;
+        int addedHH = timeModel.getJam().getHH() + addHH;
+        int addedMM = timeModel.getJam().getMM() + addMM;
+        if (addedMM >= 60){
+            addedHH++;
+            addedMM -= 60;
+        }
+        TimeModel timeModel = new TimeModel();
+        timeModel.setJam(new JamModel(addedHH, addedMM));
+        return timeModel.printJam();
+    }
+
+    public String departureCityString(){
+        String output = "";
+        output += rwRouteModel.getRoute().getDeparture().getCityName();
+        return output;
+    }
+
+    public String arrivalCityString(){
+        String output = "";
+        output += rwRouteModel.getRoute().getArrival().getCityName();
+        return output;
+    }
+
+    public String trainCodeString(){
+        return trainModel.getTrainCode();
+    }
+
+    public String remainingSeatString(){
+        String output = "";
+        int maxSeat = 0;
+        int filledSeat = 0;
+        for (CoachModel c : trainModel.getCoachs()) {
+            maxSeat += c.getSeatQty();
+            filledSeat += c.filledSeat();
+        }
+        if (maxSeat > filledSeat){
+            output += "Sisa ";
+            output += maxSeat - filledSeat;
+            output += " kursi";
+        } else if (maxSeat == filledSeat){
+            output += "Full";
+        } else {
+            output += "Aneh";
+        }
+        return output;
+    }
 }

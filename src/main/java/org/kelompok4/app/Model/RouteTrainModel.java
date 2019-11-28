@@ -39,4 +39,19 @@ public class RouteTrainModel {
     public void setList(ArrayList<TrainModel> list) {
         this.list = list;
     }
+
+    public String routeCode(){
+        return rwRoute.getRoute().getRouteCode();
+    }
+
+    public String listString(){
+        String output = "";
+        for (TrainModel trainModel : list) {
+            output += "- ";
+            output += trainModel.getTrainCode();
+            output += System.lineSeparator();
+        }
+
+        return output;
+    }
 }

@@ -3,11 +3,13 @@ package org.kelompok4.app.Controller;
 import org.kelompok4.app.Interface.*;
 import org.kelompok4.app.Interface.ICanInputUser;
 import org.kelompok4.app.Model.UserModel;
+import org.kelompok4.app.Repo.UserRepo;
 import org.kelompok4.app.View.RegisterView;
 
-public class RegisterController implements ICanInputUser, ICanValidateEmail, ICanValidateName, ICanValidateNoHP, ICanValidateNoKTP, ICanValidatePassword {
+public class RegisterController implements ICanInputUser, ICanValidateEmail, ICanValidateName, ICanValidateNoHP, ICanValidateNoKTP, ICanValidatePassword, ICanCreate {
     private UserModel model;
     private RegisterView view;
+    private UserRepo userRepo = new UserRepo();
     public RegisterController(UserModel model, RegisterView view){
         this.model = model;
         this.view = view;
@@ -42,12 +44,12 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getName() {
-        return model.getName();
+        return model.getNama();
     }
 
     @Override
     public void setName(String name) {
-        model.setName(name);
+        model.setNama(name);
     }
 
     @Override
@@ -98,7 +100,12 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
         }
     }
     public boolean register() {
-        return true;
+        UserModel userModel = userRepo.getByEmail(this.getEmail());
+        if(userModel.getEmail() != null){
+           return false;
+        }else{
+            return true;
+        }
         //input kejson, cek username udah ada atau belum
     }
     public void clearScreen() {
@@ -133,5 +140,10 @@ public class RegisterController implements ICanInputUser, ICanValidateEmail, ICa
 
     public boolean validateRePassword(String rePassword) {
         return getPassword().equals(rePassword);
+    }
+
+    @Override
+    public void create() {
+         userRepo.create(this.getModel());
     }
 }

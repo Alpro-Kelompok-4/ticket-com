@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICanInput {
     RwRouteController rwRouteController;
-    ArrayList<RwRouteModel> rwRouteModels = new ArrayList<RwRouteModel>();
 
     public RwRoutePresenter(RwRouteController rwRouteController) {
         this.rwRouteController = rwRouteController;
@@ -51,7 +50,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
         run();
     }
     public void showTable(){
-        rwRouteController.rwRouteTable(rwRouteController.allRwRouteView((rwRouteModels)));
+        rwRouteController.rwRouteTable(rwRouteController.allRwRouteView(rwRouteController.fetchAll()));
     }
 
     public void delRwRoute(){
@@ -60,7 +59,8 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
         do{
             rwRouteController.deleteRwRoute();
             input = sc.nextLine();
-            valid_code = rwRouteController.validateInputCodeRoute(input);
+            rwRouteController.setRwRouteCode(input);
+            valid_code = rwRouteController.validateDeleteRwRouteCode();
             if(!input.equals("99")&&!valid_code) {
                 System.out.println("Format Masukan Anda Salah!");
             }
@@ -68,7 +68,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
         if(input.equals("99")){
             run();
         }else if(valid_code){
-            if(!rwRouteController.validateCodeRoute()){
+            if(rwRouteController.validateDeleteRwRouteCode()){
                 rwRouteController.delete();
                 rwRouteController.resultDeleteRwRoute(valid_code);
                 pressEnterKey();
@@ -95,12 +95,12 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
         if(input.equals("99")){
             run();
         }else if(valid_code){
+            System.out.println("Stasiun Awal Sampai Stasiun Akhir dan Durasi Waktu");
             boolean valid_track=true;
             String track;
             tracks.clear();
             int i=0;
             do{
-                System.out.println("Stasiun Awal Sampai Stasiun Akhir");
                 rwRouteController.printTrackRwRoute(i+1);
                 track=sc.nextLine();
                 valid_track = rwRouteController.validateInputTrackRoute(track);
@@ -115,18 +115,16 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
             }while(!track.equals("99"));
             if(valid_track){
                 //kalo lolos semuanya
-                if(rwRouteController.validateCodeRoute()&&rwRouteController.validateListTrack(tracks)){
-                    System.out.println(rwRouteController.getRoute().toString());
-                    System.out.println(rwRouteController.getList().toString());
-                    System.out.println(rwRouteController.getSumOfDuration());
-                    // rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
+                if(rwRouteController.validateListTrack(tracks)){
+                    //rwRouteModels.add(new RwRouteModel(rwRouteController.getRoute(),rwRouteController.getList(),rwRouteController.getSumOfDuration()));
+                    rwRouteController.create();
                     rwRouteController.resultView();
                     rwRouteController.resultAddRwRoute(valid_track);
                     pressEnterKey();
                     run();
                 }else{
                     rwRouteController.resultView();
-                    System.out.println("Jalur gagal ditambahkan,Periksa Kembali Jalur yang anda buat!");
+                    System.out.println("Jalur gagal ditambahkan,Periksa Kembali Rute yang anda buat!");
                     pressEnterKey();
                     addRwRoute();
                 }

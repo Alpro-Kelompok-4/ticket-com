@@ -3,14 +3,14 @@ public class UserModel {
 	private String email;
 	private String password;
 	private boolean isAdmin;
-	private String name;
+	private String nama;
 	private String noKTP;
 	private String noHP;
 	public UserModel(String email, String password, String nama, String noKTP, String noHP){
 		this.email = email;
 		this.password = password;
 		this.isAdmin = false;
-		this.name = nama;
+		this.nama = nama;
 		this.noHP = noHP;
 		this.noKTP = noKTP;
 	}
@@ -42,12 +42,12 @@ public class UserModel {
 		this.isAdmin = isAdmin;
 	}
 
-	public String getName() {
-		return name;
+	public String getNama() {
+		return nama;
 	}
 
-	public void setName(String nama) {
-		this.name = nama;
+	public void setNama(String nama) {
+		this.nama = nama;
 	}
 
 

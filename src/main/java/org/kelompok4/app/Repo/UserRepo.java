@@ -71,6 +71,21 @@ public class UserRepo {
             e.printStackTrace();
         }
     }
+    public UserModel getByEmail(String email) {
+        UserModel model = new UserModel();
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            for (JsonNode node : root) {
+                if (node.path("email").asText().equals(email)) {
+                    model = mapper.treeToValue(node, UserModel.class);
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
     
     public void delete(UserModel model) {
         try {

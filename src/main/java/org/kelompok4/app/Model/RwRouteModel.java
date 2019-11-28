@@ -5,19 +5,17 @@ import java.util.ArrayList;
 public class RwRouteModel {
     private RouteModel route;
     private String rwRouteCode;
-    private ArrayList<RwTrackModel> list = new ArrayList<>();
+    private ArrayList<RwTrackModel> list = new ArrayList<RwTrackModel>();
     private int sumOfDuration;
-    public RwRouteModel(RouteModel route, ArrayList<RwTrackModel> list, int durasi, String code) {
+
+    public RwRouteModel(RouteModel route, ArrayList<RwTrackModel> list, int durasi) {
         this.route = route;
         this.list = list;
         this.sumOfDuration = durasi;
-        this.rwRouteCode= code;
+        this.rwRouteCode = "";
     }
+
     public RwRouteModel() {
-    }
-    
-    public String routeCode() {
-        return route.getRouteCode();
     }
 
     public RouteModel getRoute() {
@@ -50,5 +48,22 @@ public class RwRouteModel {
 
     public void setSumOfDuration(int sumOfDuration) {
         this.sumOfDuration = sumOfDuration;
+    }
+
+    public String stringRwTrack() {
+        String result = "";
+        for (RwTrackModel rw : list) {
+            result += "-   " + rw.getOrigin().getRwStationCode() + "-" + rw.getDestination().getRwStationCode()
+                    + System.lineSeparator();
+        }
+        return result;
+    }
+
+    public String routeCodeFromRoute() {
+        return route.getRouteCode();
+    }
+
+    public String routeCode() {
+        return route.getRouteCode();
     }
 }

@@ -42,12 +42,12 @@ public class CustomerController implements ICanInputUser, ICanValidateEmail, ICa
 
     @Override
     public String getName() {
-        return userModel.getName();
+        return userModel.getNama();
     }
 
     @Override
     public void setName(String name) {
-        userModel.setName(name);
+        userModel.setNama(name);
     }
 
     @Override

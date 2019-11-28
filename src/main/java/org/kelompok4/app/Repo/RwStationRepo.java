@@ -55,6 +55,21 @@ public class RwStationRepo {
         }
         return model;
     }
+     public RwStationModel getByName(String id) {
+        RwStationModel model = new RwStationModel();
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            for (JsonNode node : root) {
+                if (node.path("rwStationName").asText().equals(id)) {
+                    model = mapper.treeToValue(node, RwStationModel.class);
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
     
     public void update(RwStationModel model) {
         try {

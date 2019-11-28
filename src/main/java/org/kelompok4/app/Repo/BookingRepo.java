@@ -11,7 +11,7 @@ import org.kelompok4.app.Model.BookingModel;
 
 public class BookingRepo {
     private final ObjectMapper mapper = new ObjectMapper();
-    String path = System.getProperty("user.dir") + "\\BookingModel_1.json";
+    String path = System.getProperty("user.dir") + "\\BookingModel.json";
     
     public void create(BookingModel model) {
         try {

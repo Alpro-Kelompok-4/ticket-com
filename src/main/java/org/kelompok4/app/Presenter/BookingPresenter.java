@@ -101,8 +101,8 @@ public class BookingPresenter extends ContinuePresenter implements ICanRun {
         bookingController.generateBookingCode();
         bookingController.setPaid();
         bookingController.showFinalBooking();
-        // bookingController.create();
-        // bookingController.bookSeat();
+        bookingController.create();
+        bookingController.bookSeat();
     }
 
 }

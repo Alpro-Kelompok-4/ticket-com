@@ -16,6 +16,7 @@ import org.kelompok4.app.Model.PriceModel;
 import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.Repo.BookingRepo;
+import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.Repo.TrainScheduleRepo;
 import org.kelompok4.app.View.BookingView;
 
@@ -270,6 +271,7 @@ public class BookingController implements ICanCreate, ICanDelete{
         }
         schedule.setTrainModel(train);
         new TrainScheduleRepo().update(schedule);
+        new TrainRepo().update(train);
     }
 
     public boolean checkPayment(String account, double price) {

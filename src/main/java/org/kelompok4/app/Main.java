@@ -19,6 +19,7 @@ import org.kelompok4.app.Presenter.AdminMenuPresenter;
 import org.kelompok4.app.Presenter.CityPresenter;
 import org.kelompok4.app.Presenter.CustomerMenuPresenter;
 import org.kelompok4.app.Presenter.MenuPresenter;
+import org.kelompok4.app.Presenter.RwStationPresenter;
 import org.kelompok4.app.Presenter.TimePresenter;
 
 public class Main {
@@ -83,8 +84,11 @@ RwRouteController rwRouteController = new RwRouteController(rwRouteModel,rwRoute
                 AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
 //                rwRoutePresenter.run();
 		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter,customerMenuPresenter,adminMenuPresenter);
-                menuPresenter.run();
 
+//		menuPresenter.run();
+
+                RwStationPresenter rwStationPresenter = new RwStationPresenter(new RwStationController(new RwStationModel(),new RwStationView()));
+                rwStationPresenter.run();
 	}
 
 }

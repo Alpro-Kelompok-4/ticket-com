@@ -18,18 +18,31 @@ import org.kelompok4.app.View.RwRouteView;
 import org.kelompok4.app.View.TimeView;
 import org.kelompok4.app.View.TrainScheduleView;
 
+import org.kelompok4.app.Model.RwStationModel;
+import org.kelompok4.app.Model.TimeModel;
+import org.kelompok4.app.Model.TrainScheduleModel;
+//import org.kelompok4.app.View.RouteTimeView;
+//import org.kelompok4.app.View.RouteTrainView;
+import org.kelompok4.app.View.RwRouteView;
+import org.kelompok4.app.View.RwStationView;
+import org.kelompok4.app.View.TimeView;
+//import org.kelompok4.app.View.TrainScheduleView;
+
 public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
     CityPresenter cityPresenter;
 //    RwStasionController rwStasionController;
     TrainPresenter  trainPresenter ;
     TimePresenter  timePresenter = new TimePresenter(new TimeController(new TimeModel(),new TimeView()));
+
     RouteTimePresenter routeTimePresenter = new RouteTimePresenter(
 				new RouteTimeController(new RouteTimeModel(), new RouteTimeView()));
 		RouteTrainPresenter routeTrainPresenter = new RouteTrainPresenter(
 				new RouteTrainController(new RouteTrainModel(), new RouteTrainView()));
 		TrainSchedulePresenter trainSchedulePresenter = new TrainSchedulePresenter(
 				new TrainScheduleController(new TrainScheduleModel(), new TrainScheduleView()));
+    RwStationPresenter rwStationPresenter = new RwStationPresenter(new RwStationController(new RwStationModel(),new RwStationView()));
+
                 RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(
 				new RwRouteController(new RwRouteModel(), new RwRouteView()));
 //    RoutePresenter  routePresenter ;
@@ -124,6 +137,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                     break;
                 case 7://Kelola Waktu Pada Rute
                     System.out.println("//Nyambung ke routeTimePresenter.run()");
+
                     routeTimePresenter.run();
                     break;
                 case 8://Kelola Kereta Pada Rute
@@ -133,6 +147,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                 case 9://Generate Jadwal Kereta Api
                     System.out.println("//Nyambung ke trainSchedulePresenter.run()");
                     trainSchedulePresenter.run();
+
                     break;
                 case 10://Lihat Pemasukan
                     System.out.println("//Nyambung ke reportPresenter.run()");

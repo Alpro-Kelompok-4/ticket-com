@@ -1,11 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.kelompok4.app.View;
-
 //@Author gayuh
 public class RwStationView {
-
-	public RwStationView(){
-
-    }
     
     public void MenuRwStation(){
         //6. Tampilan data stasiun
@@ -40,7 +40,14 @@ public class RwStationView {
 		System.out.print("Tambah Data Stasiun  : " + formatAddStation);
 		System.out.flush();
 	}
-
+        public void printRwStationCode(String stationCode) {
+		System.out.print("Kode Stasiun  : " + stationCode);
+		System.out.flush();
+	}
+        public void printRwStationName(String stationName) {
+		System.out.print("Nama Stasiun  : " + stationName);
+		System.out.flush();
+	}
 	public void failedValidateAddStation(){
 		System.out.println("Format tambah stasiun yang Anda masukan salah!");
 		System.out.flush();
@@ -121,6 +128,11 @@ public class RwStationView {
 
 	public void FailedDeleteStation() {
 		System.out.print("Stasiun Gagal Dihapus");
+		System.out.flush();
+	}
+        public void printShowTable(String S) {
+		System.out.println("#LIHAT DATA STASIUN#");
+		System.out.println(S);
 		System.out.flush();
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class BookingModel {
     private String bookingCode;
+    private String CustomerEmail;
     private String scheduleCode;
     private String trainCode;
     // potensi solid
@@ -16,8 +17,9 @@ public class BookingModel {
     public BookingModel() {
     }
 
-    public BookingModel(String scheduleCode, String trainCode, String bookingCode, String virtualAccount, ArrayList<String> passenger, ArrayList<String> seatCode, BookingStatus paid, PriceModel totalPayment) {
+    public BookingModel(String scheduleCode, String email, String trainCode, String bookingCode, String virtualAccount, ArrayList<String> passenger, ArrayList<String> seatCode, BookingStatus paid, PriceModel totalPayment) {
         this.scheduleCode = scheduleCode;
+        this.CustomerEmail = email;
         this.trainCode = trainCode;
         this.bookingCode = bookingCode;
         this.virtualAccount = virtualAccount;
@@ -89,5 +91,13 @@ public class BookingModel {
 
     public void setTotalPayment(PriceModel totalPayment) {
         this.totalPayment = totalPayment;
+    }
+
+    public String getCustomerEmail() {
+        return CustomerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        CustomerEmail = customerEmail;
     }
 }

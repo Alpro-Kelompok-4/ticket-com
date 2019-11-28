@@ -114,7 +114,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
 
     public void sortTime(RouteTimeModel routeTime) {
         ArrayList<TimeModel> current = routeTime.getList();
-        current.sort(Comparator.comparing(TimeModel::getTimeCode));
+        current.sort(Comparator.comparing(TimeModel::toMinute));
         routeTime.setList(current);
         routeTimeRepo.update(routeTime);
     }

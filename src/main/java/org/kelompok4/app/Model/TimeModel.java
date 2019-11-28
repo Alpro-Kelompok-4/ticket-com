@@ -42,4 +42,8 @@ public class TimeModel {
         }
         return new String(HH+":"+MM);
     }
+
+    public int toMinute(){
+        return this.jam.toMinute();
+    }
 }

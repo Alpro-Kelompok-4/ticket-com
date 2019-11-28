@@ -2,12 +2,6 @@ package org.kelompok4.app.Model;
 
 import java.util.ArrayList;
 
-enum Status {
-    UNPAID,
-    PAID,
-    EXPIRED
-}
-
 public class BookingModel {
     private String bookingCode;
     private String scheduleCode;
@@ -15,13 +9,13 @@ public class BookingModel {
     private String virtualAccount;
     private ArrayList<String> passenger;
     private ArrayList<String> seatCode;
-    private Status paid; // jadi private enum UNPAID, PAID, EXPIRED, CANCELLED
+    private BookingStatus paid; // jadi private enum UNPAID, PAID, EXPIRED, CANCELLED
     private PriceModel totalPayment;
 
     public BookingModel() {
     }
 
-    public BookingModel(String scheduleCode, String trainCode, String bookingCode, String virtualAccount, ArrayList<String> passenger, ArrayList<String> seatCode, Status paid, PriceModel totalPayment) {
+    public BookingModel(String scheduleCode, String trainCode, String bookingCode, String virtualAccount, ArrayList<String> passenger, ArrayList<String> seatCode, BookingStatus paid, PriceModel totalPayment) {
         this.scheduleCode = scheduleCode;
         this.trainCode = trainCode;
         this.bookingCode = bookingCode;
@@ -80,11 +74,11 @@ public class BookingModel {
         this.seatCode = seatCode;
     }
 
-    public Status getPaid() {
+    public BookingStatus getPaid() {
         return paid;
     }
 
-    public void setPaid(Status paid) {
+    public void setPaid(BookingStatus paid) {
         this.paid = paid;
     }
 

@@ -58,6 +58,7 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
             switch (choice) {
             case 1:
                 // System.out.println("//Nyambung ke Kelola bookingPresenter.run()");
+                bookingPresenter.saveCustomerEmail(userController.getUserModel().getEmail());
                 bookingPresenter.run();
 
                 break;
@@ -66,8 +67,8 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
                 // userPresenter.run();
                 break;
             case 3:// History Pembelian
-                System.out.println("//Nyambung ke bookingPresenter.run()");
-                // bookingPresenter.run();
+                // System.out.println("//Nyambung ke bookingPresenter.run()");
+                bookingPresenter.showBookingHistory(userController.getUserModel().getEmail());
                 break;
             case 0:// exit
                 System.exit(0);

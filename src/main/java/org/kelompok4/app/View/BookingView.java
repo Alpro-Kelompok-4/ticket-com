@@ -8,11 +8,19 @@ public class BookingView {
 	public void printBookingMenu() {
 		System.out.println("1. Booking Ticket");
 		System.out.println("0. Menu Utama");
+		System.out.println("\nPilih Menu : ");
 	}
 
 	public void printBookingPaymentMenu() {
 		System.out.println("1. Pembayaran");
 		System.out.println("0. Menu Utama");
+		System.out.println("\nPilih Menu : ");
+	}
+
+	public void printHistoryBookingView() {
+		System.out.println();
+		System.out.println("#HISTORY BOOKING#");
+		System.out.println();
 	}
 
 	public void printCariBookingView() {

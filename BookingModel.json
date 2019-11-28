@@ -1,2 +1,1 @@
-[
-]
+[{"bookingCode":"9XnmsC","scheduleCode":"JW3","trainCode":"KAI01","virtualAccount":"499343726837","passenger":["Bapak","Ibu","Kakak","Adik 1","Adik 2"],"seatCode":["B1-1","B1-2","B1-3","B1-4","B1-5"],"paid":"PAID","totalPayment":{"price":150000.0},"customerEmail":"naufan@gmail.com"},{"bookingCode":"WNXsB2","scheduleCode":"JW3","trainCode":"KAI01","virtualAccount":"187827721858","passenger":["Erwin","Om Bucnit"],"seatCode":["P1-1","P1-2"],"paid":"PAID","totalPayment":{"price":40000.0},"customerEmail":"erwin@gmail.com"},{"bookingCode":"prMc2y","scheduleCode":"JW5","trainCode":"KAI01","virtualAccount":"425021199435","passenger":["Naufan Irham"],"seatCode":["P1-1"],"paid":"PAID","totalPayment":{"price":20000.0},"customerEmail":"naufan@gmail.com"}]

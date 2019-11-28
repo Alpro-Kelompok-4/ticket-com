@@ -1,8 +1,10 @@
 package org.kelompok4.app.Controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.kelompok4.app.Interface.ICanCreate;
@@ -54,6 +56,14 @@ public class BookingController implements ICanCreate, ICanDelete{
 
     public void setBookingCode(String code) {
         model.setBookingCode(code);
+    }
+
+    public String getCustomerEmail() {
+        return model.getCustomerEmail();
+    }
+
+    public void setCustomerEmail(String email) {
+        model.setCustomerEmail(email);
     }
 
     public String getScheduleCode() {
@@ -178,14 +188,20 @@ public class BookingController implements ICanCreate, ICanDelete{
         String origin = "";
         String destination = "";
         for (CityModel city : citys) {
-            if (city)
+            if (ori.equals(city.getCityName())) {
+                origin = city.getCityCode();
+            } else if (des.equals(city.getCityName())) {
+                destination = city.getCityCode();
+            }
         }
 
-        String route = origin.getCityCode() + "-" + destination.getCityCode();
+        String route = origin + "-" + destination;
 
         ArrayList<TrainScheduleModel> schedules = new ArrayList<>();
         schedules = new TrainScheduleController().findTrainSchedule(route, date);
+        showBorder();
         System.out.println(new TrainScheduleController().allTrainScheduleView(schedules));
+        showBorder();
     }
     
     public void showBooking() {
@@ -312,7 +328,6 @@ public class BookingController implements ICanCreate, ICanDelete{
         }
         schedule.setTrainModel(train);
         new TrainScheduleRepo().update(schedule);
-        new TrainRepo().update(train);
     }
 
     public boolean checkPayment(String account, double price) {
@@ -383,6 +398,31 @@ public class BookingController implements ICanCreate, ICanDelete{
             view.printCoachSeatList(name, seatToString(coach, coachNum));
             index++;
         }
+    }
+
+    public String showTableBookingHistory(String email) {
+        ArrayList<BookingModel> bookings = new ArrayList<>();
+        for (BookingModel booking : repo.getAll()) {
+            if (email.equals(booking.getCustomerEmail())) {
+                bookings.add(booking);
+            }
+        }
+        if (bookings.size() < 0) {
+            return "Anda belum pernah melakukan booking. Mulai booking dengan TICKET.COM sekarang!";
+        } else {
+            return AsciiTable.getTable(bookings, Arrays.asList(
+                new Column().header("Booking Code").with(booking -> booking.getBookingCode()),
+                new Column().header("Schedule Code").with(booking -> booking.getScheduleCode()),
+                new Column().header("Train Code").with(booking -> booking.getTrainCode()),
+                new Column().header("Status").with(booking -> booking.getPaid().toString()),
+                new Column().header("Total Payment").with(booking -> Double.toString(booking.getTotalPayment().getPrice()))
+            ));
+        }
+    }
+
+    public void showBookingHistoryView(String email) {
+        view.printHistoryBookingView();
+        System.out.println(showTableBookingHistory(email));
     }
 
     @Override

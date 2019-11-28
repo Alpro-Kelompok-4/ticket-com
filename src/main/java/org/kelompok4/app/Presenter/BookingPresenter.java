@@ -19,11 +19,20 @@ public class BookingPresenter extends ContinuePresenter implements ICanRun {
     @Override
     public void run() {
         bookingController.bookingMenuView();
-        // inputSearchSchedule();
+        inputSearchSchedule();
         inputBooking();
         pressEnterKey();
         paymentBooking();
         pressEnterKey();
+    }
+
+    public void showBookingHistory(String email) {
+        bookingController.showBookingHistoryView(email);
+        pressEnterKey();
+    }
+
+    public void saveCustomerEmail(String email) {
+        bookingController.setCustomerEmail(email);
     }
 
     public void inputSearchSchedule() {
@@ -92,6 +101,7 @@ public class BookingPresenter extends ContinuePresenter implements ICanRun {
             }
             sList.add(s);
         }
+        sc.nextLine();
         bookingController.setSeatCode(sList);
 
         // Tampilkan booking

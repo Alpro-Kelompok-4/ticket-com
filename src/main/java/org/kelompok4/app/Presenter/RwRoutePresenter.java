@@ -60,6 +60,7 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
             rwRouteController.deleteRwRoute();
             input = sc.nextLine();
             rwRouteController.setRwRouteCode(input);
+//            System.out.print(input);
             valid_code = rwRouteController.validateDeleteRwRouteCode();
             if(!input.equals("99")&&!valid_code) {
                 System.out.println("Format Masukan Anda Salah!");
@@ -76,6 +77,8 @@ public class RwRoutePresenter extends ContinuePresenter implements ICanRun, ICan
             }else{
                 rwRouteController.resultView();
                 System.out.println("KERETA gagal ditambahkan, Kode KAI sudah Terdaftar");
+                pressEnterKey();
+                run();
             }
         }
     }

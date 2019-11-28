@@ -161,14 +161,9 @@ public class CityController implements ICanCreate, ICanRead, ICanUpdate, ICanDel
 
         String[] inputs=input.split("\\s+");
         if(inputs.length==2){
-            if(inputs[0].length()==3){
-                cityModel.setCityCode(inputs[0]);
-                valid=true;
-            }else {
-                valid=false;
-            }
             cityModel.setCityName(inputs[1]);
-            if (validateName()){
+            if(inputs[0].length()==3 && validateName()){
+                cityModel.setCityCode(inputs[0]);
                 valid=true;
             }else {
                 valid=false;

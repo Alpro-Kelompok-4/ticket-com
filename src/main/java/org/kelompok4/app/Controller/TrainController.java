@@ -133,9 +133,9 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         return AsciiTable.getTable(trainModels, Arrays.asList(
         new Column().header("KODE KAI").with(trainModel ->trainModel.getTrainCode()),
         new Column().header("NAMA KAI").with(trainModel -> trainModel.getTrainName()),
-        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.numberOfCoach())),
-        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSizeOfBC())),
-        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSizeOfPC()))));
+        new Column().header("GERBONG").with(trainModel -> Integer.toString(trainModel.numberOfCoach())),
+        new Column().header("BUSINESS").with(trainModel -> Integer.toString(trainModel.getSizeOfBC())),
+        new Column().header("PREMIUM").with(trainModel -> Integer.toString(trainModel.getSizeOfPC()))));
     }
 //    public String allTrainView(ArrayList<TrainModel> trainModels){
 //        TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
@@ -224,7 +224,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
             //validasi jumlah string ada 4
             if(inputs.length==4){
                 //pada G B P ambil char setelahnya untuk di cek valuenya harus pada rang 0-6
-                if(inputs[1].charAt(1) >= '0' && inputs[1].charAt(1) <= '6' && inputs[3].charAt(1) >= '0' && inputs[3].charAt(1) <= '6' && inputs[2].charAt(1) >= '0' && inputs[2].charAt(1) <= '6'){
+                if(inputs[1].charAt(1) >= '0' && inputs[1].charAt(1) <= '6' && inputs[3].charAt(1) >= '0' && inputs[3].charAt(1) <= '6' && inputs[2].charAt(1) >= '0' && inputs[2].charAt(1) <= '6' && inputs[1].length() == 2 && inputs[2].length() == 2 && inputs[3].length() == 2&& inputs[1].charAt(0) == 'G' && inputs[2].charAt(0) == 'B' && inputs[3].charAt(0) == 'P'){
                     //validasi jumlah val G = B + P
                     if(Character.getNumericValue(inputs[3].charAt(1)) + Character.getNumericValue(inputs[2].charAt(1))==Character.getNumericValue(inputs[1].charAt(1))){
                             setTrainName(name);

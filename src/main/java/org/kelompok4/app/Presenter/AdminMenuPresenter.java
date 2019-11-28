@@ -11,7 +11,7 @@ import org.kelompok4.app.Interface.ICanRun;
 public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
     CityPresenter cityPresenter;
-//    RwStasionController rwStasionController;
+    RwStationPresenter rwStasionPresenter;
     TrainPresenter  trainPresenter ;
     TimePresenter  timePresenter ;
 //    RoutePresenter  routePresenter ;
@@ -78,46 +78,45 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
         if (menuController.ValidateInputMenuAdmin(choice)){
             switch (choice) {
                 case 1:
-                    System.out.println("//Nyambung ke Kelola Akun userPresenter.run()");
+//                    System.out.println("//Nyambung ke Kelola Akun userPresenter.run()");
                     //  userPresenter.run();
                     break;
                 case 2://Kelola Data Kota
                     cityPresenter.run();
                     break;
                 case 3://Generate Waktu
-                    System.out.println("//Nyambung ke timePresenter.run()");
+//                    System.out.println("//Nyambung ke timePresenter.run()");
                     timePresenter.run();
                     break;
                 case 4://Kelola Rute
-                    System.out.println("//Nyambung ke rwRoutePresenter.run()");
+//                    System.out.println("//Nyambung ke rwRoutePresenter.run()");
                     //rwRoutePresenter.run();
                     break;
                 case 5://Kelola Stasiun
-                    System.out.println("//Nyambung ke rwStationPresenter.run()");
-                    //rwStationPresenter.run();
+                    rwStasionPresenter.run();
                     break;
                 case 6://Kelola Jalur Stasiun Pada Rute
-                    System.out.println("//Nyambung ke rwRoutePresenter.run()");
+//                    System.out.println("//Nyambung ke rwRoutePresenter.run()");
                     //rwRoutePresenter.run();
                     break;
                 case 7://Kelola Waktu Pada Rute
-                    System.out.println("//Nyambung ke routeTimePresenter.run()");
-                    //routeTimePresenter.run();
+//                    System.out.println("//Nyambung ke routeTimePresenter.run()");
+                        routeTimePresenter.run();
                     break;
                 case 8://Kelola Kereta Pada Rute
-                    System.out.println("//Nyambung ke routeTrainPresenter.run()");
+//                    System.out.println("//Nyambung ke routeTrainPresenter.run()");
                     //routeTrainPresenter.run();
                     break;
                 case 9://Generate Jadwal Kereta Api
-                    System.out.println("//Nyambung ke trainSchedulePresenter.run()");
+//                    System.out.println("//Nyambung ke trainSchedulePresenter.run()");
                     //trainSchedulePresenter.run();
                     break;
                 case 10://Lihat Pemasukan
-                    System.out.println("//Nyambung ke reportPresenter.run()");
+//                    System.out.println("//Nyambung ke reportPresenter.run()");
                     //reportPresenter.run();
                     break;
                 case 11://Lihat Jadwal Kereta Api
-                    System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
+//                    System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
                     //trainPresenter.run();
                     break;
                 case 0://exit

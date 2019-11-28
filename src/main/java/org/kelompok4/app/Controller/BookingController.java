@@ -9,6 +9,7 @@ import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
 import org.kelompok4.app.Model.BookingModel;
 import org.kelompok4.app.Model.BookingStatus;
+import org.kelompok4.app.Model.CityModel;
 import org.kelompok4.app.Model.TrainModel;
 import org.kelompok4.app.Model.CoachModel;
 import org.kelompok4.app.Model.SeatModel;
@@ -16,6 +17,7 @@ import org.kelompok4.app.Model.PriceModel;
 import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.Repo.BookingRepo;
+import org.kelompok4.app.Repo.CityRepo;
 import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.Repo.TrainScheduleRepo;
 import org.kelompok4.app.View.BookingView;
@@ -147,6 +149,45 @@ public class BookingController implements ICanCreate, ICanDelete{
         view.printBorder();
     }
 
+    public void showSearchScheduleMenu() {
+        view.printCariBookingView();
+    }
+
+    public void showOriginInput() {
+        view.printOrigin();
+    }
+
+    public void showDestinationInput() {
+        view.printDestination();
+    }
+
+    public void showDepartureDateInput() {
+        view.printDepartureDate();
+    }
+
+    public void showBookingMenu() {
+        view.printBookingMenu();
+    }
+
+    public void showBookingPaymentMenu() {
+        view.printBookingPaymentMenu();
+    }
+
+    public void showResultSearchSchedule(String ori, String des, String date) {
+        ArrayList<CityModel> citys = new CityRepo().getAll();
+        String origin = "";
+        String destination = "";
+        for (CityModel city : citys) {
+            if (city)
+        }
+
+        String route = origin.getCityCode() + "-" + destination.getCityCode();
+
+        ArrayList<TrainScheduleModel> schedules = new ArrayList<>();
+        schedules = new TrainScheduleController().findTrainSchedule(route, date);
+        System.out.println(new TrainScheduleController().allTrainScheduleView(schedules));
+    }
+    
     public void showBooking() {
         view.printTotalPayment(model.getTotalPayment().getPrice());
         view.printRecNumber(model.getVirtualAccount());

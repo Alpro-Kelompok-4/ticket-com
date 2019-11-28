@@ -6,6 +6,7 @@ public class BookingModel {
     private String bookingCode;
     private String scheduleCode;
     private String trainCode;
+    // potensi solid
     private String virtualAccount;
     private ArrayList<String> passenger;
     private ArrayList<String> seatCode;

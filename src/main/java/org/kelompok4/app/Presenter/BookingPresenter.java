@@ -8,7 +8,9 @@ import org.kelompok4.app.Interface.ICanRun;
 public class BookingPresenter extends ContinuePresenter implements ICanRun {
     private BookingController bookingController;
 
-    public BookingPresenter() {}
+    public BookingPresenter() {
+        bookingController = new BookingController();
+    }
 
     public BookingPresenter(BookingController bookingController) {
         this.bookingController = bookingController;
@@ -17,12 +19,27 @@ public class BookingPresenter extends ContinuePresenter implements ICanRun {
     @Override
     public void run() {
         bookingController.bookingMenuView();
+        inputSearchSchedule();
         inputBooking();
         pressEnterKey();
         paymentBooking();
         pressEnterKey();
     }
 
+    public void inputSearchSchedule() {
+        String ori, des, date;
+        bookingController.showSearchScheduleMenu();
+        bookingController.showOriginInput();
+        ori = sc.nextLine();
+        bookingController.showDestinationInput();
+        des = sc.nextLine();
+        bookingController.showDepartureDateInput();
+        date = sc.nextLine();
+        bookingController.showResultSearchSchedule(ori, des, date);
+        bookingController.showBookingMenu();
+        sc.nextLine();
+    }
+    
     public void inputBooking() {
         // Masukkan kode jadwal
         String code;

@@ -7,6 +7,7 @@ package org.kelompok4.app.Presenter;
 
 import org.kelompok4.app.Controller.*;
 import org.kelompok4.app.Interface.ICanRun;
+import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RouteTrainModel;
 import org.kelompok4.app.Model.RwRouteModel;
@@ -21,6 +22,7 @@ import org.kelompok4.app.View.TrainScheduleView;
 import org.kelompok4.app.Model.RwStationModel;
 import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
+import org.kelompok4.app.View.RouteView;
 //import org.kelompok4.app.View.RouteTimeView;
 //import org.kelompok4.app.View.RouteTrainView;
 import org.kelompok4.app.View.RwRouteView;
@@ -45,7 +47,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
 
                 RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(
 				new RwRouteController(new RwRouteModel(), new RwRouteView()));
-//    RoutePresenter  routePresenter ;
+      RoutePresenter  routePresenter =  new RoutePresenter(new RouteController(new RouteModel(), new RouteView()));
 //    RwRoutePresenter  rwRoutePresenter ;
 //    RouteTrainPresenter  routeTrainPresenter ;
 //    RouteTimePresenter  routeTimePresenter ;
@@ -124,8 +126,8 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                     timePresenter.run();
                     break;
                 case 4://Kelola Rute
-                    System.out.println("//Nyambung ke rwRoutePresenter.run()");
-                    //rwRoutePresenter.run();
+                    System.out.println("//Nyambung ke routePresenter.run()");
+                    routePresenter.run();
                     break;
                 case 5://Kelola Stasiun
                     System.out.println("//Nyambung ke rwStationPresenter.run()");

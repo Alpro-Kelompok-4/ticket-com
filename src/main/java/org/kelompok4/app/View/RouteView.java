@@ -60,6 +60,10 @@ public class RouteView {
 		System.out.print("Edit Data Rute : ");
 		System.out.flush();
 	}
+        public void printInputCodeRute() {
+		System.out.print("Masukan Kode Rute: ");
+		System.out.flush();
+	}
 
 	public void printEditRute(String formatEditRute) {
 		System.out.print("Edit Data Rute  : " + formatEditRute);
@@ -119,4 +123,8 @@ public class RouteView {
 		System.out.print("Rute Gagal Dihapus");
 		System.out.flush();
 	}
+
+    public void printShowTable(String S) {
+        System.out.println(S);
+    }
 }

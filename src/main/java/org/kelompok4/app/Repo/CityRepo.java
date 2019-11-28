@@ -56,6 +56,21 @@ public class CityRepo {
         }
         return model;
     }
+    public CityModel getByName(String id) {
+        CityModel model = new CityModel();
+        try {
+            JsonNode root = mapper.readTree(new File(path));
+            for (JsonNode node : root) {
+                if (node.path("cityName").asText().equals(id)) {
+                    model = mapper.treeToValue(node, CityModel.class);
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
     
     public void update(CityModel model) {
         try {

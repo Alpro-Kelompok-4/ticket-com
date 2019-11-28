@@ -109,7 +109,7 @@ public class RwStationPresenter extends ContinuePresenter implements ICanRun {
             rwStationController.setRwStationCode(input);
             valid = rwStationController.validateUpdateDeleteCodeStation();
             if(!input.equals("99")&&!valid){
-                rwStationController.resultDeleteStatiun(valid);
+                rwStationController.resultDeleteStation(valid);
                 pressEnterKey();
             }
         }while(!valid && !input.equals("99"));
@@ -119,7 +119,7 @@ public class RwStationPresenter extends ContinuePresenter implements ICanRun {
             if(rwStationController.validateUpdateDeleteCodeStation()){
                 rwStationController.delete();
                 rwStationController.resultView();
-                rwStationController.resultDeleteStatiun(valid);
+                rwStationController.resultDeleteStation(valid);
                 pressEnterKey();
                 run();
             }else{

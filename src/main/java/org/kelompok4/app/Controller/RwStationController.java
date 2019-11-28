@@ -148,7 +148,7 @@ public class RwStationController implements ICanCreate,ICanRead,ICanUpdate,ICanV
         }
     }
 
-    public void resultDeleteCity(boolean success){
+    public void resultDeleteStation(boolean success){
         if(success){
             rwStationView.SuccessDeleteStation();
         }else {

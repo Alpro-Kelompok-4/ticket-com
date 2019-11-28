@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.kelompok4.app.Presenter;
 //@author gayuh
 
@@ -10,7 +15,6 @@ import java.util.ArrayList;
 public class CityPresenter extends ContinuePresenter implements ICanRun  {
 
     CityController cityController;
-    ArrayList<CityModel> cityModels = new ArrayList<CityModel>();
 
     public CityPresenter(CityController cityController) {
         this.cityController = cityController;
@@ -67,7 +71,6 @@ public class CityPresenter extends ContinuePresenter implements ICanRun  {
             //true adalah city inputan user tidak ada di json
             if(cityController.validateCodeCity()){
                 cityController.create();
-                cityModels.add(new CityModel(cityController.getCityCode(),cityController.getCityName()));
                 cityController.resultView();
                 cityController.resultAddCity(valid);
                 pressEnterKey();
@@ -75,8 +78,8 @@ public class CityPresenter extends ContinuePresenter implements ICanRun  {
             }else{
                 cityController.resultView();
                 System.out.println("Kota gagal ditambahkan, Kode Kota sudah Terdaftar");
+                run();
             }
-
         }
     }
 
@@ -96,17 +99,16 @@ public class CityPresenter extends ContinuePresenter implements ICanRun  {
         if(input.equals("99")){
             run();
         } else if(valid){
-            if(!cityController.validateCodeCity()){
+            if(cityController.validateUpdateDeleteCodeCity()){
                 cityController.update();
-                //trainModels.add(new TrainModel(trainController.getTrainCode(),trainController.getTrainName(),trainController.getSizeOfBC(),trainController.getSizeOfPC(),trainController.getCoachs()));
                 cityController.resultView();
                 cityController.resultEditCity(valid);
-                showCity();
                 pressEnterKey();
                 run();
             }else{
                 cityController.resultView();
                 System.out.println("Kota gagal diedit, Kode Kota sudah terdaftar");
+                run();
             }
         }
     }
@@ -119,7 +121,7 @@ public class CityPresenter extends ContinuePresenter implements ICanRun  {
             cityController.deleteCityView();
             input = sc.nextLine();
             cityController.setCityCode(input);
-            valid = cityController.validateCodeCity();
+            valid = cityController.validateUpdateDeleteCodeCity();
             if(!input.equals("99")&&!valid){
                 cityController.resultDeleteCity(valid);
                 pressEnterKey();
@@ -128,7 +130,7 @@ public class CityPresenter extends ContinuePresenter implements ICanRun  {
         if(input.equals("99")){
             run();
         } else if(valid){
-            if(!cityController.validateCodeCity()){
+            if(cityController.validateUpdateDeleteCodeCity()){
                 cityController.delete();
                 cityController.resultView();
                 cityController.resultDeleteCity(valid);
@@ -137,13 +139,14 @@ public class CityPresenter extends ContinuePresenter implements ICanRun  {
             }else{
                 cityController.resultView();
                 System.out.println("Kota gagal dihapus");
+                run();
             }
         }
     }
 
 
     public void showTable(){
-        cityController.cityTable(cityController.allCityView(cityModels));
+        cityController.cityTable(cityController.allCityView(cityController.fetchAll()));
     }
     public void showCity() {
         cityController.showCityView();

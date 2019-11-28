@@ -88,8 +88,8 @@ public class RegisterPresenter extends ContinuePresenter implements ICanRun {
         //view setelah interaksi user
         registerController.updateRegister();
         registerController.registerResult(registerController.register());
+        registerController.create();
         //mencegah leaking
         pressEnterKey();
-        sc.close();
     }
 }

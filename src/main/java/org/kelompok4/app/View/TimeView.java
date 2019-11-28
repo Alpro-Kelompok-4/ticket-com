@@ -20,21 +20,17 @@ public class TimeView {
         System.out.flush();
     }
 
-    public void printGenerateTime(String YesNo) {
-        System.out.println("Apakah anda yakin untuk generate waktu (Y/N)?" + YesNo);
-        System.out.flush();
-    }
-
-    public void failedValidateYesNo(){
-        System.out.println("Pilihan yang Anda masukan salah! Pilih Y/N!");
-        System.out.flush();
-    }
     public void SuccessGenerateTime(){
         System.out.println("Generate Waktu Berhasil!");
         System.out.flush();
     }
     public void FailedGenerateTime(){
         System.out.println("Generate Waktu Gagal!");
+        System.out.flush();
+    }
+     public void printShowTable(String S) {
+        System.out.println("#DATA LENGKAP WAKTU#");
+        System.out.println(S);
         System.out.flush();
     }
 }

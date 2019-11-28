@@ -8,6 +8,7 @@ public class CoachModel {
 
     public CoachModel(int seatQty, ArrayList<SeatModel> seat) {
         this.seatQty = seatQty;
+
         this.seat = seat;
     }
 
@@ -22,11 +23,23 @@ public class CoachModel {
         this.seatQty = seatQty;
     }
 
+    
+
     public ArrayList<SeatModel> getSeat() {
         return seat;
     }
 
     public void setSeat(ArrayList<SeatModel> seat) {
         this.seat = seat;
+    }
+
+    public int filledSeat(){
+        int count = 0;
+        for (SeatModel s : seat) {
+            if (s.getStatus() > 0){
+                count++;
+            }
+        }
+        return count;
     }
 }

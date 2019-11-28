@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.kelompok4.app.Controller;
 
 import org.kelompok4.app.Interface.*;
@@ -8,6 +13,12 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
     private UserModel userModel;
     private UserView userView;
 
+    public UserController(UserModel userModel, UserView userView) {
+        this.userModel = userModel;
+        this.userView = userView;
+    }
+
+    
 
     @Override
     public void read() {
@@ -15,6 +26,22 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
 
     }
 
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
+    }
+
+    public UserView getUserView() {
+        return userView;
+    }
+
+    public void setUserView(UserView userView) {
+        this.userView = userView;
+    }
+    
     @Override
     public void update() {
 
@@ -71,3 +98,4 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
 
 
 }
+

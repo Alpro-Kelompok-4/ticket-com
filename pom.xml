@@ -25,25 +25,43 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>com.github.freva</groupId>
+      <artifactId>ascii-table</artifactId>
+      <version>1.1.0</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.9.4</version>
+      <version>2.10.1</version>
     </dependency>
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.9.4</version>
+      <version>2.10.1</version>
     </dependency>
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>2.9.4</version>
+      <version>2.10.1</version>
     </dependency>
+
+    <!-- Apache Commons Lang for random string generator -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+    </dependency>
+
+    <!-- ASCII Table -->
+    <!--dependency>
+      <groupId>com.github.freva</groupId>
+      <artifactId>ascii-table</artifactId>
+      <version>1.1.0</version>
+    </dependency-->
   </dependencies>
 
   <build>

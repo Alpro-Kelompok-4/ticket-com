@@ -5,14 +5,16 @@ import java.time.LocalDate;
 public class TrainScheduleModel {
     private String scheduleCode;
     private TimeModel timeModel;
-    private LocalDate date;
+    // private LocalDate date; -- sementara pakai string
+    private String date;
     private RwRouteModel rwRouteModel;
     private TrainModel trainModel;
 
     public TrainScheduleModel() {
     }
 
-    public TrainScheduleModel(String scheduleCode, TimeModel timeModel, LocalDate date, RwRouteModel rwRouteModel, TrainModel trainModel) {
+    public TrainScheduleModel(String scheduleCode, TimeModel timeModel, String date, RwRouteModel rwRouteModel,
+            TrainModel trainModel) {
         this.scheduleCode = scheduleCode;
         this.timeModel = timeModel;
         this.date = date;
@@ -36,11 +38,11 @@ public class TrainScheduleModel {
         this.timeModel = timeModel;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -60,32 +62,13 @@ public class TrainScheduleModel {
         this.trainModel = trainModel;
     }
 
-    public String getDateString(){
-        String output = "";
-        output += date.toString().split(" ")[0];
-        output += " ";
-        output += date.toString().split(" ")[1];
-        output += " ";
-        output += date.toString().split(" ")[2];
-        output += " ";
-        output += date.toString().split(" ")[5];
-        return output;
+    public String departureTimeString(){
+        return timeModel.printJam();
     }
 
-    public String getDepartureTimeString(){
+    public String arrivalTimeString(){
         String output = "";
-        output += timeModel.getJam().getHH();
-        output += ":";
-        output += timeModel.getJam().getMM();
-        return output;
-    }
-
-    public String getArrivalTimeString(){
-        String output = "";
-        int totalDuration = 0;
-        for (RwTrackModel r : rwRouteModel.getList()) {
-            totalDuration += r.getDuration();
-        }
+        int totalDuration = rwRouteModel.getSumOfDuration();
         int addHH = totalDuration/60;
         int addMM = totalDuration%60;
         int addedHH = timeModel.getJam().getHH() + addHH;
@@ -94,35 +77,34 @@ public class TrainScheduleModel {
             addedHH++;
             addedMM -= 60;
         }
-        output += addedHH;
-        output += ":";
-        output += addedMM;
-        return output;
+        TimeModel timeModel = new TimeModel();
+        timeModel.setJam(new JamModel(addedHH, addedMM));
+        return timeModel.printJam();
     }
 
-    public String getDepartureCityString(){
+    public String departureCityString(){
         String output = "";
         output += rwRouteModel.getRoute().getDeparture().getCityName();
         return output;
     }
 
-    public String getArrivalCityString(){
+    public String arrivalCityString(){
         String output = "";
         output += rwRouteModel.getRoute().getArrival().getCityName();
         return output;
     }
 
-    public String getTrainCodeString(){
+    public String trainCodeString(){
         return trainModel.getTrainCode();
     }
 
-    public String getRemainingSeatString(){
+    public String remainingSeatString(){
         String output = "";
         int maxSeat = 0;
         int filledSeat = 0;
         for (CoachModel c : trainModel.getCoachs()) {
             maxSeat += c.getSeatQty();
-            filledSeat += c.getSeat().size();
+            filledSeat += c.filledSeat();
         }
         if (maxSeat > filledSeat){
             output += "Sisa ";

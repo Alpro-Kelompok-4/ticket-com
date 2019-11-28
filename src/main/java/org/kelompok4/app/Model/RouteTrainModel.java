@@ -24,11 +24,11 @@ public class RouteTrainModel {
         this.rwRoute = rwRoute;
     }
 
-    public String getRouteTimeCode() {
+    public String getRouteTrainCode() {
         return routeTrainCode;
     }
 
-    public void setRouteTimeCode(String routeTrainCode) {
+    public void setRouteTrainCode(String routeTrainCode) {
         this.routeTrainCode = routeTrainCode;
     }
 
@@ -38,5 +38,20 @@ public class RouteTrainModel {
 
     public void setList(ArrayList<TrainModel> list) {
         this.list = list;
+    }
+
+    public String routeCode(){
+        return rwRoute.getRoute().getRouteCode();
+    }
+
+    public String listString(){
+        String output = "";
+        for (TrainModel trainModel : list) {
+            output += "- ";
+            output += trainModel.getTrainCode();
+            output += System.lineSeparator();
+        }
+
+        return output;
     }
 }

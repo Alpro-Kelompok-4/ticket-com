@@ -1,19 +1,25 @@
 package org.kelompok4.app.Controller;
 
+import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
 import org.kelompok4.app.Interface.*;
 import org.kelompok4.app.Model.BusinessCoachModel;
 import org.kelompok4.app.Model.CoachModel;
 import org.kelompok4.app.Model.PremiumCoachModel;
 import org.kelompok4.app.Model.TrainModel;
+import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.View.TrainView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.kelompok4.app.Repo.TrainRepo;
 
 public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDelete, ICanManageTrain {
     private TrainModel trainModel;
     private TrainView trainView;
+    private TrainRepo trainRepo =  new TrainRepo();
 
     public TrainController(TrainModel trainModel, TrainView trainView) {
         this.trainModel = trainModel;
@@ -40,12 +46,13 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
 
     @Override
     public void create() {
-
+        trainRepo.create(trainModel);
     }
 
     @Override
     public void delete() {
-
+        trainRepo.get(getTrainCode());
+        trainRepo.delete(trainModel);
     }
 
     @Override
@@ -54,7 +61,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     }
     @Override
     public void update() {
-
+        trainRepo.update(trainModel);
     }
 
     @Override
@@ -94,7 +101,7 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
 
     @Override
     public int getSizeOfBC() {
-        return trainModel.getSizeOfPC();
+        return trainModel.getSizeOfBC();
     }
 
     @Override
@@ -118,18 +125,27 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
         trainView.printEditTrainPage();
         trainView.printEditTrain();
     }
-    public ArrayList<TrainModel> fetchAll(ArrayList<TrainModel> trainModels){
-        return trainModels;
+    public ArrayList<TrainModel> fetchAll(){
+        return trainRepo.getAll();
+
     }
     public String allTrainView(ArrayList<TrainModel> trainModels){
-        TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
-        t.addColumn("Kode KAI", TrainModel::getTrainCode);
-        t.addColumn("NAMA KAI", TrainModel::getTrainName);
-        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
-        t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
-        t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
-        return t.createString(trainModels);
+        return AsciiTable.getTable(trainModels, Arrays.asList(
+        new Column().header("KODE KAI").with(trainModel ->trainModel.getTrainCode()),
+        new Column().header("NAMA KAI").with(trainModel -> trainModel.getTrainName()),
+        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.numberOfCoach())),
+        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSizeOfBC())),
+        new Column().header("Waktu").with(trainModel -> Integer.toString(trainModel.getSizeOfPC()))));
     }
+//    public String allTrainView(ArrayList<TrainModel> trainModels){
+//        TableStringBuilder<TrainModel> t = new TableStringBuilder<TrainModel>();
+//        t.addColumn("Kode KAI", TrainModel::getTrainCode);
+//        t.addColumn("NAMA KAI", TrainModel::getTrainName);
+//        t.addColumn("GERBONG", TrainModel::getNumberOfCoach);
+//        t.addColumn("BUSINESS", TrainModel::getSizeOfBC);
+//        t.addColumn("PREMIUM", TrainModel::getSizeOfPC);
+//        return t.createString(trainModels);
+//    }
 
 
     public void trainView(){
@@ -156,13 +172,23 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
 //            return getCoachs().size()==6;
 //    }
     public boolean validateCodeTrain(){
+        TrainModel trainModel = trainRepo.get(this.getTrainCode());
+        if(trainModel.getTrainCode()== null){
+            return true;
+        }else{
+            return false;
+        }
         //mengecek kode train dari json
-        return true;
     }
     //mimik dari validateCodetrain yg return false
-    public boolean validateEditCodeTrain(){
+    public boolean validateEditDeleteCodeTrain(){
         //mengecek kode train dari json
-        return false;
+        TrainModel trainModel = trainRepo.get(this.getTrainCode());
+        if(trainModel.getTrainCode()!= null){
+            return true;
+        }else{
+            return false;
+        }
     }
     public void resultAddTrain(boolean success){
         if(success){
@@ -204,6 +230,8 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
                             setTrainName(name);
                             setTrainCode(inputs[0]);
                             ArrayList<CoachModel> coachModels = new ArrayList<CoachModel>();
+                            System.out.println(Character.getNumericValue(inputs[2].charAt(1)));
+                            System.out.println(Character.getNumericValue(inputs[3].charAt(1)));
                             for(int i = 0 ; i < Character.getNumericValue(inputs[2].charAt(1));i++){
                                 coachModels.add(new BusinessCoachModel());
                             }
@@ -250,4 +278,5 @@ public class TrainController implements ICanRead, ICanCreate, ICanUpdate, ICanDe
     public void trainMenuView() {
         trainView.printTrainMenu();
     }
+
 }

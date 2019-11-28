@@ -38,4 +38,19 @@ public class RouteTimeModel {
     public void setList(ArrayList<TimeModel> list) {
         this.list = list;
     }
+
+    public String routeCode(){
+        return rwRoute.getRoute().getRouteCode();
+    }
+
+    public String listString(){
+        String output = "";
+        for (TimeModel timeModel : list) {
+            output += "- ";
+            output += timeModel.printJam();
+            output += System.lineSeparator();
+        }
+
+        return output;
+    }
 }

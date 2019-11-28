@@ -99,7 +99,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     public void addTime(TimeModel time, RouteTimeModel routeTime) {
         ArrayList<TimeModel> current = routeTime.getList();
         if (current.contains(time)) {
-            routeTimeView.FailedAddRouteTime();
+            routeTimeView.FailedAddRouteTime("Kode waktu " + time.getTimeCode() + " telah diinput sebelumnya!");
         } else {
             current.add(time);
             routeTime.setList(current);
@@ -125,7 +125,7 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
             routeTimeModel.setList(current);
             routeTimeView.SuccessDeleteRouteTime();
         } else {
-            routeTimeView.FailedDeleteRouteTime();
+            routeTimeView.FailedDeleteRouteTime("");
         }
     }
 
@@ -145,7 +145,6 @@ public class RouteTimeController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public String allRouteTimeView(ArrayList<RouteTimeModel> routeTimes){
-        routeTimeView.HeaderViewRouteTime();
         return AsciiTable.getTable(routeTimes, Arrays.asList(
             new Column().header("Kode Kereta Rute").with(routeTime -> routeTime.getRouteTimeCode()),
             new Column().header("Kode Rute").with(routeTime -> routeTime.routeCode()),

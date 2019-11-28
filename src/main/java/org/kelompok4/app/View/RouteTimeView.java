@@ -3,22 +3,25 @@ package org.kelompok4.app.View;
 //@Author gayuh
 public class RouteTimeView {
 
-	public RouteTimeView(){
+	public RouteTimeView() {
 
-    }
-    
-    public void MenuRouteTimeView(){
-        System.out.println("********************************************************************************************************************");
-		System.out.println("                                                       TICKET.COM                                                   ");
-		System.out.println("********************************************************************************************************************");
-        System.out.println("1. Tambah Waktu Pada Rute ");
+	}
+
+	public void MenuRouteTimeView() {
+		System.out.println(
+				"********************************************************************************************************************");
+		System.out.println(
+				"                                                       TICKET.COM                                                   ");
+		System.out.println(
+				"********************************************************************************************************************");
+		System.out.println("1. Tambah Waktu Pada Rute ");
 		System.out.println("2. Lihat Waktu Pada Rute ");
 		System.out.println("3. Delete Waktu Pada Rute ");
 		System.out.println("99. Main Menu ");
 		System.out.println(" ");
 		System.out.println("Pilih Menu : ");
 		System.out.println(" ");
-    }
+	}
 
 	public void printAddRouteTimeViewPage() {
 		System.out.println("#KELOLA WAKTU BERDASARKAN RUTE#");
@@ -36,34 +39,35 @@ public class RouteTimeView {
 		System.out.flush();
 	}
 
-    public void failedValidateCodeRouteTime(){
+	public void failedValidateCodeRouteTime() {
 		System.out.println("Format Kode rute yang Anda masukan salah!");
 		System.out.flush();
-    }
-    
-    public void SuccessAddRouteTime(){
+	}
+
+	public void SuccessAddRouteTime() {
 		System.out.println("Waktu Untuk Rute Berhasil Ditambahkan");
 		System.out.flush();
-    }
-    
-    public void FailedAddRouteTime(){
-		System.out.println("Waktu Untuk Rute gagal Ditambahkan");
+	}
+
+	public void FailedAddRouteTime(String note) {
+		System.out.println("Waktu Untuk Rute gagal Ditambahkan!! (" + note + ")");
 		System.out.flush();
-    }
-    
-    public void printViewRouteTimePage() {
+	}
+
+	public void printViewRouteTimePage() {
 		System.out.println("#LIHAT WAKTU BERDASARKAN RUTE#");
 		System.out.println("");
 		System.out.println("");
-    }
-    
-    public void HeaderViewRouteTime(){
-        System.out.println("Waktu Available Untuk Rute");
-		System.out.println("********************************************************************************************************************");
-		System.out.println("");
-    }
+	}
 
-    public void printDeleteRouteTimeViewPage() {
+	public void HeaderViewRouteTime() {
+		System.out.println("Waktu Available Untuk Rute");
+		System.out.println(
+				"********************************************************************************************************************");
+		System.out.println("");
+	}
+
+	public void printDeleteRouteTimeViewPage() {
 		System.out.println("#HAPUS WAKTU PADA RUTE#");
 		System.out.println("");
 		System.out.println("");
@@ -79,19 +83,29 @@ public class RouteTimeView {
 		System.out.flush();
 	}
 
-    public void failedValidateDeleteRouteTime(){
+	public void failedValidateDeleteRouteTime() {
 		System.out.println("Format delete waktu rute yang Anda masukan salah!");
 		System.out.flush();
-    }
-    
-    public void SuccessDeleteRouteTime(){
+	}
+
+	public void SuccessDeleteRouteTime() {
 		System.out.println("Waktu Untuk Rute Berhasil Dihapus");
 		System.out.flush();
-    }
-    
-    public void FailedDeleteRouteTime(){
-		System.out.println("Waktu Untuk Rute Gagal Dihapus");
+	}
+
+	public void FailedDeleteRouteTime(String note) {
+		System.out.println("Waktu Untuk Rute Gagal Dihapus (" + note + ")");
 		System.out.flush();
-    }
+	}
+
+	public void iterateInputTime(int i) {
+		System.out.println("Waktu ke-" + i + ": ");
+		System.out.flush();
+	}
+
+	public void howToEndInputTimeNote() {
+		System.out.println("(Masukkan -99 jika selesai)");
+		System.out.flush();
+	}
 
 }

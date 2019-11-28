@@ -98,7 +98,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     public void addTrain(TrainModel train, RouteTrainModel routeTrain) {
         ArrayList<TrainModel> current = routeTrain.getList();
         if (current.contains(train)) {
-            routeTrainView.FailedAddRouteTrain();
+            routeTrainView.FailedAddRouteTrain("Kode kereta " + train.getTrainCode() + " telah diinput sebelumnya!");
         } else {
             current.add(train);
             routeTrain.setList(current);
@@ -127,7 +127,7 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
             routeTrainModel.setList(current);
             routeTrainView.SuccessDeleteRouteTrain();
         } else {
-            routeTrainView.FailedDeleteRouteTrain();
+            routeTrainView.FailedDeleteRouteTrain("");
         }
     }
 
@@ -147,7 +147,6 @@ public class RouteTrainController implements ICanCreate, ICanRead, ICanDelete {
     }
 
     public String allRouteTrainView(ArrayList<RouteTrainModel> routeTrains) {
-        routeTrainView.HeaderViewRouteTrain();
         return AsciiTable.getTable(routeTrains,
                 Arrays.asList(
                         new Column().header("Kode Kereta Rute").with(routeTrain -> routeTrain.getRouteTrainCode()),

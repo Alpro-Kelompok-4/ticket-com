@@ -46,8 +46,8 @@ public class RouteTrainView {
 		System.out.flush();
     }
     
-    public void FailedAddRouteTrain(){
-		System.out.println("Kereta Api Untuk Rute gagal Ditambahkan");
+    public void FailedAddRouteTrain(String note){
+		System.out.println("Kereta Api Untuk Rute gagal Ditambahkan!! (" + note + ")");
 		System.out.flush();
     }
     
@@ -89,9 +89,19 @@ public class RouteTrainView {
 		System.out.flush();
     }
     
-    public void FailedDeleteRouteTrain(){
-		System.out.println("Kereta Api Untuk Rute Gagal Dihapus");
+    public void FailedDeleteRouteTrain(String note){
+		System.out.println("Kereta Api Untuk Rute Gagal Dihapus (" + note + ")");
 		System.out.flush();
-    }
+	}
+	
+	public void iterateInputTrain(int i) {
+		System.out.println("Kereta ke-" + i + ": ");
+		System.out.flush();
+	}
+
+	public void howToEndInputTimeNote() {
+		System.out.println("(Masukkan -99 jika selesai)");
+		System.out.flush();
+	}
 
 }

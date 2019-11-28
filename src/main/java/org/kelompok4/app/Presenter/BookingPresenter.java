@@ -19,7 +19,7 @@ public class BookingPresenter extends ContinuePresenter implements ICanRun {
     @Override
     public void run() {
         bookingController.bookingMenuView();
-        inputSearchSchedule();
+        // inputSearchSchedule();
         inputBooking();
         pressEnterKey();
         paymentBooking();

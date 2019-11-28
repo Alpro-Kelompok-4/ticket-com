@@ -129,7 +129,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                     break;
                 case 5://Kelola Stasiun
                     System.out.println("//Nyambung ke rwStationPresenter.run()");
-                    //rwStationPresenter.run();
+                    rwStationPresenter.run();
                     break;
                 case 6://Kelola Jalur Stasiun Pada Rute
                     System.out.println("//Nyambung ke rwRoutePresenter.run()");
@@ -156,6 +156,10 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                 case 11://Lihat Jadwal Kereta Api
                     System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
                     //trainPresenter.run();
+                    break;
+                case 12://Lihat Jadwal Kereta Api
+                    System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
+                    trainPresenter.run();
                     break;
                 case 0://exit
                     System.exit(0);

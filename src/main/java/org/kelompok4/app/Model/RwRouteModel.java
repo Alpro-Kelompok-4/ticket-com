@@ -3,7 +3,7 @@ package org.kelompok4.app.Model;
 import java.util.ArrayList;
 
 public class RwRouteModel {
-    private RouteModel route;
+    private RouteModel route = new RouteModel();
     private String rwRouteCode;
     private ArrayList<RwTrackModel> list = new ArrayList<RwTrackModel>();
     private int sumOfDuration;

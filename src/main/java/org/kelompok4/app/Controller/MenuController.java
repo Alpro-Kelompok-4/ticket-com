@@ -50,7 +50,7 @@ public class MenuController {
     }
 
     public boolean ValidateInputMenuAdmin(int pilihan){
-        return(pilihan>=0 && pilihan<=11);
+        return(pilihan>=0 && pilihan<=12);
     }
 
     public boolean ValidateInputMenuCustomer(int pilihan){

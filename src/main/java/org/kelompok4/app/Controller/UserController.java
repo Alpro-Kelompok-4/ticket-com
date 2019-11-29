@@ -95,7 +95,5 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
             userView.failedUpdateInfoUser();
         }
     }
-
-
 }
 

@@ -9,66 +9,68 @@ public class ReportView {
     }
 
     public void MenuReport(){
+        System.out.println(" ");
         System.out.println("#LAPORAN PEMASUKAN#");
         System.out.println("1.  Laporan Harian ");
         System.out.println("2.  Laporan Bulanan");
         System.out.println("3.  Laporan Tahunan");
         System.out.println("99. Main Menu ");
         System.out.println(" ");
-        System.out.println("Pilih Menu : ");
-        System.out.println(" ");	
-
+        System.out.print("Pilih Menu : ");
     }
 
     public void printDailyReportPage() {
-        System.out.println("#LAPORAN HARIAN PEMASUKAN# ");
+        System.out.println(" ");
         System.out.println("");
+        System.out.println("#LAPORAN HARIAN PEMASUKAN# ");
         System.out.println("");
     }
 
     public void printHeaderDailyReport() {
-        System.out.println("Data Pemasukan Harian ");
+        System.out.println("\nData Pemasukan Harian ");
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }
 
-    public void printTotalDailyReport() {
-        System.out.println("Total Masukan Harian ");
+    public void printTotalDailyReport(double total) {
+        System.out.println("\nTotal Masukan Harian : " + total);
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }
 
     public void printMonthlyReportPage() {
-        System.out.println("#LAPORAN BULANAN PEMASUKAN# ");
+        System.out.println(" ");
         System.out.println("");
+        System.out.println("#LAPORAN BULANAN PEMASUKAN# ");
         System.out.println("");
     }
 
     public void printHeaderMonthlyReport() {
-        System.out.println("Data Pemasukan Bulanan ");
+        System.out.println("\nData Pemasukan Bulanan ");
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }
 
-    public void printTotalMonthlyReport() {
-        System.out.println("Total Masukan Bulanan ");
+    public void printTotalMonthlyReport(double total) {
+        System.out.println("\nTotal Masukan Bulanan : " + total);
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }
     public void printAnualReportPage() {
-        System.out.println("#LAPORAN TAHUNAN PEMASUKAN# ");
+        System.out.println(" ");
         System.out.println("");
+        System.out.println("#LAPORAN TAHUNAN PEMASUKAN# ");
         System.out.println("");
     }
 
     public void printHeaderAnualReport() {
-        System.out.println("Data Pemasukan Tahunan ");
+        System.out.println("\nData Pemasukan Tahunan ");
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }
 
-    public void printTotalAnualReport() {
-        System.out.println("Total Masukan Tahunan ");
+    public void printTotalAnualReport(double total) {
+        System.out.println("\nTotal Masukan Tahunan : " + total);
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }

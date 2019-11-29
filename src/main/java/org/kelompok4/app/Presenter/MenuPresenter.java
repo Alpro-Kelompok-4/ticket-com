@@ -7,7 +7,7 @@ package org.kelompok4.app.Presenter;
 
 import org.kelompok4.app.Controller.MenuController;
 import org.kelompok4.app.Interface.ICanRun;
-
+import org.kelompok4.app.Model.UserModel;
 import org.kelompok4.app.Presenter.LoginPresenter;
 import org.kelompok4.app.Presenter.RegisterPresenter;
 

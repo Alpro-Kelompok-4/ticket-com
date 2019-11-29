@@ -1,15 +1,13 @@
 package org.kelompok4.app.Controller;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 import com.github.freva.asciitable.AsciiTable;
-
 import org.kelompok4.app.Model.BookingModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.Repo.BookingRepo;
 import org.kelompok4.app.Repo.TrainScheduleRepo;
 import org.kelompok4.app.View.ReportView;
+
+import java.util.ArrayList;
 
 public class ReportController {
     private BookingRepo repo = new BookingRepo();
@@ -120,6 +118,9 @@ public class ReportController {
     public void showAnnualReportResult() {
         view.printHeaderAnualReport();
     }
+
+
+    //fix
 
     // public boolean checkInput(String input) {
     //     LocalDate date = LocalDate.parse(input);

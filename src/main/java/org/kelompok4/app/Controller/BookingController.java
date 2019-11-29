@@ -1,24 +1,16 @@
 package org.kelompok4.app.Controller;
 
-import java.util.ArrayList;
-
 import com.github.freva.asciitable.AsciiTable;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
-import org.kelompok4.app.Model.BookingModel;
-import org.kelompok4.app.Model.BookingStatus;
-import org.kelompok4.app.Model.TrainModel;
-import org.kelompok4.app.Model.CoachModel;
-import org.kelompok4.app.Model.SeatModel;
-import org.kelompok4.app.Model.PriceModel;
-import org.kelompok4.app.Model.RouteModel;
-import org.kelompok4.app.Model.TrainScheduleModel;
+import org.kelompok4.app.Model.*;
 import org.kelompok4.app.Repo.BookingRepo;
 import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.Repo.TrainScheduleRepo;
 import org.kelompok4.app.View.BookingView;
+
+import java.util.ArrayList;
 
 public class BookingController implements ICanCreate, ICanDelete{
     private BookingRepo repo = new BookingRepo();

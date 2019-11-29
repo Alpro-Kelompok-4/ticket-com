@@ -55,7 +55,7 @@ public class ReportView {
         System.out.println("********************************************************************************************************************");
         System.out.println("");
     }
-    public void printAnualReportPage() {
+    public void printAnnualReportPage() {
         System.out.println("#LAPORAN TAHUNAN PEMASUKAN# ");
         System.out.println("");
         System.out.println("");

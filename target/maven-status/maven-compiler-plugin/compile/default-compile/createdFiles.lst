@@ -1,8 +1,10 @@
 org\kelompok4\app\View\RouteTimeView.class
+org\kelompok4\app\Controller\RouteController.class
 org\kelompok4\app\Controller\RouteTimeController.class
 org\kelompok4\app\Controller\RouteTrainController.class
 org\kelompok4\app\Repo\RouteRepo.class
 org\kelompok4\app\View\MenuView.class
+org\kelompok4\app\Presenter\UserPresenter.class
 org\kelompok4\app\Controller\MenuController.class
 org\kelompok4\app\Controller\RwStationController.class
 org\kelompok4\app\Model\TimeModel.class
@@ -20,6 +22,7 @@ org\kelompok4\app\Interface\ICanInput.class
 org\kelompok4\app\Model\CoachModel.class
 org\kelompok4\app\Controller\CustomerController.class
 org\kelompok4\app\Interface\ICanValidatePassword.class
+org\kelompok4\app\Presenter\BookingPresenter.class
 org\kelompok4\app\Repo\RwRouteRepo.class
 org\kelompok4\app\Repo\TrainScheduleRepo.class
 org\kelompok4\app\Model\RwTrackModel.class
@@ -29,6 +32,7 @@ org\kelompok4\app\Presenter\TimePresenter.class
 org\kelompok4\app\View\CityView.class
 org\kelompok4\app\Model\JamModel.class
 org\kelompok4\app\Model\BookingModel.class
+org\kelompok4\app\Controller\ReportController.class
 org\kelompok4\app\Interface\ICanUpdate.class
 org\kelompok4\app\Controller\CoachFactory.class
 org\kelompok4\app\Driver.class
@@ -43,6 +47,7 @@ org\kelompok4\app\View\RegisterView.class
 org\kelompok4\app\Model\PriceModel.class
 org\kelompok4\app\Interface\Coach.class
 org\kelompok4\app\Controller\UserController.class
+org\kelompok4\app\Interface\ICanManageReport.class
 org\kelompok4\app\Presenter\CustomerMenuPresenter.class
 org\kelompok4\app\Interface\ICanValidateNoHP.class
 org\kelompok4\app\View\RwStationView.class
@@ -50,6 +55,7 @@ org\kelompok4\app\Repo\TrainRepo.class
 org\kelompok4\app\Interface\ICanRun.class
 org\kelompok4\app\View\TrainScheduleView.class
 org\kelompok4\app\Interface\ICanDelete.class
+org\kelompok4\app\Model\BookingStatus.class
 org\kelompok4\app\Interface\ICanUpdateUser.class
 org\kelompok4\app\View\RouteTrainView.class
 org\kelompok4\app\Repo\CityRepo.class
@@ -62,6 +68,7 @@ org\kelompok4\app\Controller\TableStringBuilder.class
 org\kelompok4\app\Model\RouteModel.class
 org\kelompok4\app\Main.class
 org\kelompok4\app\Repo\RouteTrainRepo.class
+org\kelompok4\app\Interface\ICanManageRoute.class
 org\kelompok4\app\Interface\ICanManageRwRoute.class
 org\kelompok4\app\Controller\RegisterController.class
 org\kelompok4\app\Repo\TimeRepo.class
@@ -74,12 +81,13 @@ org\kelompok4\app\Controller\CityController.class
 org\kelompok4\app\View\TrainView.class
 org\kelompok4\app\Model\PremiumCoachModel.class
 org\kelompok4\app\Presenter\MenuPresenter.class
+org\kelompok4\app\Presenter\RoutePresenter.class
 org\kelompok4\app\Controller\TrainController.class
 org\kelompok4\app\View\UserView.class
 org\kelompok4\app\Presenter\ContinuePresenter.class
 org\kelompok4\app\View\RwRouteView.class
+org\kelompok4\app\Controller\BookingController.class
 org\kelompok4\app\Model\CityModel.class
-org\kelompok4\app\Model\Status.class
 org\kelompok4\app\Interface\ICanCreate.class
 org\kelompok4\app\Model\RwRouteModel.class
 org\kelompok4\app\Repo\UserRepo.class

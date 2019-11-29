@@ -5,6 +5,46 @@ public class BookingView {
 
 	public BookingView() {}
 
+	public void printBookingMenu() {
+		System.out.println("1. Booking Ticket");
+		System.out.println("0. Menu Utama");
+		System.out.println("\nPilih Menu : ");
+	}
+
+	public void printBookingPaymentMenu() {
+		System.out.println("1. Pembayaran");
+		System.out.println("0. Menu Utama");
+		System.out.println("\nPilih Menu : ");
+	}
+
+	public void printHistoryBookingView() {
+		System.out.println();
+		System.out.println("#HISTORY BOOKING#");
+		System.out.println();
+	}
+
+	public void printCariBookingView() {
+		System.out.println("#CARI JADWAL KERETA API#");
+		System.out.println();
+		System.out.println();
+		System.out.println("Cari Jadwal Kereta Api");
+	}
+
+	public void printOrigin() {
+		System.out.print("Keberangkatan : ");
+		System.out.flush();
+	}
+
+	public void printDestination() {
+		System.out.print("Tujuan : ");
+		System.out.flush();
+	}
+
+	public void printDepartureDate() {
+		System.out.print("Tanggal : ");
+		System.out.flush();
+	}
+
     public void printBookingViewPage() {
 		System.out.println("#BOOKING TICKET#");
 		System.out.println("");

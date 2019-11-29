@@ -25,6 +25,8 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
     TrainScheduleView trainScheduleView;
     TrainScheduleRepo trainScheduleRepo = new TrainScheduleRepo();
 
+    public TrainScheduleController() {}
+
     public TrainScheduleController(TrainScheduleModel trainScheduleModel, TrainScheduleView trainScheduleView) {
         this.trainScheduleModel = trainScheduleModel;
         this.trainScheduleView = trainScheduleView;
@@ -194,10 +196,10 @@ public class TrainScheduleController implements ICanCreate, ICanRead {
         return trainScheduleRepo.getAll();
     }
 
-    public ArrayList<TrainScheduleModel> findTrainSchedule(RouteModel route, TimeModel time) {
+    public ArrayList<TrainScheduleModel> findTrainSchedule(String route, String date) {
         ArrayList<TrainScheduleModel> schedules = new ArrayList<TrainScheduleModel>();
         for (TrainScheduleModel t : getAllTrainSchedule()) {
-            if (t.getTimeModel().equals(time) && t.getRwRouteModel().getRoute().equals(route)) {
+            if (t.getDate().equals(date) && t.getRwRouteModel().getRoute().getRouteCode().equals(route)) {
                 schedules.add(t);
             }
         }

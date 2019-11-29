@@ -33,51 +33,53 @@ import org.kelompok4.app.View.TimeView;
 public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     MenuController menuController;
     CityPresenter cityPresenter;
-//    RwStasionController rwStasionController;
-    TrainPresenter  trainPresenter ;
-    TimePresenter  timePresenter = new TimePresenter(new TimeController(new TimeModel(),new TimeView()));
+    // RwStasionController rwStasionController;
+    TrainPresenter trainPresenter;
+    TimePresenter timePresenter = new TimePresenter(new TimeController(new TimeModel(), new TimeView()));
 
     RouteTimePresenter routeTimePresenter = new RouteTimePresenter(
-				new RouteTimeController(new RouteTimeModel(), new RouteTimeView()));
-		RouteTrainPresenter routeTrainPresenter = new RouteTrainPresenter(
-				new RouteTrainController(new RouteTrainModel(), new RouteTrainView()));
-		TrainSchedulePresenter trainSchedulePresenter = new TrainSchedulePresenter(
-				new TrainScheduleController(new TrainScheduleModel(), new TrainScheduleView()));
-    RwStationPresenter rwStationPresenter = new RwStationPresenter(new RwStationController(new RwStationModel(),new RwStationView()));
+            new RouteTimeController(new RouteTimeModel(), new RouteTimeView()));
+    RouteTrainPresenter routeTrainPresenter = new RouteTrainPresenter(
+            new RouteTrainController(new RouteTrainModel(), new RouteTrainView()));
+    TrainSchedulePresenter trainSchedulePresenter = new TrainSchedulePresenter(
+            new TrainScheduleController(new TrainScheduleModel(), new TrainScheduleView()));
+    RwStationPresenter rwStationPresenter = new RwStationPresenter(
+            new RwStationController(new RwStationModel(), new RwStationView()));
 
-                RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(
-				new RwRouteController(new RwRouteModel(), new RwRouteView()));
-      RoutePresenter  routePresenter =  new RoutePresenter(new RouteController(new RouteModel(), new RouteView()));
-//    RwRoutePresenter  rwRoutePresenter ;
-//    RouteTrainPresenter  routeTrainPresenter ;
-//    RouteTimePresenter  routeTimePresenter ;
-//    TrainSchedulePresenter  trainSchedulePresenter;
-//    ReportPresenter  reportPresenter ;
-//    UserPresenter  userPresenter ;
+    RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(
+            new RwRouteController(new RwRouteModel(), new RwRouteView()));
+    RoutePresenter routePresenter = new RoutePresenter(new RouteController(new RouteModel(), new RouteView()));
+    // RwRoutePresenter rwRoutePresenter ;
+    // RouteTrainPresenter routeTrainPresenter ;
+    // RouteTimePresenter routeTimePresenter ;
+    // TrainSchedulePresenter trainSchedulePresenter;
+    ReportPresenter reportPresenter = new ReportPresenter();
+    // UserPresenter userPresenter ;
 
+    public AdminMenuPresenter() {
 
-    public AdminMenuPresenter(){
-        
     }
 
-    public AdminMenuPresenter(MenuController menuController, CityPresenter cityPresenter, TrainPresenter trainPresenter) {
+    public AdminMenuPresenter(MenuController menuController, CityPresenter cityPresenter,
+            TrainPresenter trainPresenter) {
         this.menuController = menuController;
-        this.cityPresenter = cityPresenter ;
-//        this.rwStasionController = rwStasionController;
-        this.trainPresenter  = trainPresenter ;
-//        this.timeController = timeController;
-//        this.routeController = routeController;
-//        this.rwRouteController = rwRouteController;
-//        this.routeTrainController = routeTrainController;
-//        this.routeTimeController = routeTimeController;
-//        this.trainScheduleController = trainScheduleController
-//        this.reportController = reportController;
-//        this.userController = userController;
+        this.cityPresenter = cityPresenter;
+        // this.rwStasionController = rwStasionController;
+        this.trainPresenter = trainPresenter;
+        // this.timeController = timeController;
+        // this.routeController = routeController;
+        // this.rwRouteController = rwRouteController;
+        // this.routeTrainController = routeTrainController;
+        // this.routeTimeController = routeTimeController;
+        // this.trainScheduleController = trainScheduleController
+        // this.reportController = reportController;
+        // this.userController = userController;
     }
 
     public MenuController getMenuController() {
         return menuController;
     }
+
     public void setMenuController(MenuController menuController) {
         this.menuController = menuController;
     }
@@ -91,7 +93,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     }
 
     public TrainPresenter getTrainPresenter() {
-            
+
         return trainPresenter;
     }
 
@@ -102,7 +104,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     @Override
     public void run() {
         int menu;
-        do{
+        do {
             menuController.showMenuAdmin();
             menu = sc.nextInt();
             sc.nextLine();
@@ -112,7 +114,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
     }
 
     private void menu(int choice) {
-        if (menuController.ValidateInputMenuAdmin(choice)){
+        if (menuController.ValidateInputMenuAdmin(choice)) {
             switch (choice) {
                 case 1:
                     System.out.println("//Nyambung ke Kelola Akun userPresenter.run()");
@@ -156,7 +158,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                     break;
                 case 11://Lihat Pemasukan
                     System.out.println("//Nyambung ke reportPresenter.run()");
-                    //reportPresenter.run();
+                    reportPresenter.run();
                     break;
                 case 12://Lihat Jadwal Kereta Api
                     System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
@@ -165,7 +167,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
                 case 0://exit
                     break;
             }
-        }else{
+        } else {
             menuController.resultValidateMenu();
         }
     }

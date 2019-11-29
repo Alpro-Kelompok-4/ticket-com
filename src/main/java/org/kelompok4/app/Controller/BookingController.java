@@ -1,16 +1,28 @@
 package org.kelompok4.app.Controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.github.freva.asciitable.AsciiTable;
+import com.github.freva.asciitable.Column;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.kelompok4.app.Interface.ICanCreate;
 import org.kelompok4.app.Interface.ICanDelete;
-import org.kelompok4.app.Model.*;
+import org.kelompok4.app.Model.BookingModel;
+import org.kelompok4.app.Model.BookingStatus;
+import org.kelompok4.app.Model.CityModel;
+import org.kelompok4.app.Model.TrainModel;
+import org.kelompok4.app.Model.CoachModel;
+import org.kelompok4.app.Model.SeatModel;
+import org.kelompok4.app.Model.PriceModel;
+import org.kelompok4.app.Model.RouteModel;
+import org.kelompok4.app.Model.TrainScheduleModel;
 import org.kelompok4.app.Repo.BookingRepo;
+import org.kelompok4.app.Repo.CityRepo;
 import org.kelompok4.app.Repo.TrainRepo;
 import org.kelompok4.app.Repo.TrainScheduleRepo;
 import org.kelompok4.app.View.BookingView;
-
-import java.util.ArrayList;
 
 public class BookingController implements ICanCreate, ICanDelete{
     private BookingRepo repo = new BookingRepo();
@@ -44,6 +56,14 @@ public class BookingController implements ICanCreate, ICanDelete{
 
     public void setBookingCode(String code) {
         model.setBookingCode(code);
+    }
+
+    public String getCustomerEmail() {
+        return model.getCustomerEmail();
+    }
+
+    public void setCustomerEmail(String email) {
+        model.setCustomerEmail(email);
     }
 
     public String getScheduleCode() {
@@ -139,6 +159,51 @@ public class BookingController implements ICanCreate, ICanDelete{
         view.printBorder();
     }
 
+    public void showSearchScheduleMenu() {
+        view.printCariBookingView();
+    }
+
+    public void showOriginInput() {
+        view.printOrigin();
+    }
+
+    public void showDestinationInput() {
+        view.printDestination();
+    }
+
+    public void showDepartureDateInput() {
+        view.printDepartureDate();
+    }
+
+    public void showBookingMenu() {
+        view.printBookingMenu();
+    }
+
+    public void showBookingPaymentMenu() {
+        view.printBookingPaymentMenu();
+    }
+
+    public void showResultSearchSchedule(String ori, String des, String date) {
+        ArrayList<CityModel> citys = new CityRepo().getAll();
+        String origin = "";
+        String destination = "";
+        for (CityModel city : citys) {
+            if (ori.equals(city.getCityName())) {
+                origin = city.getCityCode();
+            } else if (des.equals(city.getCityName())) {
+                destination = city.getCityCode();
+            }
+        }
+
+        String route = origin + "-" + destination;
+
+        ArrayList<TrainScheduleModel> schedules = new ArrayList<>();
+        schedules = new TrainScheduleController().findTrainSchedule(route, date);
+        showBorder();
+        System.out.println(new TrainScheduleController().allTrainScheduleView(schedules));
+        showBorder();
+    }
+    
     public void showBooking() {
         view.printTotalPayment(model.getTotalPayment().getPrice());
         view.printRecNumber(model.getVirtualAccount());
@@ -263,7 +328,6 @@ public class BookingController implements ICanCreate, ICanDelete{
         }
         schedule.setTrainModel(train);
         new TrainScheduleRepo().update(schedule);
-        new TrainRepo().update(train);
     }
 
     public boolean checkPayment(String account, double price) {
@@ -334,6 +398,31 @@ public class BookingController implements ICanCreate, ICanDelete{
             view.printCoachSeatList(name, seatToString(coach, coachNum));
             index++;
         }
+    }
+
+    public String showTableBookingHistory(String email) {
+        ArrayList<BookingModel> bookings = new ArrayList<>();
+        for (BookingModel booking : repo.getAll()) {
+            if (email.equals(booking.getCustomerEmail())) {
+                bookings.add(booking);
+            }
+        }
+        if (bookings.size() < 0) {
+            return "Anda belum pernah melakukan booking. Mulai booking dengan TICKET.COM sekarang!";
+        } else {
+            return AsciiTable.getTable(bookings, Arrays.asList(
+                new Column().header("Booking Code").with(booking -> booking.getBookingCode()),
+                new Column().header("Schedule Code").with(booking -> booking.getScheduleCode()),
+                new Column().header("Train Code").with(booking -> booking.getTrainCode()),
+                new Column().header("Status").with(booking -> booking.getPaid().toString()),
+                new Column().header("Total Payment").with(booking -> Double.toString(booking.getTotalPayment().getPrice()))
+            ));
+        }
+    }
+
+    public void showBookingHistoryView(String email) {
+        view.printHistoryBookingView();
+        System.out.println(showTableBookingHistory(email));
     }
 
     @Override

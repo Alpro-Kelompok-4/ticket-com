@@ -12,20 +12,22 @@ import org.kelompok4.app.Interface.ICanRun;
 public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun {
     private MenuController menuController;
     private UserController userController;
-//  BookingPresenter bookingPresenter;
-    public CustomerMenuPresenter(){
-        
+    BookingPresenter bookingPresenter = new BookingPresenter();
+
+    public CustomerMenuPresenter() {
+
     }
-    public CustomerMenuPresenter(MenuController menuController){
-        this.menuController =menuController;
-        //this.bookingPresenter = bookingPresenter;
+
+    public CustomerMenuPresenter(MenuController menuController, BookingPresenter bookingPresenter) {
+        this.menuController = menuController;
+        this.bookingPresenter = bookingPresenter;
     }
 
     public CustomerMenuPresenter(MenuController menuController, UserController userController) {
         this.menuController = menuController;
         this.userController = userController;
     }
-    
+
     public UserController getUserController() {
         return userController;
     }
@@ -33,7 +35,7 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
     public void setUserController(UserController userController) {
         this.userController = userController;
     }
-    
+
     public MenuController getMenuController() {
         return menuController;
     }
@@ -51,26 +53,28 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
     }
 
     private void menu(int choice) {
-        
-        if (menuController.ValidateInputMenuCustomer(choice)){
+
+        if (menuController.ValidateInputMenuCustomer(choice)) {
             switch (choice) {
-                case 1:
-                    System.out.println("//Nyambung ke Kelola bookingPresenter.run()");
-                    //  bookingPresenter.run();
-                    break;
-                case 2://Kelola Profile
-                    System.out.println("//Nyambung ke Kelola Profile userPresenter.run()");
-                    //userPresenter.run();
-                    break;
-                case 3://History Pembelian
-                    System.out.println("//Nyambung ke bookingPresenter.run()");
-                    // bookingPresenter.run();
-                    break;
-                case 0://exit
-                    System.exit(0);
-                    break;
+            case 1:
+                // System.out.println("//Nyambung ke Kelola bookingPresenter.run()");
+                bookingPresenter.saveCustomerEmail(userController.getUserModel().getEmail());
+                bookingPresenter.run();
+
+                break;
+            case 2:// Kelola Profile
+                System.out.println("//Nyambung ke Kelola Profile userPresenter.run()");
+                // userPresenter.run();
+                break;
+            case 3:// History Pembelian
+                // System.out.println("//Nyambung ke bookingPresenter.run()");
+                bookingPresenter.showBookingHistory(userController.getUserModel().getEmail());
+                break;
+            case 0:// exit
+                System.exit(0);
+                break;
             }
-        }else{
+        } else {
             menuController.resultValidateMenu();
         }
     }

@@ -37,7 +37,6 @@ public class RwRouteRepo {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.print(list.size());
         return list;
     }
     

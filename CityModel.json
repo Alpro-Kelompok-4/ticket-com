@@ -1,1 +1,22 @@
-[{"cityCode":"BDG","cityName":"BANDUNG"}]
+[
+	{
+		"cityCode": "JKT",
+		"cityName": "Jakarta"
+	},
+	{
+		"cityCode": "BDG",
+		"cityName": "Bandung"
+	},
+	{
+		"cityCode": "SBY",
+		"cityName": "Surabaya"
+	},
+	{
+		"cityCode": "YOG",
+		"cityName": "Yogyakarta"
+	},
+	{
+		"cityCode": "MLG",
+		"cityName": "Malang"
+	}
+]

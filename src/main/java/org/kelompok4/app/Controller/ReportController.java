@@ -91,7 +91,7 @@ public class ReportController {
             total += models.get(i).getTotalPayment().getPrice();
         }
         System.out.println(AsciiTable.getTable(header, data));
-        view.printTotalAnnualReport(total);
+        view.printTotalAnualReport(total);
     }
 
     public void showDailyReportView() {

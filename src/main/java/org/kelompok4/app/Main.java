@@ -84,11 +84,10 @@ RwRouteController rwRouteController = new RwRouteController(rwRouteModel,rwRoute
                 AdminMenuPresenter adminMenuPresenter = new AdminMenuPresenter(menuController, cityPresenter, trainPresenter);
 //                rwRoutePresenter.run();
 		MenuPresenter menuPresenter = new MenuPresenter(menuController,loginPresenter,registerPresenter,customerMenuPresenter,adminMenuPresenter);
-
-//		menuPresenter.run();
+		menuPresenter.run();
 
                 RwStationPresenter rwStationPresenter = new RwStationPresenter(new RwStationController(new RwStationModel(),new RwStationView()));
-                rwStationPresenter.run();
+                //rwStationPresenter.run();
 	}
 
 }

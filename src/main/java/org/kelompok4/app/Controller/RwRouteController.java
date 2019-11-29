@@ -13,6 +13,7 @@ import org.kelompok4.app.Repo.RwStationRepo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import static org.apache.commons.lang3.StringUtils.isNumeric;
 import org.kelompok4.app.Repo.RouteRepo;
 
 public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanManageRwRoute {
@@ -118,7 +119,11 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
 
     }
     public boolean validateStasion(String station){
-        return true;
+        if(rwStationRepo.getByName(station).getRwStationName()==null){
+            return false;
+        }else{
+            return true;
+        }
     }
     public boolean validateInputTrackRoute(String input_track){
             boolean valid;
@@ -173,7 +178,7 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
     public boolean validateInputCodeRoute(String input)
     {
         boolean valid;
-//        rwRouteModel.getRoute().setRouteCode(input);
+//        rwRouteModel.getRoute().setRouteCode(
         if(validateCodeRoute(input)){
             setRoute(routeRepo.get(input));
             valid=true;
@@ -183,16 +188,16 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
         return valid;
     }
     public boolean validateCodeRoute(String input){
-        System.out.println(routeRepo.get(input).getRouteCode());
         if(routeRepo.get(input).getRouteCode()==null){
             return false;
         }else{
             return true;
         }
     }
+    
     public boolean validateRwRouteCode(){
         //mengecek kode jalur dari json
-        if(rwRouteRepo.get(getRouteCode())==null){
+        if(rwRouteRepo.get(getRwRouteCode()).getRwRouteCode()==null){
             return true;
         }else{
             return false;
@@ -200,7 +205,7 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
     }
     public boolean validateDeleteRwRouteCode(){
         //mengecek kode jalur dari json
-        if(rwRouteRepo.get(getRouteCode())==null){
+        if(rwRouteRepo.get(getRwRouteCode()).getRwRouteCode()==null){
             return false;
         }else{
             return true;
@@ -216,23 +221,28 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
         ArrayList<RwTrackModel> rwTrackModels =  new ArrayList<RwTrackModel>();
         while(i < tracks.size() && valid) {
             String[] track=tracks.get(i).split("\\s+");
-            if( track.length==3 && validateStasion(track[0]) && validateStasion(track[1])){
+            if( track.length==3){
+                if(validateStasion(track[0]) && validateStasion(track[1]) && isNumeric(track[2])){
+                    
                 //String Origin
                 //nanti diganti ngeget dari JSON
-                RwStationModel origin = rwStationRepo.getByName(track[0]);
-                //String Destination
-                //nanti diganti ngeget dari JSON
-                RwStationModel destination = rwStationRepo.getByName(track[1]);
-                rwTrackModels.add(new RwTrackModel(origin,destination,Integer.parseInt(track[2])));
-                t_duration = t_duration + Integer.parseInt(track[2]);
-                i++;
-                temp = track[1];
-                //pengecekan destination dengan origin
-                if(i>0){
-    //                System.out.print(track[0] + " " + temp);
-                    if(!temp.equals(track[1])){
-                        valid = false;
+                    RwStationModel origin = rwStationRepo.getByName(track[0]);
+                    //String Destination
+                    //nanti diganti ngeget dari JSON
+                    RwStationModel destination = rwStationRepo.getByName(track[1]);
+                    rwTrackModels.add(new RwTrackModel(origin,destination,Integer.parseInt(track[2])));
+                    t_duration = t_duration + Integer.parseInt(track[2]);
+                    i++;
+                    temp = track[1];
+                    //pengecekan destination dengan origin
+                    if(i>0){
+        //                System.out.print(track[0] + " " + temp);
+                        if(!temp.equals(track[1])){
+                            valid = false;
+                        }
                     }
+                }else{
+                    valid=false;
                 }
             }else{
                 valid = false;
@@ -243,8 +253,6 @@ public class RwRouteController implements ICanRead, ICanCreate,ICanDelete, ICanM
             setList(rwTrackModels);
             setSumOfDuration(t_duration);
             setRwRouteCode(generateRwRouteCode());
-        }else{
-            valid = false;
         }
         return valid;
     }

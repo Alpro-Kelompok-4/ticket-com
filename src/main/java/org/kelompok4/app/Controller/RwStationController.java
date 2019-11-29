@@ -164,14 +164,9 @@ public class RwStationController implements ICanCreate,ICanRead,ICanUpdate,ICanV
         boolean valid;
         String[] inputs=input.split("\\s+");
         if(inputs.length==2){
-            if(inputs[0].length()==3){
-                rwStationModel.setRwStationCode(inputs[0]);
-                valid=true;
-            }else {
-                valid=false;
-            }
             rwStationModel.setRwStationName(inputs[1]);
-            if (validateName()){
+            if(inputs[0].length()==3 && validateName()){
+                rwStationModel.setRwStationCode(inputs[0]);
                 valid=true;
             }else {
                 valid=false;

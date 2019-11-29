@@ -7,19 +7,68 @@ package org.kelompok4.app.Controller;
 
 import org.kelompok4.app.Interface.*;
 import org.kelompok4.app.Model.UserModel;
+import org.kelompok4.app.Repo.UserRepo;
 import org.kelompok4.app.View.UserView;
 
-public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, ICanValidateEmail, ICanValidateName, ICanValidatePassword {
+public class UserController implements ICanInputUser,ICanRead, ICanUpdate, ICanValidateNoKTP, ICanValidateEmail, ICanValidateName, ICanValidatePassword, ICanValidateNoHP {
     private UserModel userModel;
     private UserView userView;
+    private UserRepo userRepo;
 
     public UserController(UserModel userModel, UserView userView) {
         this.userModel = userModel;
         this.userView = userView;
     }
 
-    
+     @Override
+    public String getEmail() {
+        return userModel.getEmail();
+    }
 
+    @Override
+    public void setEmail(String email) {
+        userModel.setEmail(email);
+    }
+
+    @Override
+    public String getName() {
+        return userModel.getNama();
+    }
+
+    @Override
+    public void setName(String name) {
+        userModel.setNama(name);
+    }
+
+    @Override
+    public String getNoHP() {
+        return userModel.getNoHP();
+    }
+
+    @Override
+    public void setNoHP(String noHP) {
+        userModel.setNoHP(noHP);
+    }
+
+    @Override
+    public String getNoKTP() {
+        return userModel.getNoKTP();
+    }
+
+    @Override
+    public void setNoKTP(String noKTP) {
+        userModel.setNoKTP(noKTP);
+    }
+
+    @Override
+    public String getPassword() {
+        return userModel.getPassword();
+    }
+
+    @Override
+    public void setPassword(String password) {
+        userModel.setPassword(password);
+    }
     @Override
     public void read() {
 
@@ -44,7 +93,7 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
     
     @Override
     public void update() {
-
+        userRepo.update(userModel);
     }
 
     public void manageByUser() {
@@ -91,6 +140,36 @@ public class UserController implements ICanRead, ICanUpdate, ICanValidateNoKTP, 
     public void updateUserResult(boolean result) {
         if (result) {
             userView.successUpdateInfoUser();
+        } else {
+            userView.failedUpdateInfoUser();
+        }
+    }
+    public void showInfoUser() {
+        userView.printNamaLengkap(this.getName());
+        userView.printNoHp(this.getNoHP());
+        userView.printEmail(this.getEmail());
+        userView.printPassword(this.getPassword());
+    }
+
+    @Override
+    public boolean validateNoHP() {
+        return ICanValidateNoHP.NoHP_REGEX.matcher(getNoHP()).find();
+    }
+    public boolean updateInfoUser() {
+        if(userRepo.get(getNoKTP()).getNoKTP()!=null){
+            update();
+            
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void updateInfoUserResult() {
+        if (this.updateInfoUser()) {
+            userView.successUpdateInfoUser();
+            userView.printNoKTP(this.getNoKTP());
+            showInfoUser();
         } else {
             userView.failedUpdateInfoUser();
         }

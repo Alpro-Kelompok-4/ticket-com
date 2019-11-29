@@ -199,7 +199,35 @@ public class UserView{
         System.out.println("");
         System.out.flush();
     }
+     public void failedValidateNoKTP() {
+        System.out.println("Nomor KTP yang Anda masukan salah!");
+        System.out.flush();
+    }
 
+    public void failedValidateEmail() {
+        System.out.println("E-mail yang Anda masukan salah!");
+        System.out.flush();
+    }
+
+    public void failedValidateNama() {
+        System.out.println("Nama yang Anda masukan salah!");
+        System.out.flush();
+    }
+
+    public void failedValidateNoHP() {
+        System.out.println("Nomor Handphone yang Anda masukan salah!");
+        System.out.flush();
+    }
+
+    public void failedValidatePassword() {
+        System.out.println("Password yang Anda masukan salah!");
+        System.out.flush();
+    }
+
+    public void failedValidateRePassword() {
+        System.out.println("Password yang Anda masukan tidak cocok!");
+        System.out.flush();
+    }
         
 
 }

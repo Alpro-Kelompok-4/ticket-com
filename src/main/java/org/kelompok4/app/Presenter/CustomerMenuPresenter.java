@@ -5,14 +5,20 @@
  */
 package org.kelompok4.app.Presenter;
 
+import org.kelompok4.app.Controller.BookingController;
 import org.kelompok4.app.Controller.MenuController;
 import org.kelompok4.app.Controller.UserController;
 import org.kelompok4.app.Interface.ICanRun;
+import org.kelompok4.app.Model.BookingModel;
+import org.kelompok4.app.Model.UserModel;
+import org.kelompok4.app.View.BookingView;
+import org.kelompok4.app.View.UserView;
 
 public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun {
     private MenuController menuController;
     private UserController userController;
-//  BookingPresenter bookingPresenter;
+    BookingPresenter bookingPresenter = new BookingPresenter(new BookingController(new BookingModel(),new BookingView()));
+    UserPresenter userPresenter = new UserPresenter(userController);
     public CustomerMenuPresenter(){
         
     }
@@ -58,16 +64,16 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
         if (menuController.ValidateInputMenuCustomer(choice)){
             switch (choice) {
                 case 1:
-                    System.out.println("//Nyambung ke Kelola bookingPresenter.run()");
-                    //  bookingPresenter.run();
+//                    System.out.println("//Nyambung ke Kelola bookingPresenter.run()");
+                    bookingPresenter.run();
                     break;
                 case 2://Kelola Profile
-                    System.out.println("//Nyambung ke Kelola Profile userPresenter.run()");
-                    //userPresenter.run();
+//                    System.out.println("//Nyambung ke Kelola Profile userPresenter.run()");
+                    userPresenter.run();
                     break;
                 case 3://History Pembelian
-                    System.out.println("//Nyambung ke bookingPresenter.run()");
-                    // bookingPresenter.run();
+//                    System.out.println("//Nyambung ke bookingPresenter.run()");
+                    bookingPresenter.run();
                     break;
                 case 0://exit
                     System.exit(0);

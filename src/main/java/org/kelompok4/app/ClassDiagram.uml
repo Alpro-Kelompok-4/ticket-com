@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="157.3806464296954" y="584.201171875">org.kelompok4.app.Presenter</node>
+    <node x="1565.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanValidateNoKTP</node>
+    <node x="1913.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanUpdate</node>
+    <node x="1371.1887088881904" y="416.201171875">org.kelompok4.app.Controller</node>
+    <node x="2314.213276362239" y="722.201171875">org.kelompok4.app.Main</node>
+    <node x="2375.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanAuthByPassword</node>
+    <node x="1767.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanDelete</node>
+    <node x="0.0" y="795.201171875">org.kelompok4.app.Interface.ICanManageReport</node>
+    <node x="1371.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanValidateName</node>
+    <node x="348.58870888819024" y="188.201171875">org.kelompok4.app.Interface.ICanValidateNoHP</node>
+    <node x="2585.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanLoginByEmail</node>
+    <node x="743.2387088881906" y="416.201171875">org.kelompok4.app.Interface.ICanRun</node>
+    <node x="2909.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanManageCity</node>
+    <node x="3305.1887088881904" y="188.201171875">org.kelompok4.app.View</node>
+    <node x="219.0" y="795.201171875">org.kelompok4.app.Interface.Coach</node>
+    <node x="930.5887088881902" y="188.201171875">org.kelompok4.app.Interface.ICanManageRwRoute</node>
+    <node x="3320.0637088881904" y="584.201171875">org.kelompok4.app.Driver</node>
+    <node x="0.0" y="188.201171875">org.kelompok4.app.Interface.ICanUpdateUser</node>
+    <node x="202.58870888819024" y="188.201171875">org.kelompok4.app.Repo</node>
+    <node x="3087.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanManageRwStation</node>
+    <node x="2059.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanInputUser</node>
+    <node x="40.0" y="416.201171875">org.kelompok4.app.Interface.ICanInput</node>
+    <node x="2779.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanRead</node>
+    <node x="744.5887088881902" y="188.201171875">org.kelompok4.app.Interface.ICanManageTrain</node>
+    <node x="542.5887088881902" y="188.201171875">org.kelompok4.app.Interface.ICanValidateEmail</node>
+    <node x="2229.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanCreate</node>
+    <node x="1145.1887088881904" y="188.201171875">org.kelompok4.app.Interface.ICanValidatePassword</node>
+    <node x="848.3376245150464" y="10.201171875">org.kelompok4.app.Model</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanManageCity">
+      <point x="60.90000000000009" y="-14.0" />
+      <point x="1519.0887088881905" y="356.201171875" />
+      <point x="2988.1887088881904" y="356.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanValidateNoHP">
+      <point x="-60.90000000000009" y="-14.0" />
+      <point x="1397.2887088881903" y="336.201171875" />
+      <point x="479.08870888819024" y="336.201171875" />
+      <point x="43.5" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Presenter" target="org.kelompok4.app.Interface.ICanInput">
+      <point x="-60.363636363636374" y="-14.0" />
+      <point x="180.0170100660589" y="554.201171875" />
+      <point x="128.5" y="554.201171875" />
+      <point x="29.5" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanLoginByEmail">
+      <point x="49.299999999999955" y="-14.0" />
+      <point x="1507.4887088881906" y="336.201171875" />
+      <point x="2672.1887088881904" y="336.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanValidatePassword">
+      <point x="-8.700000000000045" y="-14.0" />
+      <point x="1449.4887088881906" y="246.201171875" />
+      <point x="1299.6887088881904" y="246.201171875" />
+      <point x="51.5" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanInputUser">
+      <point x="31.90000000000009" y="-14.0" />
+      <point x="1490.0887088881905" y="306.201171875" />
+      <point x="2134.1887088881904" y="306.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanRead">
+      <point x="55.09999999999991" y="-14.0" />
+      <point x="1513.2887088881903" y="346.201171875" />
+      <point x="2834.1887088881904" y="346.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanValidateEmail">
+      <point x="-55.09999999999991" y="-14.0" />
+      <point x="1403.0887088881905" y="326.201171875" />
+      <point x="588.0887088881902" y="326.201171875" />
+      <point x="-45.5" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanAuthByPassword">
+      <point x="43.5" y="-14.0" />
+      <point x="1501.6887088881904" y="326.201171875" />
+      <point x="2470.1887088881904" y="326.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanValidateNoKTP">
+      <point x="14.5" y="-14.0" />
+      <point x="1472.6887088881904" y="276.201171875" />
+      <point x="1701.6887088881904" y="276.201171875" />
+      <point x="45.5" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanManageRwRoute">
+      <point x="-37.700000000000045" y="-14.0" />
+      <point x="1420.4887088881906" y="296.201171875" />
+      <point x="1021.5887088881902" y="296.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanUpdate">
+      <point x="26.09999999999991" y="-14.0" />
+      <point x="1484.2887088881903" y="296.201171875" />
+      <point x="1976.1887088881904" y="296.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanManageRwStation">
+      <point x="66.70000000000005" y="-14.0" />
+      <point x="1524.8887088881906" y="366.201171875" />
+      <point x="3186.1887088881904" y="366.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanCreate">
+      <point x="37.700000000000045" y="-14.0" />
+      <point x="1495.8887088881906" y="316.201171875" />
+      <point x="2292.1887088881904" y="316.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Presenter" target="org.kelompok4.app.Interface.ICanRun">
+      <point x="15.090909090909122" y="-14.0" />
+      <point x="255.4715555206044" y="524.201171875" />
+      <point x="794.2387088881906" y="524.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanManageTrain">
+      <point x="-43.5" y="-14.0" />
+      <point x="1414.6887088881904" y="306.201171875" />
+      <point x="827.5887088881902" y="306.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanValidateName">
+      <point x="-2.900000000000091" y="-14.0" />
+      <point x="1455.2887088881903" y="236.201171875" />
+      <point x="1414.6887088881904" y="236.201171875" />
+      <point x="-43.5" y="14.0" />
+    </edge>
+    <edge source="org.kelompok4.app.Controller" target="org.kelompok4.app.Interface.ICanDelete">
+      <point x="20.299999999999955" y="-14.0" />
+      <point x="1478.4887088881906" y="286.201171875" />
+      <point x="1830.1887088881904" y="286.201171875" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.40000000000000013" x="1282.2499999999995" y="289.0" />
+  <SelectedNodes>
+    <node>org.kelompok4.app.Presenter</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

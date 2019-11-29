@@ -106,6 +106,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
             menuController.showMenuAdmin();
             menu = sc.nextInt();
             sc.nextLine();
+            menu(menu);
         }while(menu!=99&&menu!=0);
         
     }

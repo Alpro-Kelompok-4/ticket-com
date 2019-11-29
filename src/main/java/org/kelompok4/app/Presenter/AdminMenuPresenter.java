@@ -7,6 +7,7 @@ package org.kelompok4.app.Presenter;
 
 import org.kelompok4.app.Controller.*;
 import org.kelompok4.app.Interface.ICanRun;
+import org.kelompok4.app.Model.RouteModel;
 import org.kelompok4.app.Model.RouteTimeModel;
 import org.kelompok4.app.Model.RouteTrainModel;
 import org.kelompok4.app.Model.RwRouteModel;
@@ -21,6 +22,7 @@ import org.kelompok4.app.View.TrainScheduleView;
 import org.kelompok4.app.Model.RwStationModel;
 import org.kelompok4.app.Model.TimeModel;
 import org.kelompok4.app.Model.TrainScheduleModel;
+import org.kelompok4.app.View.RouteView;
 //import org.kelompok4.app.View.RouteTimeView;
 //import org.kelompok4.app.View.RouteTrainView;
 import org.kelompok4.app.View.RwRouteView;
@@ -46,7 +48,7 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
 
     RwRoutePresenter rwRoutePresenter = new RwRoutePresenter(
             new RwRouteController(new RwRouteModel(), new RwRouteView()));
-    // RoutePresenter routePresenter ;
+    RoutePresenter routePresenter = new RoutePresenter(new RouteController(new RouteModel(), new RouteView()));
     // RwRoutePresenter rwRoutePresenter ;
     // RouteTrainPresenter routeTrainPresenter ;
     // RouteTimePresenter routeTimePresenter ;
@@ -107,61 +109,63 @@ public class AdminMenuPresenter extends ContinuePresenter implements ICanRun {
             menu = sc.nextInt();
             sc.nextLine();
             menu(menu);
-        } while (menu != 99);
-
+        }while(menu!=99&&menu!=0);
+        
     }
 
     private void menu(int choice) {
         if (menuController.ValidateInputMenuAdmin(choice)) {
             switch (choice) {
-            case 1:
-                System.out.println("//Nyambung ke Kelola Akun userPresenter.run()");
-                // userPresenter.run();
-                break;
-            case 2:// Kelola Data Kota
-                cityPresenter.run();
-                break;
-            case 3:// Generate Waktu
-                System.out.println("//Nyambung ke timePresenter.run()");
-                timePresenter.run();
-                break;
-            case 4:// Kelola Rute
-                System.out.println("//Nyambung ke rwRoutePresenter.run()");
-                // rwRoutePresenter.run();
-                break;
-            case 5:// Kelola Stasiun
-                System.out.println("//Nyambung ke rwStationPresenter.run()");
-                rwStationPresenter.run();
-                break;
-            case 6:// Kelola Jalur Stasiun Pada Rute
-                System.out.println("//Nyambung ke rwRoutePresenter.run()");
-                rwRoutePresenter.run();
-                break;
-            case 7:// Kelola Waktu Pada Rute
-                System.out.println("//Nyambung ke routeTimePresenter.run()");
+                case 1:
+                    System.out.println("//Nyambung ke Kelola Akun userPresenter.run()");
+                    //  userPresenter.run();
+                    break;
+                case 2://Kelola Data Kota
+                    cityPresenter.run();
+                    break;
+                case 3://Generate Waktu
+                    System.out.println("//Nyambung ke timePresenter.run()");
+                    timePresenter.run();
+                    break;
+                case 4://Kelola Rute
+                    System.out.println("//Nyambung ke routePresenter.run()");
+                    routePresenter.run();
+                    break;
+                case 5://Kelola Stasiun
+                    System.out.println("//Nyambung ke rwStationPresenter.run()");
+                    rwStationPresenter.run();
+                    break;
+                case 6://Kelola Jalur Stasiun Pada Rute
+                    System.out.println("//Nyambung ke rwRoutePresenter.run()");
+                    rwRoutePresenter.run();
+                    break;
+                case 7://Kelola Waktu Pada Rute
+                    System.out.println("//Nyambung ke routeTimePresenter.run()");
 
-                routeTimePresenter.run();
-                break;
-            case 8:// Kelola Kereta Pada Rute
-                System.out.println("//Nyambung ke routeTrainPresenter.run()");
-                routeTrainPresenter.run();
-                break;
-            case 9:// Generate Jadwal Kereta Api
-                System.out.println("//Nyambung ke trainSchedulePresenter.run()");
-                trainSchedulePresenter.run();
-
-                break;
-            case 10:// Lihat Pemasukan
-                // System.out.println("//Nyambung ke reportPresenter.run()");
-                reportPresenter.run();
-                break;
-            case 11:// Lihat Jadwal Kereta Api
-                System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
-                trainPresenter.run();
-                break;
-            case 0:// exit
-                System.exit(0);
-                break;
+                    routeTimePresenter.run();
+                    break;
+                case 8://Lihat Jadwal Kereta Api
+                    System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
+                    trainPresenter.run();
+                    break;
+                case 9://Kelola Kereta Pada Rute
+                    System.out.println("//Nyambung ke routeTrainPresenter.run()");
+                    routeTrainPresenter.run();
+                    break;
+                case 10://Generate Jadwal Kereta Api
+                    System.out.println("//Nyambung ke trainSchedulePresenter.run()");
+                    trainSchedulePresenter.run();
+                    break;
+                case 11://Lihat Pemasukan
+                    System.out.println("//Nyambung ke reportPresenter.run()");
+                    reportPresenter.run();
+                    break;
+                case 12://Lihat Jadwal Kereta Api
+                    System.out.println("//Nyambung ke trainPresenter.run() menu lihat???");
+                    //trainPresenter.run();
+                    break;
+                case 0://exit
+                    break;
             }
         } else {
             menuController.resultValidateMenu();

@@ -46,10 +46,13 @@ public class CustomerMenuPresenter extends ContinuePresenter implements ICanRun 
 
     @Override
     public void run() {
-        menuController.showMenuCustomer();
-        int menu = sc.nextInt();
-        sc.nextLine();
-        menu(menu);
+        int menu;
+        do{
+            menuController.showMenuCustomer();
+            menu = sc.nextInt();
+            sc.nextLine();
+            menu(menu);
+        }while(menu!=0&&menu!=99);
     }
 
     private void menu(int choice) {
